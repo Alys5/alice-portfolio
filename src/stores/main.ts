@@ -21,7 +21,18 @@ const rolesByLocale = {
     'Frontend Developer',
     'Cats',
   ],
-}
+  es: [
+    'Especialista en IA',
+    'Diseñadora UI',
+    'Desarrolladora UI',
+    'Design Thinking',
+    'Digitalización',
+    'Frontend Developer',
+    'Gatos',
+  ],
+} as const
+
+export type Locale = keyof typeof rolesByLocale // 'it' | 'en' | 'es'
 
 /**
  * Store principale globale (tema, lingua, ruoli)
@@ -34,8 +45,8 @@ export const useMainStore = defineStore('main', () => {
     (localStorage.getItem('theme') as 'light' | 'dark') || 'light',
   )
 
-  // Stato lingua: 'it' o 'en', persistito in localStorage
-  const locale = ref<'it' | 'en'>((localStorage.getItem('locale') as 'it' | 'en') || 'it')
+  // Stato lingua: 'it' | 'en' | 'es', persistito in localStorage
+  const locale = ref<Locale>((localStorage.getItem('locale') as Locale) || 'it')
   // Ruoli localizzati in base alla lingua
   const roles = computed(() => rolesByLocale[locale.value])
 
@@ -50,9 +61,9 @@ export const useMainStore = defineStore('main', () => {
 
   /**
    * Cambia la lingua attiva e aggiorna localStorage
-   * @param newLocale 'it' | 'en'
+   * @param newLocale 'it' | 'en' | 'es'
    */
-  function setLocale(newLocale: 'it' | 'en') {
+  function setLocale(newLocale: Locale) {
     locale.value = newLocale
     localStorage.setItem('locale', newLocale)
   }

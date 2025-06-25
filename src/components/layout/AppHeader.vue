@@ -27,16 +27,16 @@
           </svg>
         </span>
       </button>
-      <!-- Switcher lingua IT/EN -->
-      <div class="lang-switcher">
+      <!-- Switcher lingua con bandierine -->
+      <div class="lang-switcher-flags" role="group" aria-label="Selettore lingua">
         <button
-          v-for="lang in langs"
-          :key="lang"
-          :class="['lang-btn', { active: locale === lang }]"
-          @click="changeLang(lang as 'it' | 'en')"
-          :aria-label="lang === 'it' ? 'Cambia lingua: Italiano' : 'Change language: English'"
+          v-for="lang in languages"
+          :key="lang.code"
+          :class="['lang-flag', { active: locale === lang.code }]"
+          @click="changeLang(lang.code as Locale)"
+          :aria-label="lang.aria"
         >
-          {{ lang.toUpperCase() }}
+          <span class="flag-icon">{{ lang.flag }}</span>
         </button>
       </div>
     </div>
@@ -53,6 +53,7 @@ import { useMainStore } from '@/stores/main'
 // Importa i18n per gestione lingua
 import { useI18n } from 'vue-i18n'
 import { computed } from 'vue'
+import type { Locale } from '@/stores/main'
 
 // Store globale per tema e lingua
 const mainStore = useMainStore()
@@ -66,16 +67,20 @@ const isDark = computed(() => mainStore.theme === 'dark')
  */
 const toggleTheme = () => mainStore.toggleTheme()
 
-// Lingue supportate
-const langs = ['it', 'en']
+// Lingue supportate (scalabile: aggiungi qui nuove lingue)
+const languages = [
+  { code: 'it', label: 'IT', flag: '🇮🇹', aria: 'Cambia lingua: Italiano' },
+  { code: 'en', label: 'EN', flag: '🇬🇧', aria: 'Change language: English' },
+  { code: 'es', label: 'ES', flag: '🇪🇸', aria: 'Cambiar idioma: Español' },
+]
 // Lingua attiva
 const locale = computed(() => mainStore.locale)
 
 /**
  * Cambia la lingua globale (store + i18n)
- * @param lang 'it' | 'en'
+ * @param lang 'it' | 'en' | 'es'
  */
-function changeLang(lang: 'it' | 'en') {
+function changeLang(lang: Locale) {
   mainStore.setLocale(lang)
   i18nLocale.value = lang
 }
@@ -126,29 +131,53 @@ function changeLang(lang: 'it' | 'en') {
 .theme-icon.rotate {
   transform: rotate(180deg) scale(1.1);
 }
-.lang-switcher {
+.lang-switcher-flags {
   display: flex;
-  gap: 0.2em;
+  gap: 0.3em;
   margin-left: var(--space-sm);
 }
-.lang-btn {
-  background: none;
+.lang-flag {
+  background: var(--color-white);
   border: none;
-  color: var(--color-text);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 0.2em 0.7em;
-  border-radius: 1em;
+  border-radius: 50%;
+  width: 2.2em;
+  height: 2.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25em;
+  box-shadow: var(--shadow-soft);
+  margin: 0 0.1em;
   cursor: pointer;
   transition:
-    background 0.2s,
-    color 0.2s;
+    box-shadow 0.25s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    transform 0.18s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    background 0.18s;
+  outline: none;
+  position: relative;
 }
-.lang-btn.active {
+.lang-flag.active {
   background: var(--color-accent-1);
   color: var(--color-white);
+  box-shadow:
+    0 4px 24px 0 rgba(32, 72, 180, 0.18),
+    var(--shadow-medium);
+  transform: scale(1.13) rotate(-8deg);
+  z-index: 2;
 }
-.lang-btn:hover:not(.active) {
+.lang-flag:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.lang-flag:hover:not(.active) {
   background: var(--color-light-gray);
+  transform: scale(1.07);
+  box-shadow: var(--shadow-medium);
+}
+.flag-icon {
+  display: block;
+  font-size: 1.2em;
+  filter: drop-shadow(0 1px 2px rgba(41, 53, 63, 0.08));
+  transition: filter 0.2s;
 }
 </style>
