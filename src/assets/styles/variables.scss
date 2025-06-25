@@ -1,0 +1,71 @@
+:root {
+  // Palette Signature Alice Mandelli
+  --color-primary: #ffc940; // Bright Sun - CTA e branding
+  --color-secondary: #29353f; // Ebony Clay - testi e sfondi
+  --color-accent-1: #2048b4; // Persian Blue - interattivi
+  --color-accent-2: #48a9f8; // Picton Blue - hover states
+
+  // Neutrals
+  --color-white: #ffffff;
+  --color-light-gray: #f8f9fa;
+  --color-medium-gray: #6c757d;
+  --color-dark-gray: #212529;
+
+  // Typography
+  --font-primary: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  // Spacing System (8px base)
+  --space-xs: 0.5rem; // 8px
+  --space-sm: 1rem; // 16px
+  --space-md: 1.5rem; // 24px
+  --space-lg: 2rem; // 32px
+  --space-xl: 3rem; // 48px
+  --space-xxl: 4rem; // 64px
+
+  // Breakpoints
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+
+  // Shadows (Neomorphism)
+  --shadow-soft: 0 8px 32px rgba(41, 53, 63, 0.1);
+  --shadow-medium: 0 12px 40px rgba(41, 53, 63, 0.15);
+  --shadow-hard: 0 16px 48px rgba(41, 53, 63, 0.2);
+
+  --color-bg: #fff; // Sfondo chiaro
+  --color-text: #29353f;
+}
+
+/*
+  Tema scuro: override delle variabili principali quando la classe .dark è presente su <html> o <body>
+  Queste variabili vengono usate da tutti i componenti tramite var(--nome-variabile)
+*/
+.dark {
+  /* Palette brand */
+  --color-primary: #ffc940;
+  --color-secondary: #181c22;
+  --color-accent-1: #48a9f8;
+  --color-accent-2: #2048b4;
+
+  /* Neutrals */
+  --color-white: #fff; // Deve restare bianco per testi e icone su dark
+  --color-light-gray: #29353f;
+  --color-medium-gray: #6c757d;
+  --color-dark-gray: #f8f9fa;
+
+  /* Typography */
+  --font-primary: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing e breakpoints invariati */
+
+  /* Ombre più soft per dark mode */
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.18);
+  --shadow-medium: 0 12px 40px rgba(0, 0, 0, 0.22);
+  --shadow-hard: 0 16px 48px rgba(0, 0, 0, 0.28);
+
+  --color-bg: #23272f;
+  --color-text: #f8f9fa;
+}

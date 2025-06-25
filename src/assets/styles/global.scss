@@ -1,0 +1,10 @@
+@use './variables.scss' as *;
+// altri import...
+
+body {
+  background: var(--color-bg);
+  color: var(--color-secondary);
+  transition:
+    background 0.3s,
+    color 0.3s;
+}

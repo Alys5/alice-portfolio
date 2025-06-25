@@ -1,17 +1,21 @@
 {
-  "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
     "noEmit": true,
     "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.nightwatch.tsbuildinfo",
-
-    "target": "ESNext",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2015",
     "module": "commonjs",
     "moduleResolution": "node",
     "rootDir": "../",
-    "lib": ["ESNext", "dom"],
-    "types": ["nightwatch"]
+    "lib": ["ESNext", "DOM"],
+    "types": ["nightwatch"],
+    "paths": {
+      "@/*": ["../src/*"]
+    }
   },
-  "include": ["../node_modules/@nightwatch/**/*", "../src/components/**/*", "../tests/e2e/**/*"],
+  "include": ["../src/components/**/*", "../tests/e2e/**/*"],
   "ts-node": {
     "transpileOnly": true
   },

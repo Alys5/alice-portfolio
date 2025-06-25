@@ -1,0 +1,94 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## **STEP 3: Layout Base e Modalità Dark/Light**
+
+### 3.1. **Crea il layout principale**
+- `AppHeader.vue` (header con logo, nav, toggle dark mode)
+- `AppFooter.vue` (footer con link social, copyright)
+- `Navigation.vue` (menu responsive)
+
+### 3.2. **Implementa il toggle dark mode**
+- Usa una variabile di stato globale (es. Pinia store) per gestire il tema.
+- Applica la classe `dark` o un attributo su `<body>` o `<html>`.
+- Anima il toggle (es. icona sole/luna che ruota e scala).
+
+---
+
+## **STEP 4: Hero Section (Layout Asimmetrico 60/40)**
+
+### 4.1. **Componenti**
+- `HeroSection.vue` in `src/components/sections/`
+- Usa un layout asimmetrico: testo a sinistra (60%), immagine a destra (40%)
+- Typewriter effect per le specializzazioni (es. "AI Specialist", "UX/UI Designer", "Frontend Developer")
+- Card neomorfica per la foto profilo
+- Badge premi (es. Nielsen Norman Award)
+- CTA "Esplora Portfolio" con micro-animazione ripple
+- Background con particelle animate (vue-particles) e floating shapes
+
+---
+
+## **STEP 5: About/CV Interattivo**
+
+### 5.1. **Componenti**
+- `AboutSection.vue` e `SkillsSection.vue`
+- Timeline animata delle esperienze (GSAP + Intersection Observer)
+- Card neomorfiche per esperienze, education, certificazioni
+- Skills con progress bar animate e micro-interazioni (sparkle, tooltip progetti correlati)
+- Download CV con feedback animato
+
+---
+
+## **STEP 6: Portfolio Interattivo**
+
+### 6.1. **Componenti**
+- `PortfolioSection.vue`
+- Grid masonry offset, cards neomorfiche con hover 3D e soft shadow
+- Filtri dinamici (All, UX/UI, Frontend, AI)
+- Modal fullscreen per case study con immagini, challenge/solution/results
+- Animazioni stagger su reveal dei progetti
+
+---
+
+## **STEP 7: Lead Generation**
+
+### 7.1. **Componenti**
+- `ContactSection.vue`
+- Form multi-step (tipo progetto, budget, contatti) con validazione animata (VeeValidate)
+- Input fields neomorfici, slider budget con micro-interazione
+- Success animation e redirect a thank you page
+- CTA WhatsApp e LinkedIn per contatto rapido
+
+---
+
+## **STEP 8: Testimonianze & Social Proof**
+
+### 8.1. **Componenti**
+- Carousel/rotazione automatica con micro-animazioni
+- Foto, nome, azienda, risultato ottenuto
+
+---
+
+## **STEP 9: Footer**
+
+### 9.1. **Componenti**
+- Link social, copyright, mini-bio
+- Toggle dark mode animato
+
+---
+
+## **STEP 10: Ottimizzazione Performance & Accessibilità**
+
+- Lazy loading immagini e componenti
+- Code splitting per route
+- Ottimizzazione immagini (WebP + fallback)
+- SEO: meta tag dinamici, Open Graph, sitemap.xml
+- Accessibilità: WCAG 2.1 AA, aria-label, focus visibili
+
+---
+
+**Procediamo ora con lo STEP 1: vuoi che ti aiuti a generare i file base e la configurazione palette, oppure vuoi partire direttamente dalla Hero Section?**  
+
+Rispondi con lo step che vuoi affrontare subito, oppure "continua" per andare in ordine!

@@ -1,0 +1,800 @@
+{
+  "it": {
+    "meta": {
+      "title": "Alice Mandelli - UI Developer & AI Strategist",
+      "description": "Trasformo idee in esperienze digitali con un focus su UI/UX e soluzioni IA. Specializzata in interface design, sviluppo frontend e strategie AI per migliorare l'esperienza utente.",
+      "keywords": "UI Developer, UI Designer, AI Strategist, UX Designer, Frontend Developer, Intelligenza Artificiale, User Experience, Interface Design"
+    },
+    "hero": {
+      "badge": "🏆 Nielsen Norman Award 2021",
+      "title": "Alice Mandelli",
+      "typewriterPrefix": "Creo esperienze in ",
+      "typewriterTerms": [
+        "UI Development",
+        "Interface Design",
+        "AI Strategy",
+        "User Experience",
+        "Frontend Engineering",
+        "Design Systems",
+        "Architettura Informativa"
+      ],
+      "desc1": "Trasformo interfacce complesse in esperienze digitali intuitive e intelligenti.",
+      "desc2": "Specializzata in UI Development, Design e strategie AI per interfacce innovative.",
+      "cta": "Esplora Portfolio",
+      "ctaSecondary": "Scarica CV"
+    },
+    "nav": {
+      "home": "Home",
+      "about": "Chi sono",
+      "services": "Servizi",
+      "portfolio": "Portfolio",
+      "experience": "Esperienza",
+      "contact": "Contatti"
+    },
+    "about": {
+      "title": "Chi sono",
+      "subtitle": "UI Developer & AI Strategist con 10+ anni di esperienza",
+      "description": "Sono una UI Developer e AI Strategist con una passione per la creazione di interfacce intuitive e intelligenti. Il mio approccio unisce design visivo, sviluppo frontend e strategie IA per creare esperienze utente straordinarie. Ho collaborato con startup innovative e aziende Fortune 500, aumentando l'engagement e le conversioni attraverso interfacce user-centered potenziate dall'AI.",
+      "stats": [
+        {
+          "number": "150+",
+          "label": "Progetti completati"
+        },
+        {
+          "number": "98%",
+          "label": "Soddisfazione clienti"
+        },
+        {
+          "number": "300%",
+          "label": "Aumento conversioni medio"
+        }
+      ],
+      "values": [
+        {
+          "title": "Human-AI Interface",
+          "description": "Progetto interfacce che combinano intuizione umana e intelligenza artificiale per un'esperienza fluida."
+        },
+        {
+          "title": "Data-Driven",
+          "description": "Utilizzo analytics e AI per ottimizzare ogni elemento dell'interfaccia e guidare le decisioni di design."
+        },
+        {
+          "title": "Innovazione Costante",
+          "description": "Esploro continuamente nuove tecnologie e approcci per creare interfacce all'avanguardia."
+        }
+      ]
+    },
+    "services": {
+      "title": "Servizi",
+      "subtitle": "Soluzioni di UI e AI per trasformare la tua presenza digitale",
+      "items": [
+        {
+          "title": "UI Development & Design",
+          "description": "Progettazione e sviluppo di interfacce intuitive e coinvolgenti, ottimizzate per massimizzare usabilità e conversioni.",
+          "features": [
+            "Interface Design",
+            "Frontend Development",
+            "Design Systems",
+            "Responsive UI",
+            "Usability Testing"
+          ],
+          "price": "A partire da €2.800"
+        },
+        {
+          "title": "AI Strategy per Interfacce",
+          "description": "Implementazione di soluzioni AI per interfacce adattive, personalizzate e predittive che migliorano l'esperienza utente.",
+          "features": [
+            "AI-Powered UX",
+            "Interfacce Predittive",
+            "Personalizzazione AI",
+            "Chatbot Integration",
+            "Voice UI"
+          ],
+          "price": "A partire da €3.800"
+        },
+        {
+          "title": "Design System & UI Engineering",
+          "description": "Creazione di sistemi di design scalabili e librerie di componenti per garantire coerenza e velocizzare lo sviluppo.",
+          "features": [
+            "Component Libraries",
+            "Design Tokens",
+            "Documentation",
+            "Tooling & Automation",
+            "Team Training"
+          ],
+          "price": "A partire da €4.200"
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Progetti che hanno fatto la differenza",
+      "viewAll": "Vedi tutti i progetti",
+      "categories": ["Tutti", "UI/UX", "AI Strategy", "Frontend", "Design Systems"],
+      "cta": "Scopri il caso studio",
+      "featured": [
+        {
+          "title": "Volkswagen Rebranding Italia",
+          "category": "UI/UX",
+          "description": "Responsabile del rebranding Volkswagen in Italia e del design degli interni dei corner CUPRA, aumentando il riconoscimento del brand del 180%.",
+          "results": "+180% brand recognition, +45% engagement in showroom",
+          "technologies": ["Design Systems", "UI Design", "Spatial Design"]
+        },
+        {
+          "title": "Jen/tuhl - Ultrasemplice",
+          "category": "Design & Innovation",
+          "description": "Design di una coppia di sedute meditative esposte a Maison&Objet Parigi, con integrazione di elementi sensoriali e funzionalità innovative.",
+          "results": "Esposizione a Maison&Objet Paris, Features in design blogs",
+          "technologies": ["Product Design", "Experience Design", "Sustainable Materials"]
+        },
+        {
+          "title": "ŠKODA Customer Experience",
+          "category": "AI Strategy",
+          "description": "Implementazione di una strategia customer experience potenziata da AI per ŠKODA Italia, migliorando l'interazione con i clienti.",
+          "results": "+220% customer satisfaction, -35% tempi di risposta",
+          "technologies": ["AI Strategy", "User Research", "Service Design", "CRM Integration"]
+        }
+      ]
+    },
+    "experience": {
+      "title": "Esperienza",
+      "subtitle": "Il mio percorso professionale",
+      "items": [
+        {
+          "role": "College Lecturer",
+          "company": "Zhejiang Dongfang Polytechnic",
+          "period": "2024 - Presente",
+          "description": "Docente di Sketch Design, CAD Modeling e Materials and Processes. Integrazione di tecniche UI/UX e AI nei curricula di design."
+        },
+        {
+          "role": "Freelance Designer",
+          "company": "ultrasemplice",
+          "period": "2021 - Presente",
+          "description": "Fondatrice dello studio di design ultrasemplice, con focus su soluzioni minimaliste e sostenibili, presenza a Maison&Objet Paris 2024."
+        },
+        {
+          "role": "Customer Experience",
+          "company": "Volkswagen Group Italia S.p.A.",
+          "period": "2020 - 2021",
+          "description": "Responsabile dell'esperienza cliente per ŠKODA Italia, implementazione di strategie digitali e ottimizzazione touchpoint."
+        },
+        {
+          "role": "Network Development - Showroom Interior Planning",
+          "company": "Volkswagen Group Italia S.p.A.",
+          "period": "2018 - 2020",
+          "description": "Responsabile del rebranding Volkswagen in Italia e del design degli interni dei corner CUPRA, gestione della Corporate Identity per cinque brand."
+        }
+      ]
+    },
+    "skills": {
+      "title": "Competenze",
+      "categories": [
+        {
+          "title": "UI Development",
+          "skills": [
+            "HTML5/CSS3",
+            "JavaScript/TypeScript",
+            "React",
+            "Vue.js",
+            "Design Systems",
+            "Responsive Design"
+          ]
+        },
+        {
+          "title": "Design",
+          "skills": [
+            "Figma",
+            "Adobe Creative Suite",
+            "Sketch",
+            "Prototyping",
+            "Interface Design",
+            "UX Design"
+          ]
+        },
+        {
+          "title": "AI & Tools",
+          "skills": [
+            "AI Strategy",
+            "ChatGPT Integration",
+            "Machine Learning Basics",
+            "LLM Implementation",
+            "Predictive UI",
+            "Data Visualization"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Testimonial",
+      "subtitle": "Cosa dicono i miei clienti",
+      "items": [
+        {
+          "name": "Fabio Giuseppetti",
+          "role": "Partner, Palamon Capital Partners",
+          "content": "Alice ha trasformato completamente l'approccio al digital design del nostro portfolio di aziende. La sua capacità di unire UI design e strategie AI ha portato risultati tangibili in termini di engagement e conversioni.",
+          "rating": 5
+        },
+        {
+          "name": "Cristina Semprelegno",
+          "role": "Titolare, Semprelegno",
+          "content": "La collaborazione con Alice per il progetto Jen/tuhl è stata illuminante. La sua visione creativa unita alla comprensione tecnica ha reso possibile trasformare un concept innovativo in un prodotto premiato.",
+          "rating": 5
+        },
+        {
+          "name": "Manuel Mandelli",
+          "role": "CEO, 24ORE Business School",
+          "content": "Alice ha portato una prospettiva unica nella nostra strategia digitale, combinando design intuitivo con soluzioni AI che hanno rivoluzionato l'esperienza dei nostri studenti online.",
+          "rating": 5
+        }
+      ]
+    },
+    "contact": {
+      "title": "Iniziamo a collaborare",
+      "subtitle": "Hai un progetto in mente? Parliamone!",
+      "description": "Sono sempre interessata a nuovi progetti stimolanti. Che tu abbia bisogno di un redesign completo della tua interfaccia o di una strategia AI per migliorare l'esperienza utente, sono qui per aiutarti a raggiungere i tuoi obiettivi.",
+      "cta": "Inizia il tuo progetto",
+      "form": {
+        "name": "Nome completo",
+        "email": "Email",
+        "company": "Azienda",
+        "budget": "Budget indicativo",
+        "message": "Descrivi il tuo progetto",
+        "submit": "Invia richiesta",
+        "success": "Grazie! Ti risponderò entro 24 ore.",
+        "error": "Errore nell'invio. Riprova o contattami via email."
+      },
+      "info": {
+        "email": "info@alys5.eu",
+        "phone": "(+39) 379 2692134",
+        "location": "Roma, Italia",
+        "availability": "Disponibile per nuovi progetti"
+      }
+    },
+    "footer": {
+      "bio": "Portfolio di Alice Mandelli – UI Developer & AI Strategist specializzata in esperienze digitali intuitive e intelligenti.",
+      "linkedin": "LinkedIn",
+      "email": "Email",
+      "website": "Website",
+      "dribbble": "Dribbble",
+      "behance": "Behance",
+      "copyright": "© 2025 Alice Mandelli. Tutti i diritti riservati.",
+      "madeWith": "Realizzato con ❤️, <Vue.js> e tanto ☕",
+      "links": {
+        "privacy": "Privacy Policy",
+        "terms": "Termini di Servizio"
+      }
+    }
+  },
+  "en": {
+    "meta": {
+      "title": "Alice Mandelli - UI Developer & AI Strategist",
+      "description": "I transform ideas into digital experiences with a focus on UI/UX and AI solutions. Specialized in interface design, frontend development and AI strategies to enhance user experience.",
+      "keywords": "UI Developer, UI Designer, AI Strategist, UX Designer, Frontend Developer, Artificial Intelligence, User Experience, Interface Design"
+    },
+    "hero": {
+      "badge": "🏆 Nielsen Norman Award 2021",
+      "title": "Alice Mandelli",
+      "typewriterPrefix": "Creating experiences in ",
+      "typewriterTerms": [
+        "UI Development",
+        "Interface Design",
+        "AI Strategy",
+        "User Experience",
+        "Frontend Engineering",
+        "Design Systems",
+        "Information Architecture"
+      ],
+      "desc1": "I transform complex interfaces into intuitive and intelligent digital experiences.",
+      "desc2": "Specialized in UI Development, Design and AI strategies for innovative interfaces.",
+      "cta": "Explore Portfolio",
+      "ctaSecondary": "Download CV"
+    },
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "experience": "Experience",
+      "contact": "Contact"
+    },
+    "about": {
+      "title": "About Me",
+      "subtitle": "UI Developer & AI Strategist with 10+ years of experience",
+      "description": "I'm a UI Developer and AI Strategist with a passion for creating intuitive and intelligent interfaces. My approach combines visual design, frontend development and AI strategies to create extraordinary user experiences. I've collaborated with innovative startups and Fortune 500 companies, increasing engagement and conversions through user-centered interfaces powered by AI.",
+      "stats": [
+        {
+          "number": "150+",
+          "label": "Projects completed"
+        },
+        {
+          "number": "98%",
+          "label": "Client satisfaction"
+        },
+        {
+          "number": "300%",
+          "label": "Average conversion increase"
+        }
+      ],
+      "values": [
+        {
+          "title": "Human-AI Interface",
+          "description": "I design interfaces that combine human intuition and artificial intelligence for a seamless experience."
+        },
+        {
+          "title": "Data-Driven",
+          "description": "I use analytics and AI to optimize every element of the interface and guide design decisions."
+        },
+        {
+          "title": "Constant Innovation",
+          "description": "I continuously explore new technologies and approaches to create cutting-edge interfaces."
+        }
+      ]
+    },
+    "services": {
+      "title": "Services",
+      "subtitle": "UI and AI solutions to transform your digital presence",
+      "items": [
+        {
+          "title": "UI Development & Design",
+          "description": "Design and development of intuitive and engaging interfaces, optimized to maximize usability and conversions.",
+          "features": [
+            "Interface Design",
+            "Frontend Development",
+            "Design Systems",
+            "Responsive UI",
+            "Usability Testing"
+          ],
+          "price": "Starting from €2,800"
+        },
+        {
+          "title": "AI Strategy for Interfaces",
+          "description": "Implementation of AI solutions for adaptive, personalized and predictive interfaces that enhance the user experience.",
+          "features": [
+            "AI-Powered UX",
+            "Predictive Interfaces",
+            "AI Personalization",
+            "Chatbot Integration",
+            "Voice UI"
+          ],
+          "price": "Starting from €3,800"
+        },
+        {
+          "title": "Design System & UI Engineering",
+          "description": "Creation of scalable design systems and component libraries to ensure consistency and speed up development.",
+          "features": [
+            "Component Libraries",
+            "Design Tokens",
+            "Documentation",
+            "Tooling & Automation",
+            "Team Training"
+          ],
+          "price": "Starting from €4,200"
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Projects that made a difference",
+      "viewAll": "View all projects",
+      "categories": ["All", "UI/UX", "AI Strategy", "Frontend", "Design Systems"],
+      "cta": "Discover case study",
+      "featured": [
+        {
+          "title": "Volkswagen Rebranding Italy",
+          "category": "UI/UX",
+          "description": "Responsible for Volkswagen rebranding in Italy and interior design of CUPRA corners, increasing brand recognition by 180%.",
+          "results": "+180% brand recognition, +45% showroom engagement",
+          "technologies": ["Design Systems", "UI Design", "Spatial Design"]
+        },
+        {
+          "title": "Jen/tuhl - Ultrasemplice",
+          "category": "Design & Innovation",
+          "description": "Design of a pair of meditative chairs exhibited at Maison&Objet Paris, with integration of sensory elements and innovative features.",
+          "results": "Exhibited at Maison&Objet Paris, Features in design blogs",
+          "technologies": ["Product Design", "Experience Design", "Sustainable Materials"]
+        },
+        {
+          "title": "ŠKODA Customer Experience",
+          "category": "AI Strategy",
+          "description": "Implementation of an AI-enhanced customer experience strategy for ŠKODA Italy, improving customer interaction.",
+          "results": "+220% customer satisfaction, -35% response time",
+          "technologies": ["AI Strategy", "User Research", "Service Design", "CRM Integration"]
+        }
+      ]
+    },
+    "experience": {
+      "title": "Experience",
+      "subtitle": "My professional journey",
+      "items": [
+        {
+          "role": "College Lecturer",
+          "company": "Zhejiang Dongfang Polytechnic",
+          "period": "2024 - Present",
+          "description": "Instructor for Sketch Design, CAD Modeling and Materials and Processes. Integration of UI/UX and AI techniques in design curricula."
+        },
+        {
+          "role": "Freelance Designer",
+          "company": "ultrasemplice",
+          "period": "2021 - Present",
+          "description": "Founder of ultrasemplice design studio, focusing on minimalist and sustainable solutions, presence at Maison&Objet Paris 2024."
+        },
+        {
+          "role": "Customer Experience",
+          "company": "Volkswagen Group Italia S.p.A.",
+          "period": "2020 - 2021",
+          "description": "Responsible for customer experience at ŠKODA Italy, implementation of digital strategies and touchpoint optimization."
+        },
+        {
+          "role": "Network Development - Showroom Interior Planning",
+          "company": "Volkswagen Group Italia S.p.A.",
+          "period": "2018 - 2020",
+          "description": "Responsible for Volkswagen rebranding in Italy and interior design of CUPRA corners, management of Corporate Identity for five brands."
+        }
+      ]
+    },
+    "skills": {
+      "title": "Skills",
+      "categories": [
+        {
+          "title": "UI Development",
+          "skills": [
+            "HTML5/CSS3",
+            "JavaScript/TypeScript",
+            "React",
+            "Vue.js",
+            "Design Systems",
+            "Responsive Design"
+          ]
+        },
+        {
+          "title": "Design",
+          "skills": [
+            "Figma",
+            "Adobe Creative Suite",
+            "Sketch",
+            "Prototyping",
+            "Interface Design",
+            "UX Design"
+          ]
+        },
+        {
+          "title": "AI & Tools",
+          "skills": [
+            "AI Strategy",
+            "ChatGPT Integration",
+            "Machine Learning Basics",
+            "LLM Implementation",
+            "Predictive UI",
+            "Data Visualization"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Testimonials",
+      "subtitle": "What my clients say",
+      "items": [
+        {
+          "name": "Fabio Giuseppetti",
+          "role": "Partner, Palamon Capital Partners",
+          "content": "Alice completely transformed the digital design approach of our company portfolio. Her ability to combine UI design and AI strategies has brought tangible results in terms of engagement and conversions.",
+          "rating": 5
+        },
+        {
+          "name": "Cristina Semprelegno",
+          "role": "Owner, Semprelegno",
+          "content": "Working with Alice on the Jen/tuhl project was enlightening. Her creative vision combined with technical understanding made it possible to transform an innovative concept into an award-winning product.",
+          "rating": 5
+        },
+        {
+          "name": "Manuel Mandelli",
+          "role": "CEO, 24ORE Business School",
+          "content": "Alice brought a unique perspective to our digital strategy, combining intuitive design with AI solutions that revolutionized our students' online experience.",
+          "rating": 5
+        }
+      ]
+    },
+    "contact": {
+      "title": "Let's work together",
+      "subtitle": "Have a project in mind? Let's talk!",
+      "description": "I'm always interested in new challenging projects. Whether you need a complete redesign of your interface or an AI strategy to improve the user experience, I'm here to help you achieve your goals.",
+      "cta": "Start your project",
+      "form": {
+        "name": "Full name",
+        "email": "Email",
+        "company": "Company",
+        "budget": "Indicative budget",
+        "message": "Describe your project",
+        "submit": "Send request",
+        "success": "Thank you! I'll reply within 24 hours.",
+        "error": "Error sending. Please try again or contact me via email."
+      },
+      "info": {
+        "email": "info@alys5.eu",
+        "phone": "(+39) 379 2692134",
+        "location": "Rome, Italy",
+        "availability": "Available for new projects"
+      }
+    },
+    "footer": {
+      "bio": "Portfolio of Alice Mandelli – UI Developer & AI Strategist specialized in intuitive and intelligent digital experiences.",
+      "linkedin": "LinkedIn",
+      "email": "Email",
+      "website": "Website",
+      "dribbble": "Dribbble",
+      "behance": "Behance",
+      "copyright": "© 2025 Alice Mandelli. All rights reserved.",
+      "madeWith": "Made with ❤️, <Vue.js> and lots of ☕",
+      "links": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service"
+      }
+    }
+  },
+  "es": {
+    "meta": {
+      "title": "Alice Mandelli - UI Developer & AI Strategist",
+      "description": "Transformo ideas en experiencias digitales con un enfoque en UI/UX y soluciones de IA. Especializada en diseño de interfaces, desarrollo frontend y estrategias de IA para mejorar la experiencia del usuario.",
+      "keywords": "UI Developer, UI Designer, AI Strategist, UX Designer, Frontend Developer, Inteligencia Artificial, Experiencia de Usuario, Diseño de Interfaces"
+    },
+    "hero": {
+      "badge": "🏆 Premio Nielsen Norman 2021",
+      "title": "Alice Mandelli",
+      "typewriterPrefix": "Creando experiencias en ",
+      "typewriterTerms": [
+        "UI Development",
+        "Interface Design",
+        "AI Strategy",
+        "User Experience",
+        "Frontend Engineering",
+        "Design Systems",
+        "Arquitectura de Información"
+      ],
+      "desc1": "Transformo interfaces complejas en experiencias digitales intuitivas e inteligentes.",
+      "desc2": "Especializada en UI Development, Design y estrategias de IA para interfaces innovadoras.",
+      "cta": "Explorar Portfolio",
+      "ctaSecondary": "Descargar CV"
+    },
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre mí",
+      "services": "Servicios",
+      "portfolio": "Portfolio",
+      "experience": "Experiencia",
+      "contact": "Contacto"
+    },
+    "about": {
+      "title": "Sobre mí",
+      "subtitle": "UI Developer & AI Strategist con 10+ años de experiencia",
+      "description": "Soy una UI Developer y AI Strategist con pasión por crear interfaces intuitivas e inteligentes. Mi enfoque combina diseño visual, desarrollo frontend y estrategias de IA para crear experiencias de usuario extraordinarias. He colaborado con startups innovadoras y empresas Fortune 500, aumentando el engagement y las conversiones a través de interfaces centradas en el usuario potenciadas por IA.",
+      "stats": [
+        {
+          "number": "150+",
+          "label": "Proyectos completados"
+        },
+        {
+          "number": "98%",
+          "label": "Satisfacción del cliente"
+        },
+        {
+          "number": "300%",
+          "label": "Aumento promedio de conversiones"
+        }
+      ],
+      "values": [
+        {
+          "title": "Human-AI Interface",
+          "description": "Diseño interfaces que combinan intuición humana e inteligencia artificial para una experiencia fluida."
+        },
+        {
+          "title": "Basado en Datos",
+          "description": "Utilizo analytics e IA para optimizar cada elemento de la interfaz y guiar las decisiones de diseño."
+        },
+        {
+          "title": "Innovación Constante",
+          "description": "Exploro continuamente nuevas tecnologías y enfoques para crear interfaces de vanguardia."
+        }
+      ]
+    },
+    "services": {
+      "title": "Servicios",
+      "subtitle": "Soluciones de UI e IA para transformar tu presencia digital",
+      "items": [
+        {
+          "title": "UI Development & Design",
+          "description": "Diseño y desarrollo de interfaces intuitivas y atractivas, optimizadas para maximizar la usabilidad y las conversiones.",
+          "features": [
+            "Interface Design",
+            "Frontend Development",
+            "Design Systems",
+            "Responsive UI",
+            "Usability Testing"
+          ],
+          "price": "Desde €2.800"
+        },
+        {
+          "title": "Estrategia de IA para Interfaces",
+          "description": "Implementación de soluciones de IA para interfaces adaptativas, personalizadas y predictivas que mejoran la experiencia del usuario.",
+          "features": [
+            "AI-Powered UX",
+            "Interfaces Predictivas",
+            "Personalización IA",
+            "Integración de Chatbots",
+            "Voice UI"
+          ],
+          "price": "Desde €3.800"
+        },
+        {
+          "title": "Design System & UI Engineering",
+          "description": "Creación de sistemas de diseño escalables y bibliotecas de componentes para garantizar la coherencia y acelerar el desarrollo.",
+          "features": [
+            "Component Libraries",
+            "Design Tokens",
+            "Documentation",
+            "Tooling & Automation",
+            "Team Training"
+          ],
+          "price": "Desde €4.200"
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Proyectos que marcaron la diferencia",
+      "viewAll": "Ver todos los proyectos",
+      "categories": ["Todos", "UI/UX", "AI Strategy", "Frontend", "Design Systems"],
+      "cta": "Descubrir caso de estudio",
+      "featured": [
+        {
+          "title": "Volkswagen Rebranding Italia",
+          "category": "UI/UX",
+          "description": "Responsable del rebranding de Volkswagen en Italia y del diseño de interiores de los corners CUPRA, aumentando el reconocimiento de marca en un 180%.",
+          "results": "+180% reconocimiento de marca, +45% engagement en showroom",
+          "technologies": ["Design Systems", "UI Design", "Spatial Design"]
+        },
+        {
+          "title": "Jen/tuhl - Ultrasemplice",
+          "category": "Design & Innovation",
+          "description": "Diseño de un par de sillas meditativas expuestas en Maison&Objet París, con integración de elementos sensoriales y características innovadoras.",
+          "results": "Exposición en Maison&Objet Paris, Reportajes en blogs de diseño",
+          "technologies": ["Product Design", "Experience Design", "Sustainable Materials"]
+        },
+        {
+          "title": "ŠKODA Customer Experience",
+          "category": "AI Strategy",
+          "description": "Implementación de una estrategia de experiencia del cliente potenciada por IA para ŠKODA Italia, mejorando la interacción con los clientes.",
+          "results": "+220% satisfacción del cliente, -35% tiempo de respuesta",
+          "technologies": ["AI Strategy", "User Research", "Service Design", "CRM Integration"]
+        }
+      ]
+    },
+    "experience": {
+      "title": "Experiencia",
+      "subtitle": "Mi trayectoria profesional",
+      "items": [
+        {
+          "role": "College Lecturer",
+          "company": "Zhejiang Dongfang Polytechnic",
+          "period": "2024 - Presente",
+          "description": "Instructora de Sketch Design, CAD Modeling y Materials and Processes. Integración de técnicas de UI/UX e IA en los currículos de diseño."
+        },
+        {
+          "role": "Freelance Designer",
+          "company": "ultrasemplice",
+          "period": "2021 - Presente",
+          "description": "Fundadora del estudio de diseño ultrasemplice, con enfoque en soluciones minimalistas y sostenibles, presencia en Maison&Objet Paris 2024."
+        },
+        {
+          "role": "Customer Experience",
+          "company": "Volkswagen Group Italia S.p.A.",
+          "period": "2020 - 2021",
+          "description": "Responsable de la experiencia del cliente para ŠKODA Italia, implementación de estrategias digitales y optimización de puntos de contacto."
+        },
+        {
+          "role": "Network Development - Showroom Interior Planning",
+          "company": "Volkswagen Group Italia S.p.A.",
+          "period": "2018 - 2020",
+          "description": "Responsable del rebranding de Volkswagen en Italia y del diseño de interiores de los corners CUPRA, gestión de la Identidad Corporativa para cinco marcas."
+        }
+      ]
+    },
+    "skills": {
+      "title": "Habilidades",
+      "categories": [
+        {
+          "title": "UI Development",
+          "skills": [
+            "HTML5/CSS3",
+            "JavaScript/TypeScript",
+            "React",
+            "Vue.js",
+            "Design Systems",
+            "Responsive Design"
+          ]
+        },
+        {
+          "title": "Diseño",
+          "skills": [
+            "Figma",
+            "Adobe Creative Suite",
+            "Sketch",
+            "Prototyping",
+            "Interface Design",
+            "UX Design"
+          ]
+        },
+        {
+          "title": "IA & Herramientas",
+          "skills": [
+            "AI Strategy",
+            "ChatGPT Integration",
+            "Machine Learning Basics",
+            "LLM Implementation",
+            "Predictive UI",
+            "Data Visualization"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Testimonios",
+      "subtitle": "Qué dicen mis clientes",
+      "items": [
+        {
+          "name": "Fabio Giuseppetti",
+          "role": "Partner, Palamon Capital Partners",
+          "content": "Alice transformó completamente el enfoque de diseño digital de nuestro portfolio de empresas. Su capacidad para combinar diseño UI y estrategias de IA ha traído resultados tangibles en términos de engagement y conversiones.",
+          "rating": 5
+        },
+        {
+          "name": "Cristina Semprelegno",
+          "role": "Propietaria, Semprelegno",
+          "content": "Trabajar con Alice en el proyecto Jen/tuhl fue esclarecedor. Su visión creativa combinada con comprensión técnica hizo posible transformar un concepto innovador en un producto premiado.",
+          "rating": 5
+        },
+        {
+          "name": "Manuel Mandelli",
+          "role": "CEO, 24ORE Business School",
+          "content": "Alice aportó una perspectiva única a nuestra estrategia digital, combinando diseño intuitivo con soluciones de IA que revolucionaron la experiencia online de nuestros estudiantes.",
+          "rating": 5
+        }
+      ]
+    },
+    "contact": {
+      "title": "Trabajemos juntos",
+      "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
+      "description": "Siempre estoy interesada en nuevos proyectos desafiantes. Ya sea que necesites un rediseño completo de tu interfaz o una estrategia de IA para mejorar la experiencia del usuario, estoy aquí para ayudarte a alcanzar tus objetivos.",
+      "cta": "Inicia tu proyecto",
+      "form": {
+        "name": "Nombre completo",
+        "email": "Email",
+        "company": "Empresa",
+        "budget": "Presupuesto indicativo",
+        "message": "Describe tu proyecto",
+        "submit": "Enviar solicitud",
+        "success": "¡Gracias! Te responderé en 24 horas.",
+        "error": "Error al enviar. Inténtalo de nuevo o contáctame por email."
+      },
+      "info": {
+        "email": "info@alys5.eu",
+        "phone": "(+39) 379 2692134",
+        "location": "Roma, Italia",
+        "availability": "Disponible para nuevos proyectos"
+      }
+    },
+    "footer": {
+      "bio": "Portfolio de Alice Mandelli – UI Developer & AI Strategist especializada en experiencias digitales intuitivas e inteligentes.",
+      "linkedin": "LinkedIn",
+      "email": "Email",
+      "website": "Website",
+      "dribbble": "Dribbble",
+      "behance": "Behance",
+      "copyright": "© 2025 Alice Mandelli. Todos los derechos reservados.",
+      "madeWith": "Hecho con ❤️, <Vue.js> y mucho ☕",
+      "links": {
+        "privacy": "Política de Privacidad",
+        "terms": "Términos de Servicio"
+      }
+    }
+  }
+}

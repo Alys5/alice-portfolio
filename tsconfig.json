@@ -9,9 +9,14 @@
     },
     {
       "path": "./tsconfig.vitest.json"
-    },
-    {
-      "path": "./nightwatch/tsconfig.json"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "incremental": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2015",
+    "module": "ESNext",
+    "lib": ["ES2015", "DOM"]
+  }
 }

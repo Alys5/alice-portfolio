@@ -20,11 +20,17 @@ export default defineConfigWithVueTs(
 
   pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
-  
+
   {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },
   ...pluginOxlint.configs['flat/recommended'],
   skipFormatting,
+
+  {
+    rules: {
+      quotes: ['error', 'single', { avoidEscape: true, allowTemplateLiterals: false }],
+    },
+  },
 )
