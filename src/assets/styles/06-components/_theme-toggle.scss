@@ -1,0 +1,28 @@
+@layer components {
+    .theme-toggle {
+        container-type: inline-size;
+        --toggle-bg: var(--alice-ebony-clay, #29353f);
+        --toggle-color: var(--alice-bright-sun, #ffc940);
+        background: var(--toggle-bg);
+        color: var(--toggle-color);
+        border: none;
+        border-radius: 2em;
+        padding: 0.5em 1.2em;
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s;
+
+        &:hover {
+            background: var(--alice-bright-sun, #ffc940);
+            color: var(--alice-ebony-clay, #29353f);
+        }
+
+        @supports (container-type: inline-size) {
+            @container (min-width: 400px) {
+                font-size: 1.2rem;
+                padding: 0.7em 2em;
+            }
+        }
+    }
+}

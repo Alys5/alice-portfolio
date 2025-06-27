@@ -1,0 +1,116 @@
+// ============================================================================
+// MIXINS AVANZATI – CSS 2025 – Alice Mandelli
+// Layout, animazioni, tipografia, effetti moderni, accessibilità
+// ============================================================================
+
+// Layer: 02-tools | Mixins e helpers SCSS globali
+// Scopo: Fornisce mixin riutilizzabili per layout, animazioni, tipografia, accessibilità
+// Dipendenze: 01-settings/_colors.scss, _spacing.scss, _typography.scss
+// Accessibilità: Mixins per focus, motion, responsive, contrasto
+
+/// Mixin: focus-outline
+/// @param {Color} $color - Colore outline
+/// @return {Outline} - Outline accessibile per focus visibile
+@mixin focus-outline($color) {
+    outline: 2px solid $color;
+    outline-offset: 2px;
+    border-radius: var(--radius-sm, 4px);
+    box-shadow: 0 0 0 3px rgba($color, 0.15);
+}
+
+// 1. Layout moderni
+@mixin flex-center($gap: 1rem) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $gap;
+}
+
+@mixin grid-auto-fit($min: 280px, $gap: 1rem) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+    gap: $gap;
+}
+
+// Wrapper per container query: da usare direttamente in CSS, non in SCSS puro
+// Esempio:
+// @container (min-width: 600px) { .my-class { ... } }
+
+// 2. Animazioni performanti
+@mixin animate-on-scroll($name, $duration: 0.7s, $timing: cubic-bezier(0.16, 1, 0.3, 1)) {
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-timing-function: $timing;
+    animation-fill-mode: both;
+}
+
+@mixin micro-interaction($property: transform, $hover: scale(1.04), $focus: scale(0.98)) {
+    transition: #{$property} 0.25s var(--ease-out-expo);
+
+    &:hover {
+        #{$property}: $hover;
+    }
+
+    &:focus-visible {
+        #{$property}: $focus;
+    }
+}
+
+@mixin respect-motion {
+    @media (prefers-reduced-motion: reduce) {
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+        }
+    }
+}
+
+// 3. Typography fluida
+@mixin fluid-type($min: 1rem, $max: 2.5rem, $vw-min: 320, $vw-max: 1200) {
+    font-size: clamp(#{$min}, calc(#{$min} + (#{$max} - #{$min}) * ((100vw - #{$vw-min}px) / (#{$vw-max} - #{$vw-min}))), #{$max});
+}
+
+@mixin text-balance {
+    text-wrap: balance;
+    hyphens: auto;
+}
+
+// 4. Modern features
+@mixin glassmorphism($blur: 16px, $bg: var(--alice-bright-sun, #ffc940), $opacity: 0.25) {
+    background: rgba($bg, $opacity);
+    backdrop-filter: blur($blur);
+    -webkit-backdrop-filter: blur($blur);
+    border-radius: 1rem;
+    border: 1px solid rgba($bg, 0.2);
+}
+
+@mixin organic-shapes($shape: 'blob') {
+    @if $shape =='blob' {
+        clip-path: path('M44.8,-77.6C56.6,-67.2,62.7,-48.2,68.2,-30.2C73.7,-12.2,78.6,4.8,74.2,20.2C69.8,35.6,56.1,49.4,41.2,59.2C26.3,69,10.1,74.8,-6.2,78.2C-22.5,81.6,-45,82.6,-59.2,71.2C-73.4,59.8,-79.3,36,-77.2,15.2C-75.1,-5.6,-65,-23.4,-52.2,-34.7C-39.4,-46,-23.9,-50.8,-7.2,-56.2C9.5,-61.6,19,-67.6,44.8,-77.6Z');
+    }
+
+    // Altri shape customizzabili
+}
+
+@mixin focus-visible($color: var(--color-focus, #2048b4)) {
+    outline: 2px solid $color;
+    outline-offset: 2px;
+    border-radius: 4px;
+    box-shadow: 0 0 0 3px color-mix(in srgb, $color 80%, white 20%);
+}
+
+// ---------------------------------------------------------------------------
+// ESEMPI D'USO
+//
+// .card { @include glassmorphism(); }
+// .btn { @include flex-center(1.5rem); @include micro-interaction(); }
+// .title { @include fluid-type(1.2rem, 2.5rem); }
+// .section { @include grid-auto-fit(320px, 2rem); }
+// .organic { @include organic-shapes('blob'); }
+// .scroll-anim { @include animate-on-scroll(fade-up); }
+// .text-balance { @include text-balance; }
+// .focusable { @include focus-visible(); }
+// ---------------------------------------------------------------------------

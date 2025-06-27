@@ -1,0 +1,64 @@
+@layer components {
+    .button {
+        --btn-bg: var(--alice-bright-sun, #ffc940);
+        --btn-color: var(--alice-ebony-clay, #29353f);
+        --btn-radius: 2em;
+        --btn-padding: 0.75em 2em;
+        --btn-shadow: 0 2px 8px 0 rgb(41 53 63 / 0.08);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--btn-bg);
+        color: var(--btn-color);
+        border: none;
+        border-radius: var(--btn-radius);
+        padding: var(--btn-padding);
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: var(--btn-shadow);
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        margin-inline: 0.5em;
+
+        @supports (container-type: inline-size) {
+            @container (min-width: 400px) {
+                font-size: 1.125rem;
+                padding: 1em 2.5em;
+            }
+        }
+
+        &--primary {
+            --btn-bg: var(--alice-bright-sun, #ffc940);
+            --btn-color: var(--alice-ebony-clay, #29353f);
+        }
+
+        &--secondary {
+            --btn-bg: var(--alice-persian-blue, #2048b4);
+            --btn-color: var(--alice-bright-sun, #ffc940);
+        }
+
+        &--accent {
+            --btn-bg: var(--alice-picton-blue, #48a9f8);
+            --btn-color: var(--alice-ebony-clay, #29353f);
+        }
+
+        &--outline {
+            background: transparent;
+            color: var(--btn-bg);
+            border: 2px solid var(--btn-bg);
+            box-shadow: none;
+        }
+
+        &:hover,
+        &:focus-visible {
+            filter: brightness(1.08);
+            box-shadow: 0 4px 16px 0 rgb(41 53 63 / 0.12);
+        }
+
+        &__icon {
+            margin-inline-end: 0.5em;
+            display: inline-flex;
+            align-items: center;
+        }
+    }
+}

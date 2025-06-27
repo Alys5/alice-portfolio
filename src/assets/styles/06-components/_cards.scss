@@ -1,0 +1,48 @@
+@layer components {
+    .card {
+        container-type: inline-size;
+        --card-bg: var(--alice-white, #fff);
+        --card-color: var(--alice-ebony-clay, #29353f);
+        --card-shadow: 0 2px 8px 0 rgb(41 53 63 / 0.08);
+        background: var(--card-bg);
+        color: var(--card-color);
+        border-radius: 1.5em;
+        box-shadow: var(--card-shadow);
+        padding-block: 2rem;
+        padding-inline: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        transition: box-shadow 0.2s, transform 0.2s;
+
+        @supports (container-type: inline-size) {
+            @container (min-width: 600px) {
+                padding-inline: 4rem;
+            }
+        }
+
+        &--interactive {
+            cursor: pointer;
+
+            &:hover {
+                box-shadow: 0 4px 16px 0 rgb(41 53 63 / 0.12);
+                transform: translateY(-4px) scale(1.02);
+            }
+        }
+
+        &__header {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--alice-persian-blue, #2048b4);
+        }
+
+        &__body {
+            flex: 1 1 auto;
+        }
+
+        &__footer {
+            margin-top: auto;
+            color: var(--alice-picton-blue, #48a9f8);
+        }
+    }
+}

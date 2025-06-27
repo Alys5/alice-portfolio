@@ -1,0 +1,45 @@
+@layer components {
+    .header {
+        container-type: inline-size;
+        --header-bg: var(--alice-ebony-clay, #29353f);
+        --header-color: var(--alice-bright-sun, #ffc940);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        background: var(--header-bg);
+        color: var(--header-color);
+        padding-block: 1rem;
+        padding-inline: 2rem;
+        min-block-size: 64px;
+        box-shadow: 0 2px 8px 0 rgb(41 53 63 / 0.08);
+
+        @supports (container-type: inline-size) {
+            @container (min-width: 700px) {
+                padding-inline: 4rem;
+            }
+        }
+
+        &__logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--header-color);
+            text-decoration: none;
+        }
+
+        &__nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        &__action {
+            margin-inline-start: auto;
+        }
+
+        // States
+        &--sticky {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+    }
+}

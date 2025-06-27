@@ -1,0 +1,83 @@
+@layer components {
+  .form {
+    container-type: inline-size;
+    --form-bg: var(--alice-white, #fff);
+    --form-color: var(--alice-ebony-clay, #29353f);
+    --form-accent: var(--alice-bright-sun, #ffc940);
+    background: var(--form-bg);
+    color: var(--form-color);
+    border-radius: 1.5em;
+    box-shadow: 0 2px 8px 0 rgb(41 53 63 / 0.08);
+    padding-block: 2rem;
+    padding-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    @supports (container-type: inline-size) {
+      @container (min-width: 600px) {
+        padding-inline: 4rem;
+      }
+    }
+
+    &__group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    &__label {
+      font-weight: 600;
+      color: var(--form-color);
+    }
+
+    &__input,
+    &__textarea {
+      border-radius: 1em;
+      border: 1px solid var(--form-accent);
+      padding: 0.7em 1em;
+      font-size: 1rem;
+      background: var(--alice-white, #fff);
+      color: var(--form-color);
+      transition: border-color 0.2s;
+
+      &:focus {
+        outline: 2px solid var(--form-accent);
+        border-color: var(--form-accent);
+      }
+    }
+
+    &__error {
+      color: var(--alice-persian-blue, #2048b4);
+      font-size: 0.95em;
+    }
+
+    &__success {
+      color: var(--alice-picton-blue, #48a9f8);
+      font-size: 1em;
+    }
+
+    &__button {
+      background: var(--form-accent);
+      color: var(--form-color);
+      border: none;
+      border-radius: 2em;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 0.7em 2em;
+      box-shadow: 0 2px 8px 0 rgb(41 53 63 / 0.08);
+      cursor: pointer;
+      transition: box-shadow 0.2s, transform 0.2s;
+
+      &:hover:not(:disabled) {
+        box-shadow: 0 4px 16px 0 rgb(41 53 63 / 0.12);
+        transform: scale(1.04);
+      }
+
+      &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

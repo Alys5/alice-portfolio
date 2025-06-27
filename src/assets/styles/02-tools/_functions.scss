@@ -1,0 +1,56 @@
+// Funzione di esempio: px to rem
+@function px-to-rem($px, $base: 16) {
+    @return ($px / $base) * 1rem;
+}
+
+// ============================================================================
+// FUNZIONI AVANZATE – CSS 2025 – Alice Mandelli
+// Palette, spacing, contrasto accessibile
+// ============================================================================
+
+// Genera una scala di colori (tints/shades) – richiede color-mix support
+@function color-scale($color, $step, $mode: 'tint') {
+    $step: if(type-of($step)=='number', $step, 0);
+    $step: if($step < 0, 0, if($step > 100, 100, $step));
+
+    @if $mode =='tint' {
+        @return unquote('color-mix(in srgb, #{$color} #{#{100 - $step}}%, white #{$step}%)');
+    }
+
+    @else if $mode =='shade' {
+        @return unquote('color-mix(in srgb, #{$color} #{#{100 - $step}}%, black #{$step}%)');
+    }
+
+    @else {
+        @return $color;
+    }
+}
+
+// Spacing fluido responsive
+@function fluid-size($min, $max, $vw-min: 320, $vw-max: 1200) {
+    @return clamp(#{$min}, calc(#{$min} + (#{$max} - #{$min}) * ((100vw - #{$vw-min}px) / (#{$vw-max} - #{$vw-min}))), #{$max});
+}
+
+// Contrasto accessibile (ritorna 'light' o 'dark')
+@function contrast-check($color, $threshold: 0.5) {
+    $r: red($color) / 255;
+    $g: green($color) / 255;
+    $b: blue($color) / 255;
+    $luminance: 0.2126 * $r + 0.7152 * $g + 0.0722 * $b;
+
+    @if $luminance >$threshold {
+        @return 'dark';
+    }
+
+    @else {
+        @return 'light';
+    }
+}
+
+// ---------------------------------------------------------------------------
+// ESEMPI D'USO
+//
+// .bg-tint-200 { background: color-scale(#ffc940, 20, 'tint'); }
+// .p-fluid { padding: fluid-size(1rem, 2.5rem); }
+// .text-auto { color: if(contrast-check(#29353f) == 'light', #fff, #000); }
+// ---------------------------------------------------------------------------

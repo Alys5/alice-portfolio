@@ -1,0 +1,38 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Palette Signature – Alice Mandelli
+
+Questa regola definisce la palette colori principale del portfolio Alice Mandelli, con nomi, codici esadecimali e suggerimenti d'uso per garantire coerenza visiva e accessibilità.
+
+## Colori Principali
+
+| Nome Variabile   | Codice      | Descrizione                                 | Utilizzo Consigliato                |
+|------------------|-------------|---------------------------------------------|-------------------------------------|
+| `$bright-sun`    | `#ffc940`   | Giallo brillante, energico                  | Colore primario, highlight, CTA     |
+| `$ebony-clay`    | `#29353f`   | Grigio scuro elegante, neutro               | Testi, sfondi, elementi ad alto contrasto |
+| `$persian-blue`  | `#2048b4`   | Blu profondo, deciso                       | Pulsanti, link, call-to-action      |
+| `$picton-blue`   | `#48a9f8`   | Blu chiaro, fresco                         | Accenti, hover, elementi interattivi|
+
+## Esempio SCSS
+
+```scss
+$bright-sun: #ffc940;     // Giallo brillante - colore principale energico
+$ebony-clay: #29353f;     // Grigio scuro elegante - per testi e contrasti
+$persian-blue: #2048b4;   // Blu profondo - per call-to-action e link
+$picton-blue: #48a9f8;    // Blu chiaro - per accenti e hover states
+```
+
+## Best Practice
+- Assicurarsi che il contrasto tra `$bright-sun` e `$ebony-clay` sia ≥ 4.5:1 per testi.
+- Usare `$persian-blue` per pulsanti primari e link visibili.
+- `$picton-blue` ideale per hover, badge, micro-interazioni.
+- Integrare queste variabili in [variables.scss](mdc:src/assets/styles/variables.scss) e [global.scss](mdc:src/assets/styles/global.scss).
+
+## Rimandi
+- [variables.scss](mdc:src/assets/styles/variables.scss)
+- [global.scss](mdc:src/assets/styles/global.scss)
+- [accessibility-wcag.mdc](mdc:.cursor/rules/accessibility-wcag.mdc)
+

@@ -1,0 +1,66 @@
+@layer components {
+    .hero-section {
+        container-type: inline-size;
+        --hero-bg: var(--alice-bright-sun, #ffc940, 0.04);
+        --hero-color: var(--alice-ebony-clay, #29353f);
+        background: var(--hero-bg);
+        color: var(--hero-color);
+        border-radius: 1.2em;
+        box-shadow: 0 2px 8px 0 rgb(41 53 63 / 0.08);
+        padding: 2.5rem 0;
+        display: flex;
+        justify-content: center;
+
+        @supports (container-type: inline-size) {
+            @container (min-width: 900px) {
+                padding: 4rem 0;
+            }
+        }
+
+        &__content {
+            display: flex;
+            gap: 3rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        &__left {
+            flex: 0 0 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        &__right {
+            flex: 0 0 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__badge {
+            background: var(--alice-persian-blue, #2048b4);
+            color: var(--alice-bright-sun, #ffc940);
+            border-radius: 2em;
+            padding: 0.5em 1.5em;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        &__cta {
+            background: var(--alice-bright-sun, #ffc940);
+            color: var(--alice-ebony-clay, #29353f);
+            border-radius: 2em;
+            font-weight: 700;
+            padding: 0.7em 2em;
+            box-shadow: 0 2px 8px 0 rgb(41 53 63 / 0.08);
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.2s;
+
+            &:hover {
+                box-shadow: 0 4px 16px 0 rgb(41 53 63 / 0.12);
+                transform: scale(1.04);
+            }
+        }
+    }
+}

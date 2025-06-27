@@ -341,6 +341,128 @@ export default {
     },
     performance: {
       title: 'Core Web Vitals',
+      optimized: 'Rendimiento optimizado',
+      needsImprovement: 'Rendimiento necesita mejora',
+      close: 'Cerrar métricas de rendimiento',
     },
+  },
+  resume: {
+    intro: {
+      name: 'Alice Mandelli',
+      role: 'UX/UI Designer y Desarrolladora Front-End',
+      location: 'Roma, Italia',
+      profile:
+        'Profesional con más de 15 años de experiencia en el diseño de experiencias digitales, especializada en UX/UI Design, desarrollo front-end y soluciones de IA. Ha liderado proyectos premiados como la Intranet SNAM (Nielsen Norman Award 2021), apps de IA para Rolling Stone y campañas digitales para Dominos. Actualmente profesora universitaria en China y diseñadora freelance.',
+    },
+    experiences: [
+      {
+        role: 'UI Developer',
+        company: 'PLANTITC',
+        period: 'Feb 2025 - Mar 2025',
+        description:
+          'Diseño y desarrollo de interfaces complejas para Bovare con React, optimizando el rendimiento, la usabilidad y la accesibilidad WCAG.',
+      },
+      {
+        role: 'UI Developer & Designer',
+        company: '2OPEN',
+        period: 'Ene 2024 - Jun 2024',
+        description:
+          'Desarrollo de interfaces para CRM Master 2.0 y marcas de prestigio (Bvlgari Ad Network, Oraizen, Centro Italia), manteniendo coherencia visual y optimización de flujos operativos.',
+      },
+      {
+        role: 'UI Developer & Designer',
+        company: 'RGI GROUP S.p.A.',
+        period: 'Jul 2022 - Dic 2023',
+        description:
+          'Desarrollo front-end para Poste Italiane (Vue.js, Angular 8, Docker), optimización UX en dispositivos Apple para AXA.',
+      },
+      {
+        role: 'UI Developer & Designer',
+        company: 'PCO',
+        period: 'Jul 2019 - Jul 2022',
+        description:
+          'Premio Nielsen Norman Award 2021 para SNAM-Easy. Desarrollo de interfaces de IA para Marazzi, Banca Generali, Portobello; restyling de la identidad de marca PCO.',
+      },
+      {
+        role: 'UI Developer & Designer',
+        company: 'Grupo MCR',
+        period: 'Feb 2019 - Jun 2019',
+        description:
+          'Implementación de soluciones publicitarias digitales para RCS MediaGroup con JavaScript y Google Publisher Tag.',
+      },
+      {
+        role: 'Junior Salesforce Consultant',
+        company: 'ENIGEN IT S.R.L.',
+        period: 'Nov 2018 - Ene 2019',
+        description: 'Desarrollo en la plataforma Salesforce para Compass.',
+      },
+      {
+        role: 'UI Developer & Designer',
+        company: 'COMPLIC',
+        period: 'Ene 2018 - Abr 2018',
+        description: 'Prácticas centradas en el desarrollo de interfaces help desk CMS.',
+      },
+      {
+        role: 'Digitalization Specialist',
+        company: 'NOVACASE S.R.L.',
+        period: 'May 2017 - Jun 2017',
+        description: 'Gestión de sitio web y campañas digitales para la digitalización de PYMEs.',
+      },
+      {
+        role: 'Graphic/Web Designer',
+        company: 'Freelance y empresas',
+        period: 'Feb 2011 - May 2017',
+        description: 'Diseño gráfico y desarrollo web para PYMEs y tiendas.',
+      },
+    ],
+    education: [
+      { title: 'Masterclass UX/UI Design', institute: 'UXbox', year: '2024' },
+      { title: 'React con React Redux', institute: 'Udemy', year: '2021' },
+      { title: 'Tableau Fundamentals', institute: 'Visualitics', year: '2020' },
+      { title: 'Masterclass Full Stack Developer', institute: 'Lacerba s.r.l.', year: '2019' },
+      {
+        title: 'Force.com Developer & Salesforce Administration',
+        institute: 'Enigen IT s.r.l.',
+        year: '2018',
+      },
+      { title: 'Digitalization Specialist', institute: 'Google y Unioncamere', year: '2016' },
+      { title: 'Diploma Técnico C.A.T. (ex Geometra)', institute: 'IIS M. Buniva', year: '2016' },
+    ],
+    skills: [
+      'UX/UI Design',
+      'Desarrollo Front-End (React, Vue.js, Angular, TypeScript, HTML5, CSS3, JavaScript, SCSS)',
+      'Design System',
+      'User Research',
+      'Prototyping',
+      'Diseño de Interfaces de IA',
+      'Brand Identity',
+      'Responsive Design',
+      'Tableau',
+      'Salesforce (Apex, Lightning)',
+      'Docker',
+      'Edición de Fotos',
+      'Visualización de Datos',
+      'Empatía del Usuario',
+      'Pensamiento Sistémico',
+      'Narrativa Visual',
+    ],
+    certifications: [
+      {
+        title: 'Nielsen Norman Award 2021',
+        description: 'Premio para la Intranet SNAM-Easy entre las Top 10 globales.',
+      },
+      { title: 'Operador CAD Nivel 3 QEQ', institute: 'C.F.I.Q.', year: '2016' },
+      { title: 'Asistente de diseño CAD Nivel 3 QEQ', institute: 'C.F.I.Q.', year: '2016' },
+      {
+        title: 'Codemotion Online Tech Conference 2022',
+        description:
+          'Participación en conferencia técnica sobre Rust, JavaScript, VSC, fp-ts, Google Cloud.',
+      },
+      {
+        title: 'Formador IT para mayores',
+        institute: 'Asociación Villa Olanda',
+        year: '2010-2011',
+      },
+    ],
   },
 }

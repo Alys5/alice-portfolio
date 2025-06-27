@@ -1,0 +1,49 @@
+@layer components {
+    .bento-grid {
+        container-type: inline-size;
+        --bento-bg: var(--alice-white, #fff);
+        --bento-gap: var(--space-lg, 2rem);
+        background: var(--bento-bg);
+        border-radius: 1.2em;
+        padding: var(--bento-gap);
+        display: grid;
+        gap: var(--bento-gap);
+        width: 100%;
+        min-height: 400px;
+
+        @supports (container-type: inline-size) {
+            @container (min-width: 900px) {
+                gap: 2.5rem;
+                padding: 2.5rem;
+            }
+        }
+
+        &--large {
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(8, 100px);
+        }
+
+        &--medium {
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(6, 80px);
+        }
+
+        &--small {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+
+        &__item {
+            background: var(--alice-picton-blue, #48a9f8, 0.08);
+            border-radius: 1em;
+            box-shadow: 0 1px 4px 0 rgb(41 53 63 / 0.06);
+            padding: 1.5rem;
+            transition: box-shadow 0.2s, transform 0.2s;
+
+            &:hover {
+                box-shadow: 0 4px 16px 0 rgb(41 53 63 / 0.12);
+                transform: translateY(-4px) scale(1.02);
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+// Layer: 07-utilities | Utility classes globali per accessibilità, responsive, micro-interazioni
+// Scopo: Fornisce utility pronte per accessibilità (screen reader, focus, motion), responsive, high contrast
+// Dipendenze: 01-settings/_colors.scss, 02-tools/_mixins.scss
+// Accessibilità: WCAG 2.2 AA, EAA 2025, touch target, prefers-reduced-motion, logical properties
+
+// .sr-only – Nasconde visivamente, ma resta accessibile a screen reader
+.sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+// .focus-visible-only – Outline visibile solo al focus tastiera
+.focus-visible-only:focus-visible {
+    outline: 2.5px solid var(--color-focus, #2048b4);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm, 4px);
+    box-shadow: 0 0 0 3px rgba(32, 72, 180, 0.15);
+}
+
+// .reduced-motion – Disabilita animazioni se richiesto da utente
+@media (prefers-reduced-motion: reduce) {
+
+    .reduced-motion,
+    *:not(.allow-motion) {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+// .touch-target – Garantisce area interattiva ≥44px
+.touch-target {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
