@@ -2,15 +2,145 @@
 
 Portfolio/CV interattivo per **Alice Mandelli** – UI Developer & Designer
 
-> Sviluppato con Vue 3 + TypeScript, Pinia, SCSS, i18n, Nightwatch, Vitest. Architettura moderna, manutenibile e pronta per i trend web 2025.
+> Sviluppato con Vue 3 + TypeScript, Pinia, SCSS, i18n, **Cypress**, Vitest. Architettura moderna, manutenibile e pronta per i trend web 2025.
+
+---
+
+## 🚀 Setup progetto
+
+### Prerequisiti
+
+- **Node.js** >= 18
+- **npm** >= 9
+
+### Installazione
+
+```bash
+npm install
+```
+
+### Avvio sviluppo
+
+```bash
+npm run dev
+```
+
+### Build produzione
+
+```bash
+npm run build
+```
+
+---
+
+## 🛠️ Comandi principali
+
+| Comando                      | Descrizione                        |
+| ---------------------------- | ---------------------------------- |
+| `npm run dev`                | Avvia lo sviluppo con hot reload   |
+| `npm run build`              | Build di produzione (PWA ready)    |
+| `npm run preview`            | Anteprima build di produzione      |
+| `npm run test:unit`          | Test unitari (Vitest)              |
+| `npm run test:e2e`           | Test end-to-end (Cypress)          |
+| `npm run lint`               | Linting ESLint + Prettier + Oxlint |
+| `npm run format`             | Formattazione Prettier             |
+| `npm run test:accessibility` | Test accessibilità (axe-core)      |
+| `npm run test:lighthouse`    | Test Lighthouse CI                 |
+
+---
+
+## 📱 PWA (Progressive Web App)
+
+Il portfolio è configurato come **PWA completa** con supporto offline e funzionalità native.
+
+### ✅ Funzionalità PWA
+
+- **Service Worker Avanzato** (`public/sw.js`) con strategie di caching multiple
+- **Manifest.json** completo con shortcuts e configurazioni moderne
+- **Supporto Offline** con fallback intelligenti
+- **Precache delle Risorse Critiche** per performance ottimali
+- **Background Sync** per operazioni offline
+- **Push Notifications** (configurabile)
+- **Install Prompt** automatico
+- **Aggiornamenti Automatici** con notifiche
+
+### 🔧 File PWA Generati
+
+- `public/manifest.json` - Configurazione PWA con shortcuts e metadati
+- `public/sw.js` - Service Worker con caching intelligente
+- `src/composables/useServiceWorker.ts` - Composable per gestione PWA
+- `src/components/ui/PWAStatus.vue` - Componente per monitoraggio stato PWA
+
+### 📋 Strategie di Caching
+
+1. **Cache First**: Per risorse statiche (CSS, JS, immagini)
+2. **Network First**: Per API e contenuti dinamici
+3. **Stale While Revalidate**: Per contenuti aggiornabili in background
+
+### 🚀 Utilizzo PWA
+
+```typescript
+// Importa il composable
+import { useServiceWorker } from '@/composables/useServiceWorker'
+
+// Usa le funzionalità PWA
+const { state, installUpdate, getCacheInfo } = useServiceWorker()
+
+// Controlla aggiornamenti
+if (state.value.isUpdateAvailable) {
+  await installUpdate()
+}
+```
+
+📖 **Documentazione completa**: [docs/pwa-setup.md](docs/pwa-setup.md)
+
+---
+
+## 📁 Struttura cartelle
+
+```
+src/
+├── components/
+│   ├── ui/         # Componenti UI atomici e riutilizzabili (Button, Input, ecc.)
+│   ├── layout/     # Componenti di layout condivisi (Header, Footer, Navigation)
+│   └── sections/   # Sezioni principali delle pagine (Hero, About, Portfolio, ecc.)
+├── views/          # Vue views (pagine, es. Home.vue)
+├── stores/         # Store globali (Pinia)
+├── data/           # Dati statici, localizzazione (i18n), costanti
+├── assets/
+│   ├── styles/     # SCSS globali, palette, variabili, mixin
+│   └── images/     # Immagini e asset statici
+├── composables/    # Composables Vue 3 (useServiceWorker, useTheme, ecc.)
+└── router/         # Configurazione Vue Router
+```
+
+- **components/ui/**: Componenti atomici e riutilizzabili, privi di logica di business.
+- **components/layout/**: Componenti di layout condivisi tra le pagine.
+- **components/sections/**: Blocchi/sezioni principali delle pagine.
+- **views/**: Entry point delle pagine (es. Home.vue).
+- **stores/**: Store Pinia per stato globale (tema, lingua, ruoli, ecc.).
+- **data/**: File di localizzazione (`i18n.ts`), dati statici, costanti.
+- **composables/**: Composables Vue 3 per logica riutilizzabile (PWA, tema, performance).
+- **assets/styles/**: SCSS globali, palette, variabili, mixin.
+- **assets/images/**: Immagini ottimizzate (preferibilmente WebP + fallback).
+- **router/**: Configurazione delle rotte dell'applicazione.
+
+---
+
+## Novità 2025
+
+- **PWA**: Manifest, service worker, caching avanzato, supporto offline
+- **Accessibilità**: Skip links, live region, high contrast, reduced motion, WCAG 2.2+
+- **Preferenze utente**: Composable per motion, contrasto, low light, font size, color scheme
+- **Performance**: Core Web Vitals monitoring, lazy loading, code splitting
+- **Bento Grid & UFO Elements**: Layout e micro-animazioni trend 2025
+- **Testing**: Unit (Vitest) e E2E (Cypress)
 
 ---
 
 ## Indice
 
 - [Descrizione](#descrizione)
-- [Struttura del progetto](#struttura-del-progetto)
-- [Setup e avvio](#setup-e-avvio)
 - [Flusso di sviluppo](#flusso-di-sviluppo)
 - [Script principali](#script-principali)
 - [Best practice](#best-practice)
@@ -25,126 +155,56 @@ Portfolio personale e lead generation per Alice Mandelli, UI/UX Designer & Front
 
 ---
 
-## Struttura del progetto
-
-```
-src/
-├── components/
-│   ├── ui/         # Componenti UI atomici e riutilizzabili (Button, Input, ecc.)
-│   ├── layout/     # Componenti di layout condivisi (Header, Footer, Navigation)
-│   └── sections/   # Sezioni principali delle pagine (Hero, About, Portfolio, ecc.)
-├── views/          # Vue views (pagine, es. Home.vue)
-├── stores/         # Store globali (Pinia)
-├── data/           # Dati statici, localizzazione (i18n), costanti
-├── assets/
-│   ├── styles/     # SCSS globali, variabili, mixin
-│   └── images/     # Immagini e asset statici
-└── router/         # Configurazione Vue Router
-```
-
-- **components/ui/**: Componenti atomici e riutilizzabili, privi di logica di business.
-- **components/layout/**: Componenti di layout condivisi tra le pagine.
-- **components/sections/**: Blocchi/sezioni principali delle pagine.
-- **views/**: Entry point delle pagine (es. Home.vue).
-- **stores/**: Store Pinia per stato globale (tema, lingua, ruoli, ecc.).
-- **data/**: File di localizzazione (`i18n.ts`), dati statici, costanti.
-- **assets/styles/**: SCSS globali, palette, variabili, mixin.
-- **assets/images/**: Immagini ottimizzate (preferibilmente WebP + fallback).
-- **router/**: Configurazione delle rotte dell'applicazione.
-
----
-
-## Setup e avvio
-
-### Prerequisiti
-
-- Node.js >= 18
-- npm >= 9
-
-### Installazione
-
-```sh
-npm install
-```
-
-### Avvio sviluppo
-
-```sh
-npm run dev
-```
-
-### Build produzione
-
-```sh
-npm run build
-```
-
----
-
 ## Flusso di sviluppo
 
 1. **Aggiungi una nuova sezione**:
-   - Crea il componente in `components/sections/`
-   - Aggiungi logica e stili dedicati
-   - Inserisci la sezione nella view corrispondente (`views/Home.vue`, ecc.)
-2. **Aggiungi una nuova lingua**:
-   - Aggiorna `src/data/i18n.ts` con le nuove chiavi
-   - Aggiorna lo store Pinia se necessario
-3. **Aggiungi un nuovo componente UI**:
-   - Crea il file in `components/ui/`
-   - Scrivi test unitari in `src/components/ui/__tests__/`
+
+````
 
 ---
 
-## Script principali
+## ♿ Test di Accessibilità
 
-- `npm run dev` – Avvia lo sviluppo con hot reload
-- `npm run build` – Build di produzione
-- `npm run test:unit` – Test unitari (Vitest)
-- `npm run test:e2e` – Test end-to-end (Nightwatch)
-- `npm run lint` – Linting ESLint + Prettier
-- `npm run format` – Formattazione Prettier
+Il progetto implementa test automatici di accessibilità che garantiscono il rispetto degli standard **WCAG 2.2 AA** con un punteggio minimo del **95%**.
 
----
+### 🛠️ Strumenti
 
-## Best practice
+- **axe-core 4.9.3**: Test automatici su HTML statico
+- **Lighthouse CI**: Test completi (accessibilità, performance, SEO)
+- **GitHub Actions**: Esecuzione automatica su push/PR
 
-- **Modularità**: Ogni componente ha una responsabilità chiara e isolata.
-- **Separation of Concerns**: Layout, UI, sezioni e logica sono separati.
-- **Internazionalizzazione**: Gestita tramite `vue-i18n` e store Pinia.
-- **Dark/Light Mode**: Gestita globalmente, con animazioni e persistenza.
-- **SCSS moderno**: Palette e variabili centralizzate, uso di `@use`.
-- **Testing**: Unit test (Vitest) e E2E (Nightwatch).
-- **Linting & Formatting**: ESLint, Prettier, EditorConfig già configurati.
-- **Performance**: Lazy loading, code splitting, ottimizzazione immagini.
-- **Accessibilità**: Focus visibili, aria-label, WCAG 2.1 AA.
+### 📊 Criteri di Successo
 
----
+| Categoria | Punteggio Minimo | Standard |
+|-----------|------------------|----------|
+| **Accessibilità** | 95% | WCAG 2.2 AA |
+| Performance | 90% | Core Web Vitals |
+| Best Practices | 90% | Web Standards |
+| SEO | 90% | Search Optimization |
 
-## Testing
+### 🚀 Esecuzione Test
 
-### Unit Test (Vitest)
+```bash
+# Test locale
+npm run test:accessibility
 
-```sh
-npm run test:unit
-```
+# Test completi (CI)
+npm run test:accessibility:ci
 
-### End-to-End Test (Nightwatch)
+# Solo Lighthouse
+npm run test:lighthouse
+````
 
-```sh
-npm run test:e2e
-```
+### 📋 Workflow CI/CD
 
-- **Test E2E (Nightwatch)**: la configurazione Nightwatch è isolata e non influisce sul type-check della app principale (vedi tsconfig.json).
+- **Trigger**: Push su main/master, Pull Request
+- **Azioni**: Build → Preview → Test axe-core → Test Lighthouse → Commento PR
+- **Fallimento**: Se accessibilità < 95% (blocca deploy)
 
-> **Nota:** La reference a `nightwatch/tsconfig.json` è stata rimossa da `tsconfig.json` per mantenere la build della app pulita. I test E2E restano eseguibili separatamente.
+📖 **Documentazione completa**: [docs/accessibility-testing.md](docs/accessibility-testing.md)
 
 ---
 
 ## Licenza
 
-MIT
-
----
-
-> Documentazione aggiornata secondo le [best practice internazionali](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/) e [trend architetturali 2025](https://medium.com/@cleverzone/structuring-project-like-a-pro-264cd1124461).
+[MIT](LICENSE)

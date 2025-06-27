@@ -1,3 +1,15 @@
+<!--
+  @component PortfolioSection
+  @description
+  Sezione portfolio che mostra le categorie di progetto e una selezione di progetti in evidenza, con titolo, descrizione, tecnologie usate e risultati. I dati sono localizzati tramite vue-i18n.
+
+  @props Nessuna
+  @emits Nessun evento emesso
+
+  @example
+  <PortfolioSection />
+-->
+
 <template>
   <section class="portfolio-section">
     <h2>{{ t('portfolio.title') }}</h2>
@@ -53,7 +65,7 @@ const featured = computed(
   background: var(--color-light-gray);
   color: var(--color-accent-1);
   border-radius: 1em;
-  padding: 0.3em 1em;
+  padding: var(--space-1) var(--space-4);
   font-size: 1rem;
   font-weight: 500;
 }
@@ -97,7 +109,7 @@ const featured = computed(
   border-radius: 2em;
   font-size: 1.1rem;
   font-weight: 700;
-  padding: 0.7em 2em;
+  padding: var(--space-3) var(--space-8);
   box-shadow: var(--shadow-soft);
   cursor: pointer;
   transition:

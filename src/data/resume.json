@@ -1,0 +1,144 @@
+{
+  "Intro": {
+    "nome": "Alice Mandelli",
+    "ruolo": "UX/UI Designer & Front-End Developer",
+    "località": "Roma, Italia",
+    "profilo": "Professionista con oltre 15 anni di esperienza nella progettazione di esperienze digitali, specializzata in UX/UI Design, sviluppo front-end e soluzioni AI. Ha guidato progetti premiati come la Intranet SNAM (Nielsen Norman Award 2021), app AI per Rolling Stone e campagne digitali per Dominos. Attualmente docente universitaria in Cina e freelance designer."
+  },
+  "Esperienze": [
+    {
+      "ruolo": "UI Developer",
+      "azienda": "PLANTITC",
+      "periodo": "Feb 2025 - Mar 2025",
+      "descrizione": "Progettazione e sviluppo di interfacce complesse per Bovare con React, ottimizzando performance, usabilità e accessibilità WCAG."
+    },
+    {
+      "ruolo": "UI Developer & Designer",
+      "azienda": "2OPEN",
+      "periodo": "Gen 2024 - Giu 2024",
+      "descrizione": "Sviluppo interfacce per CRM Master 2.0 e brand di prestigio (Bvlgari Ad Network, Oraizen, Centro Italia), mantenendo coerenza visiva e ottimizzazione dei flussi operativi."
+    },
+    {
+      "ruolo": "UI Developer & Designer",
+      "azienda": "RGI GROUP S.p.A.",
+      "periodo": "Lug 2022 - Dic 2023",
+      "descrizione": "Sviluppo front-end per Poste Italiane (Vue.js, Angular 8, Docker), ottimizzazione UX su dispositivi Apple per AXA."
+    },
+    {
+      "ruolo": "UI Developer & Designer",
+      "azienda": "PCO",
+      "periodo": "Lug 2019 - Lug 2022",
+      "descrizione": "Premio Nielsen Norman Award 2021 per SNAM-Easy. Sviluppo interfacce AI per Marazzi, Banca Generali, Portobello; restyling brand identity PCO."
+    },
+    {
+      "ruolo": "UI Developer & Designer",
+      "azienda": "Gruppo MCR",
+      "periodo": "Feb 2019 - Giu 2019",
+      "descrizione": "Implementazione soluzioni pubblicitarie digitali per RCS MediaGroup con JavaScript e Google Publisher Tag."
+    },
+    {
+      "ruolo": "Junior Salesforce Consultant",
+      "azienda": "ENIGEN IT S.R.L.",
+      "periodo": "Nov 2018 - Gen 2019",
+      "descrizione": "Sviluppo su piattaforma Salesforce per Compass."
+    },
+    {
+      "ruolo": "UI Developer & Designer",
+      "azienda": "COMPLIC",
+      "periodo": "Gen 2018 - Apr 2018",
+      "descrizione": "Tirocinio focalizzato su sviluppo interfacce help desk CMS."
+    },
+    {
+      "ruolo": "Digitalization Specialist",
+      "azienda": "NOVACASE S.R.L.",
+      "periodo": "Mag 2017 - Giu 2017",
+      "descrizione": "Gestione sito e campagne web per digitalizzazione PMI."
+    },
+    {
+      "ruolo": "Graphic/Web Designer",
+      "azienda": "Freelance e aziende",
+      "periodo": "Feb 2011 - Mag 2017",
+      "descrizione": "Progettazione grafica e sviluppo web per PMI e negozi."
+    }
+  ],
+  "Istruzione": [
+    {
+      "titolo": "Masterclass UX/UI Design",
+      "istituto": "UXbox",
+      "anno": "2024"
+    },
+    {
+      "titolo": "React con React Redux",
+      "istituto": "Udemy",
+      "anno": "2021"
+    },
+    {
+      "titolo": "Tableau Fundamentals",
+      "istituto": "Visualitics",
+      "anno": "2020"
+    },
+    {
+      "titolo": "Masterclass Full Stack Developer",
+      "istituto": "Lacerba s.r.l.",
+      "anno": "2019"
+    },
+    {
+      "titolo": "Force.com Developer & Salesforce Administration",
+      "istituto": "Enigen IT s.r.l.",
+      "anno": "2018"
+    },
+    {
+      "titolo": "Digitalization Specialist",
+      "istituto": "Google e Unioncamere",
+      "anno": "2016"
+    },
+    {
+      "titolo": "Diploma Tecnico C.A.T. (ex Geometra)",
+      "istituto": "IIS M. Buniva",
+      "anno": "2016"
+    }
+  ],
+  "Competenze": [
+    "UX/UI Design",
+    "Front-End Development (React, Vue.js, Angular, TypeScript, HTML5, CSS3, JavaScript, SCSS)",
+    "Design System",
+    "User Research",
+    "Prototyping",
+    "AI Interface Design",
+    "Brand Identity",
+    "Responsive Design",
+    "Tableau",
+    "Salesforce (Apex, Lightning)",
+    "Docker",
+    "Photo Editing",
+    "Data Visualization",
+    "Empatia Utente",
+    "Pensiero Sistemico",
+    "Narrazione Visiva"
+  ],
+  "Certificazioni": [
+    {
+      "titolo": "Nielsen Norman Award 2021",
+      "descrizione": "Premio per la SNAM-Easy Intranet tra le Top 10 globali."
+    },
+    {
+      "titolo": "Operatore CAD Livello 3 QEQ",
+      "istituto": "C.F.I.Q.",
+      "anno": "2016"
+    },
+    {
+      "titolo": "Addetto elaborazione disegni CAD Livello 3 QEQ",
+      "istituto": "C.F.I.Q.",
+      "anno": "2016"
+    },
+    {
+      "titolo": "Codemotion Online Tech Conference 2022",
+      "descrizione": "Partecipazione a conferenza tecnica su Rust, JavaScript, VSC, fp-ts, Google Cloud."
+    },
+    {
+      "titolo": "Formatore IT per anziani",
+      "istituto": "Associazione Villa Olanda",
+      "anno": "2010-2011"
+    }
+  ]
+}

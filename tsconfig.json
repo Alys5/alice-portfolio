@@ -17,6 +17,12 @@
     "strict": true,
     "target": "ES2015",
     "module": "ESNext",
-    "lib": ["ES2015", "DOM"]
+    "lib": ["ES2015", "DOM"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"]
+    }
   }
 }

@@ -31,6 +31,8 @@ export default {
     portfolio: 'Portfolio',
     experience: 'Esperienza',
     contact: 'Contatti',
+    blog: 'Blog',
+    blogEditor: 'Editor',
   },
   about: {
     title: 'Chi sono',
@@ -38,9 +40,18 @@ export default {
     description:
       "Sono una UI Developer e AI Strategist con una passione per la creazione di interfacce intuitive e intelligenti. Il mio approccio unisce design visivo, sviluppo frontend e strategie IA per creare esperienze utente straordinarie. Ho collaborato con startup innovative e aziende Fortune 500, aumentando l'engagement e le conversioni attraverso interfacce user-centered potenziate dall'AI.",
     stats: [
-      { number: '150+', label: 'Progetti completati' },
-      { number: '98%', label: 'Soddisfazione clienti' },
-      { number: '300%', label: 'Aumento conversioni medio' },
+      {
+        number: '150+',
+        label: 'Progetti completati',
+      },
+      {
+        number: '98%',
+        label: 'Soddisfazione clienti',
+      },
+      {
+        number: '300%',
+        label: 'Aumento conversioni medio',
+      },
     ],
     values: [
       {
@@ -252,6 +263,22 @@ export default {
       submit: 'Invia richiesta',
       success: 'Grazie! Ti risponderò entro 24 ore.',
       error: "Errore nell'invio. Riprova o contattami via email.",
+      loading: 'Invio...',
+      validation: {
+        nameRequired: 'Il nome è obbligatorio.',
+        nameMinLength: 'Il nome deve contenere almeno 2 caratteri.',
+        emailRequired: "L'email è obbligatoria.",
+        emailInvalid: "Inserisci un'email valida.",
+        messageRequired: 'Il messaggio è obbligatorio.',
+        messageMinLength: 'Il messaggio deve contenere almeno 10 caratteri.',
+        singleError: '1 errore di validazione',
+        multipleErrors: '{count} errori di validazione',
+      },
+      status: {
+        sending: 'Invio del messaggio in corso...',
+        success: 'Messaggio inviato con successo',
+        error: "Errore nell'invio del messaggio",
+      },
     },
     info: {
       email: 'info@alys5.eu',
@@ -272,6 +299,47 @@ export default {
     links: {
       privacy: 'Privacy Policy',
       terms: 'Termini di Servizio',
+    },
+  },
+  accessibility: {
+    skipToMain: 'Salta al contenuto principale',
+    skipToNavigation: 'Salta alla navigazione',
+    pageLoaded: 'Pagina caricata completamente',
+    navigatedTo: 'Navigato a {page}',
+    themeChanged: 'Tema cambiato in {theme}',
+    languageChanged: 'Lingua cambiata',
+    scrolledToTop: "Tornato all'inizio della pagina",
+    cardVisible: 'Card visibile',
+    buttonClicked: 'Pulsante cliccato',
+    formSubmitted: 'Form inviato con successo',
+    error: 'Errore: {error}',
+    pages: {
+      home: 'Pagina principale',
+      about: 'Chi sono',
+      portfolio: 'Portfolio',
+      contact: 'Contatti',
+      newPage: 'Nuova pagina',
+    },
+  },
+  ui: {
+    theme: {
+      toggle: 'Cambia tema',
+      light: 'Passa al tema scuro',
+      dark: 'Passa al tema chiaro',
+    },
+    language: {
+      selector: 'Seleziona lingua',
+      italian: 'Italiano',
+      english: 'English',
+      spanish: 'Español',
+    },
+    navigation: {
+      mobile: 'Menu mobile',
+      main: 'Navigazione principale',
+      close: 'Chiudi menu',
+    },
+    performance: {
+      title: 'Core Web Vitals',
     },
   },
 }

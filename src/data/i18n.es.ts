@@ -4,12 +4,12 @@ export default {
     description:
       'Transformo ideas en experiencias digitales con un enfoque en UI/UX y soluciones de IA. Especializada en diseño de interfaces, desarrollo frontend y estrategias de IA para mejorar la experiencia del usuario.',
     keywords:
-      'UI Developer, UI Designer, AI Strategist, UX Designer, Frontend Developer, Inteligencia Artificial, Experiencia de Usuario, Diseño de Interfaces',
+      'UI Developer, UI Designer, AI Strategist, UX Designer, Frontend Developer, Inteligencia Artificial, User Experience, Interface Design',
   },
   hero: {
-    badge: '🏆 Premio Nielsen Norman 2021',
+    badge: '🏆 Nielsen Norman Award 2021',
     title: 'Alice Mandelli',
-    typewriterPrefix: 'Creando experiencias en ',
+    typewriterPrefix: 'Creo experiencias en ',
     typewriterTerms: [
       'UI Development',
       'Interface Design',
@@ -32,20 +32,31 @@ export default {
     portfolio: 'Portfolio',
     experience: 'Experiencia',
     contact: 'Contacto',
+    blog: 'Blog',
+    blogEditor: 'Editor',
   },
   about: {
     title: 'Sobre mí',
-    subtitle: 'UI Developer & AI Strategist con 10+ años de experiencia',
+    subtitle: 'UI Developer & AI Strategist con más de 10 años de experiencia',
     description:
       'Soy una UI Developer y AI Strategist con pasión por crear interfaces intuitivas e inteligentes. Mi enfoque combina diseño visual, desarrollo frontend y estrategias de IA para crear experiencias de usuario extraordinarias. He colaborado con startups innovadoras y empresas Fortune 500, aumentando el engagement y las conversiones a través de interfaces centradas en el usuario potenciadas por IA.',
     stats: [
-      { number: '150+', label: 'Proyectos completados' },
-      { number: '98%', label: 'Satisfacción del cliente' },
-      { number: '300%', label: 'Aumento promedio de conversiones' },
+      {
+        number: '150+',
+        label: 'Proyectos completados',
+      },
+      {
+        number: '98%',
+        label: 'Satisfacción de clientes',
+      },
+      {
+        number: '300%',
+        label: 'Aumento promedio de conversiones',
+      },
     ],
     values: [
       {
-        title: 'Human-AI Interface',
+        title: 'Interfaz Humano-IA',
         description:
           'Diseño interfaces que combinan intuición humana e inteligencia artificial para una experiencia fluida.',
       },
@@ -68,7 +79,7 @@ export default {
       {
         title: 'UI Development & Design',
         description:
-          'Diseño y desarrollo de interfaces intuitivas y atractivas, optimizadas para maximizar la usabilidad y las conversiones.',
+          'Diseño y desarrollo de interfaces intuitivas y atractivas, optimizadas para maximizar usabilidad y conversiones.',
         features: [
           'Interface Design',
           'Frontend Development',
@@ -79,14 +90,14 @@ export default {
         price: 'Desde €2.800',
       },
       {
-        title: 'Estrategia de IA para Interfaces',
+        title: 'AI Strategy para Interfaces',
         description:
           'Implementación de soluciones de IA para interfaces adaptativas, personalizadas y predictivas que mejoran la experiencia del usuario.',
         features: [
-          'AI-Powered UX',
+          'UX Potenciada por IA',
           'Interfaces Predictivas',
           'Personalización IA',
-          'Integración de Chatbots',
+          'Integración Chatbot',
           'Voice UI',
         ],
         price: 'Desde €3.800',
@@ -94,13 +105,13 @@ export default {
       {
         title: 'Design System & UI Engineering',
         description:
-          'Creación de sistemas de diseño escalables y bibliotecas de componentes para garantizar la coherencia y acelerar el desarrollo.',
+          'Creación de sistemas de diseño escalables y librerías de componentes para garantizar consistencia y acelerar el desarrollo.',
         features: [
-          'Component Libraries',
+          'Librerías de Componentes',
           'Design Tokens',
-          'Documentation',
-          'Tooling & Automation',
-          'Team Training',
+          'Documentación',
+          'Herramientas y Automatización',
+          'Capacitación de Equipos',
         ],
         price: 'Desde €4.200',
       },
@@ -117,7 +128,7 @@ export default {
         title: 'Volkswagen Rebranding Italia',
         category: 'UI/UX',
         description:
-          'Responsable del rebranding de Volkswagen en Italia y del diseño de interiores de los corners CUPRA, aumentando el reconocimiento de marca en un 180%.',
+          'Responsable del rebranding de Volkswagen en Italia y del diseño de interiores de los corner CUPRA, aumentando el reconocimiento de marca en un 180%.',
         results: '+180% reconocimiento de marca, +45% engagement en showroom',
         technologies: ['Design Systems', 'UI Design', 'Spatial Design'],
       },
@@ -125,8 +136,8 @@ export default {
         title: 'Jen/tuhl - Ultrasemplice',
         category: 'Design & Innovation',
         description:
-          'Diseño de un par de sillas meditativas expuestas en Maison&Objet París, con integración de elementos sensoriales y características innovadoras.',
-        results: 'Exposición en Maison&Objet Paris, Reportajes en blogs de diseño',
+          'Diseño de un par de asientos meditativos expuestos en Maison&Objet París, con integración de elementos sensoriales y funcionalidades innovadoras.',
+        results: 'Exposición en Maison&Objet Paris, Features en blogs de diseño',
         technologies: ['Product Design', 'Experience Design', 'Sustainable Materials'],
       },
       {
@@ -134,7 +145,7 @@ export default {
         category: 'AI Strategy',
         description:
           'Implementación de una estrategia de experiencia del cliente potenciada por IA para ŠKODA Italia, mejorando la interacción con los clientes.',
-        results: '+220% satisfacción del cliente, -35% tiempo de respuesta',
+        results: '+220% satisfacción del cliente, -35% tiempos de respuesta',
         technologies: ['AI Strategy', 'User Research', 'Service Design', 'CRM Integration'],
       },
     ],
@@ -148,7 +159,7 @@ export default {
         company: 'Zhejiang Dongfang Polytechnic',
         period: '2024 - Presente',
         description:
-          'Instructora de Sketch Design, CAD Modeling y Materials and Processes. Integración de técnicas de UI/UX e IA en los currículos de diseño.',
+          'Instructora de Sketch Design, CAD Modeling y Materials and Processes. Integración de técnicas UI/UX e IA en currículos de diseño.',
       },
       {
         role: 'Freelance Designer',
@@ -162,19 +173,19 @@ export default {
         company: 'Volkswagen Group Italia S.p.A.',
         period: '2020 - 2021',
         description:
-          'Responsable de la experiencia del cliente para ŠKODA Italia, implementación de estrategias digitales y optimización de puntos de contacto.',
+          'Responsable de la experiencia del cliente para ŠKODA Italia, implementación de estrategias digitales y optimización de touchpoints.',
       },
       {
         role: 'Network Development - Showroom Interior Planning',
         company: 'Volkswagen Group Italia S.p.A.',
         period: '2018 - 2020',
         description:
-          'Responsable del rebranding de Volkswagen en Italia y del diseño de interiores de los corners CUPRA, gestión de la Identidad Corporativa para cinco marcas.',
+          'Responsable del rebranding de Volkswagen en Italia y del diseño de interiores de los corner CUPRA, gestión de la Corporate Identity para cinco marcas.',
       },
     ],
   },
   skills: {
-    title: 'Habilidades',
+    title: 'Competencias',
     categories: [
       {
         title: 'UI Development',
@@ -188,7 +199,7 @@ export default {
         ],
       },
       {
-        title: 'Diseño',
+        title: 'Design',
         skills: [
           'Figma',
           'Adobe Creative Suite',
@@ -199,7 +210,7 @@ export default {
         ],
       },
       {
-        title: 'IA & Herramientas',
+        title: 'AI & Tools',
         skills: [
           'AI Strategy',
           'ChatGPT Integration',
@@ -213,46 +224,62 @@ export default {
   },
   testimonials: {
     title: 'Testimonios',
-    subtitle: 'Qué dicen mis clientes',
+    subtitle: 'Lo que dicen mis clientes',
     items: [
       {
         name: 'Fabio Giuseppetti',
         role: 'Partner, Palamon Capital Partners',
         content:
-          'Alice transformó completamente el enfoque de diseño digital de nuestro portfolio de empresas. Su capacidad para combinar diseño UI y estrategias de IA ha traído resultados tangibles en términos de engagement y conversiones.',
+          'Alice ha transformado completamente el enfoque del diseño digital de nuestro portafolio de empresas. Su capacidad para combinar diseño UI y estrategias de IA ha entregado resultados tangibles en términos de engagement y conversiones.',
         rating: 5,
       },
       {
         name: 'Cristina Semprelegno',
         role: 'Propietaria, Semprelegno',
         content:
-          'Trabajar con Alice en el proyecto Jen/tuhl fue esclarecedor. Su visión creativa combinada con comprensión técnica hizo posible transformar un concepto innovador en un producto premiado.',
+          'Colaborar con Alice en el proyecto Jen/tuhl fue esclarecedor. Su visión creativa combinada con comprensión técnica hizo posible transformar un concepto innovador en un producto galardonado.',
         rating: 5,
       },
       {
         name: 'Manuel Mandelli',
         role: 'CEO, 24ORE Business School',
         content:
-          'Alice aportó una perspectiva única a nuestra estrategia digital, combinando diseño intuitivo con soluciones de IA que revolucionaron la experiencia online de nuestros estudiantes.',
+          'Alice trajo una perspectiva única a nuestra estrategia digital, combinando diseño intuitivo con soluciones de IA que revolucionaron la experiencia online de nuestros estudiantes.',
         rating: 5,
       },
     ],
   },
   contact: {
-    title: 'Trabajemos juntos',
+    title: 'Empecemos a colaborar',
     subtitle: '¿Tienes un proyecto en mente? ¡Hablemos!',
     description:
-      'Siempre estoy interesada en nuevos proyectos desafiantes. Ya sea que necesites un rediseño completo de tu interfaz o una estrategia de IA para mejorar la experiencia del usuario, estoy aquí para ayudarte a alcanzar tus objetivos.',
+      'Siempre estoy interesada en nuevos proyectos estimulantes. Ya sea que necesites un rediseño completo de tu interfaz o una estrategia de IA para mejorar la experiencia del usuario, estoy aquí para ayudarte a alcanzar tus objetivos.',
     cta: 'Inicia tu proyecto',
     form: {
       name: 'Nombre completo',
       email: 'Email',
       company: 'Empresa',
-      budget: 'Presupuesto indicativo',
+      budget: 'Presupuesto estimado',
       message: 'Describe tu proyecto',
       submit: 'Enviar solicitud',
       success: '¡Gracias! Te responderé en 24 horas.',
       error: 'Error al enviar. Inténtalo de nuevo o contáctame por email.',
+      loading: 'Enviando...',
+      validation: {
+        nameRequired: 'El nombre es obligatorio.',
+        nameMinLength: 'El nombre debe contener al menos 2 caracteres.',
+        emailRequired: 'El email es obligatorio.',
+        emailInvalid: 'Introduce un email válido.',
+        messageRequired: 'El mensaje es obligatorio.',
+        messageMinLength: 'El mensaje debe contener al menos 10 caracteres.',
+        singleError: '1 error de validación',
+        multipleErrors: '{count} errores de validación',
+      },
+      status: {
+        sending: 'Enviando mensaje...',
+        success: 'Mensaje enviado con éxito',
+        error: 'Error al enviar mensaje',
+      },
     },
     info: {
       email: 'info@alys5.eu',
@@ -273,6 +300,47 @@ export default {
     links: {
       privacy: 'Política de Privacidad',
       terms: 'Términos de Servicio',
+    },
+  },
+  accessibility: {
+    skipToMain: 'Saltar al contenido principal',
+    skipToNavigation: 'Saltar a la navegación',
+    pageLoaded: 'Página cargada completamente',
+    navigatedTo: 'Navegado a {page}',
+    themeChanged: 'Tema cambiado a {theme}',
+    languageChanged: 'Idioma cambiado',
+    scrolledToTop: 'Volvido al inicio de la página',
+    cardVisible: 'Tarjeta visible',
+    buttonClicked: 'Botón clickeado',
+    formSubmitted: 'Formulario enviado con éxito',
+    error: 'Error: {error}',
+    pages: {
+      home: 'Página principal',
+      about: 'Sobre mí',
+      portfolio: 'Portfolio',
+      contact: 'Contacto',
+      newPage: 'Nueva página',
+    },
+  },
+  ui: {
+    theme: {
+      toggle: 'Cambiar tema',
+      light: 'Cambiar a tema oscuro',
+      dark: 'Cambiar a tema claro',
+    },
+    language: {
+      selector: 'Seleccionar idioma',
+      italian: 'Italiano',
+      english: 'English',
+      spanish: 'Español',
+    },
+    navigation: {
+      mobile: 'Menú móvil',
+      main: 'Navegación principal',
+      close: 'Cerrar menú',
+    },
+    performance: {
+      title: 'Core Web Vitals',
     },
   },
 }

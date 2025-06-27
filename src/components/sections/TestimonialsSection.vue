@@ -63,7 +63,7 @@ const testimonials = computed(
   font-size: 1.2rem;
 }
 blockquote {
-  margin: 0.5em 0;
+  margin: var(--space-2) 0;
   font-style: italic;
   color: var(--color-medium-gray);
 }

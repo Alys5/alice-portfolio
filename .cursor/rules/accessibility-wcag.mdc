@@ -1,0 +1,76 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: Regole per implementare accessibilità WCAG 2.2+ con focus management, reduced motion e screen reader support
+globs:
+  - "**/*.vue"
+  - "**/*.html"
+# Accessibilità WCAG 2.2+ – Best Practice 2025
+
+## Principi chiave
+- Skip links visibili e focusabili
+- Indicatori focus custom (outline ≥2px, contrasto ≥3:1)
+- Navigazione tastiera completa (tabindex, focus trap)
+- Supporto `prefers-reduced-motion` e alternative statiche
+- Live region ARIA per annunci dinamici
+- Landmark semantici (`header`, `nav`, `main`, `aside`, `footer`)
+- High contrast e dark mode via CSS variables
+- Form error handling con aria-describedby
+- Lazy loading accessibile e loading state annunciato
+- Test automatici con axe-core
+
+## Esempi essenziali
+
+### Skip Links
+```html
+<div class="skip-links">
+  <a href="#main-content" class="skip-link">Salta al contenuto principale</a>
+  <a href="#navigation" class="skip-link">Salta alla navigazione</a>
+</div>
+```
+
+### Focus Indicator
+```css
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+```
+
+### Live Region (screen reader)
+```vue
+<div aria-live="polite" aria-atomic="true" class="sr-only">{{ announcement }}</div>
+```
+
+### Reduced Motion
+```css
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+### High Contrast
+```css
+@media (prefers-contrast: high) {
+  :root {
+    --color-focus: #ff0000;
+  }
+}
+```
+
+## Rimandi
+- Variabili: [variables.scss](mdc:src/assets/styles/variables.scss)
+- Composables: [useAccessibilityAnnouncements.ts](mdc:src/composables/useAccessibilityAnnouncements.ts)
+- Test: axe-core, keyboard navigation
+
+    })
+  }
+}
+```

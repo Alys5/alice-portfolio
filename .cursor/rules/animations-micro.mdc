@@ -1,0 +1,56 @@
+---
+description: Questo modulo implementa micro-interazioni con durata controllata, fallback prefers-reduced-motion e contrasto di focus conforme ai criteri WCAG 2.2 §2.4.11/13, assicurando un’esperienza inclusiva anche per utenti con sensibilità al movimento.
+globs: 
+alwaysApply: false
+---
+---
+description: Regole per micro-animazioni accessibili, prefers-reduced-motion e WCAG 2.2+
+alwaysApply: false
+globs:
+  - "**/*.css"
+# Micro-Animazioni Accessibili 2025
+
+## Principi
+- Durata ≤ 500ms, delay ≤ 200ms
+- Variante `prefers-reduced-motion: reduce` obbligatoria
+- Focus indicator ≥ 3:1 contrasto
+- Solo animazioni non essenziali disattivabili
+
+## Esempi chiave
+
+### Hover Magnetico
+```css
+.button:hover {
+  animation: hover-magnet 350ms var(--ease-out-expo) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .button:hover { animation: none; }
+}
+```
+
+### Ripple Effect
+```css
+.ripple { animation: ripple 500ms ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .ripple { animation: none; }
+}
+```
+
+### Fade-Up Scroll
+```css
+.fade-up { opacity: 0; transform: translateY(2rem); }
+.fade-up.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { transform: none; }
+}
+```
+
+## Composable suggerito
+Vedi [useIntersectionObserver.ts](mdc:src/composables/useIntersectionObserver.ts) per trigger animazioni scroll.
+
+## Test WCAG 2.2+
+- Verifica con Axe-core che le animazioni non interferiscano con focus
+- Testa con screen reader (NVDA, VoiceOver) che le micro-animazioni non siano l'unico feedback
+- Utilizza `@media (prefers-reduced-motion: reduce)` per disattivare motion e verificare esperienze equivalenti
+- Testa con screen reader (NVDA, VoiceOver) che le micro-animazioni non siano l’unico feedback
+- Utilizza `@media (prefers-reduced-motion: reduce)` per disattivare motion e verificare esperienze equivalenti

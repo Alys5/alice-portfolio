@@ -1,0 +1,430 @@
+---
+description: 
+globs: *.vue, *.js, *.ts
+alwaysApply: false
+---
+# Vue 3 Modern Patterns & Composables
+
+Implementa i pattern Vue 3 più moderni per il 2025, includendo composables scalabili, gestione dello stato reattivo e ottimizzazioni performance.
+
+## Composables Architecture
+
+### Async Data Fetching Pattern
+```typescript
+// useFetch.ts - Pattern Vue 3 2025
+import { ref, watchEffect, toValue, type Ref } from 'vue'
+
+export function useFetch<T>(url: string | Ref<string>) {
+  const data = ref<T | null>(null)
+  const error = ref<Error | null>(null)
+  const loading = ref(false)
+  const abortController = ref<AbortController | null>(null)
+
+  const fetchData = async () => {
+    // Abort previous request if still pending
+    if (abortController.value) {
+      abortController.value.abort()
+    }
+    
+    abortController.value = new AbortController()
+    loading.value = true
+    error.value = null
+    
+    try {
+      const response = await fetch(toValue(url), {
+        signal: abortController.value.signal
+      })
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      
+      data.value = await response.json()
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        error.value = err as Error
+      }
+    } finally {
+      loading.value = false
+    }
+  }
+
+  watchEffect(() => {
+    fetchData()
+  })
+
+  return { data: readonly(data), error: readonly(error), loading: readonly(loading), refetch: fetchData }
+}
+```
+
+### Performance Monitoring Composable
+```typescript
+// usePerformance.ts - Core Web Vitals tracking
+import { ref, onMounted, onUnmounted } from 'vue'
+
+export function usePerformance() {
+  const metrics = ref({
+    lcp: 0,
+    fid: 0,
+    cls: 0,
+    inp: 0
+  })
+
+  let observer: PerformanceObserver | null = null
+
+  onMounted(() => {
+    if ('PerformanceObserver' in window) {
+      observer = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          switch (entry.entryType) {
+            case 'largest-contentful-paint':
+              metrics.value.lcp = entry.startTime
+              break
+            case 'first-input':
+              metrics.value.fid = entry.processingStart - entry.startTime
+              break
+            case 'layout-shift':
+              if (!entry.hadRecentInput) {
+                metrics.value.cls += entry.value
+              }
+              break
+          }
+        }
+      })
+
+      observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] })
+    }
+    
+    // Track INP (Interaction to Next Paint)
+    if ('PerformanceObserver' in window) {
+      const inpObserver = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (entry.processingStart > 0) {
+            metrics.value.inp = Math.max(metrics.value.inp, entry.processingEnd - entry.startTime)
+          }
+        }
+      })
+      inpObserver.observe({ entryTypes: ['event'] })
+    }
+  })
+
+  onUnmounted(() => {
+    if (observer) {
+      observer.disconnect()
+    }
+  })
+
+  return { metrics: readonly(metrics) }
+}
+```
+
+### Scroll Management Composable
+```typescript
+// useScroll.ts - Advanced scroll handling
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+
+export function useScroll() {
+  const scrollY = ref(0)
+  const scrollX = ref(0)
+  const isScrolling = ref(false)
+  const scrollDirection = ref<'up' | 'down'>('down')
+  
+  let previousScrollY = 0
+  let scrollTimeout: number
+
+  const scrollProgress = computed(() => {
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight
+    return documentHeight > 0 ? (scrollY.value / documentHeight) * 100 : 0
+  })
+
+  const handleScroll = () => {
+    scrollY.value = window.scrollY
+    scrollX.value = window.scrollX
+    
+    scrollDirection.value = scrollY.value > previousScrollY ? 'down' : 'up'
+    previousScrollY = scrollY.value
+    
+    isScrolling.value = true
+    
+    clearTimeout(scrollTimeout)
+    scrollTimeout = setTimeout(() => {
+      isScrolling.value = false
+    }, 150)
+  }
+
+  onMounted(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
+  })
+
+  onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+    clearTimeout(scrollTimeout)
+  })
+
+  return {
+    scrollY: readonly(scrollY),
+    scrollX: readonly(scrollX),
+    scrollProgress: readonly(scrollProgress),
+    scrollDirection: readonly(scrollDirection),
+    isScrolling: readonly(isScrolling)
+  }
+}
+```
+
+### Intersection Observer Composable
+```typescript
+// useIntersectionObserver.ts - Modern intersection handling
+import { ref, onMounted, onUnmounted, type Ref } from 'vue'
+
+export function useIntersectionObserver(
+  target: Ref<Element | null>,
+  options: IntersectionObserverInit = {}
+) {
+  const isIntersecting = ref(false)
+  const intersectionRatio = ref(0)
+  
+  let observer: IntersectionObserver | null = null
+
+  onMounted(() => {
+    if (target.value && 'IntersectionObserver' in window) {
+      observer = new IntersectionObserver(([entry]) => {
+        isIntersecting.value = entry.isIntersecting
+        intersectionRatio.value = entry.intersectionRatio
+      }, {
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+        rootMargin: '0px',
+        ...options
+      })
+      
+      observer.observe(target.value)
+    }
+  })
+
+  onUnmounted(() => {
+    if (observer) {
+      observer.disconnect()
+    }
+  })
+
+  return {
+    isIntersecting: readonly(isIntersecting),
+    intersectionRatio: readonly(intersectionRatio)
+  }
+}
+```
+
+## Modern Component Patterns
+
+### Suspense with Error Boundaries
+```vue
+<!-- App.vue - Modern error handling -->
+<template>
+  <div id="app">
+    <Suspense>
+      <template #default>
+        <router-view v-slot="{ Component }">
+          <KeepAlive :max="10">
+            <component :is="Component" />
+          </KeepAlive>
+        </router-view>
+      </template>
+      <template #fallback>
+        <div class="loading-container">
+          <div class="loading-spinner" aria-label="Caricamento in corso" />
+          <p class="sr-only">Caricamento dei contenuti in corso, attendere prego.</p>
+        </div>
+      </template>
+    </Suspense>
+    
+    <Teleport to="#live-region">
+      <div 
+        aria-live="polite" 
+        aria-atomic="true"
+        class="sr-only"
+      >
+        {{ liveMessage }}
+      </div>
+    </Teleport>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, provide } from 'vue'
+import { usePerformance } from './composables/usePerformance'
+
+const liveMessage = ref('')
+const { metrics } = usePerformance()
+
+// Provide live message function to child components
+provide('announceToScreen', (message: string) => {
+  liveMessage.value = message
+  setTimeout(() => {
+    liveMessage.value = ''
+  }, 1000)
+})
+
+// Monitor performance and provide warnings
+watchEffect(() => {
+  if (metrics.value.lcp > 2500) {
+    console.warn('LCP performance warning:', metrics.value.lcp)
+  }
+})
+</script>
+```
+
+### Advanced Form Composable
+```typescript
+// useForm.ts - Modern form handling with validation
+import { ref, reactive, computed } from 'vue'
+
+interface FormField {
+  value: any
+  errors: string[]
+  touched: boolean
+  validate?: (value: any) => string[]
+}
+
+export function useForm<T extends Record<string, any>>(initialValues: T) {
+  const fields = reactive<Record<keyof T, FormField>>({} as any)
+  
+  // Initialize fields
+  Object.keys(initialValues).forEach(key => {
+    fields[key] = {
+      value: initialValues[key],
+      errors: [],
+      touched: false
+    }
+  })
+
+  const isValid = computed(() => 
+    Object.values(fields).every(field => field.errors.length === 0)
+  )
+
+  const isDirty = computed(() =>
+    Object.values(fields).some(field => field.touched)
+  )
+
+  const values = computed(() => {
+    const result = {} as T
+    Object.keys(fields).forEach(key => {
+      result[key] = fields[key].value
+    })
+    return result
+  })
+
+  function setFieldValue(name: keyof T, value: any) {
+    if (fields[name]) {
+      fields[name].value = value
+      fields[name].touched = true
+      validateField(name)
+    }
+  }
+
+  function validateField(name: keyof T) {
+    const field = fields[name]
+    if (field && field.validate) {
+      field.errors = field.validate(field.value)
+    }
+  }
+
+  function validateAll() {
+    Object.keys(fields).forEach(key => validateField(key as keyof T))
+    return isValid.value
+  }
+
+  function reset() {
+    Object.keys(fields).forEach(key => {
+      const field = fields[key]
+      field.value = initialValues[key]
+      field.errors = []
+      field.touched = false
+    })
+  }
+
+  return {
+    fields,
+    values,
+    isValid,
+    isDirty,
+    setFieldValue,
+    validateField,
+    validateAll,
+    reset
+  }
+}
+```
+
+## Best Practices
+
+### Component Contract Definition
+Sempre definire props ed emits in modo stretto:
+
+```typescript
+// Definizione props con validazione
+const props = defineProps<{
+  modelValue: string
+  placeholder?: string
+  required?: boolean
+  validator?: (value: string) => boolean
+}>()
+
+const emit = defineEmits<{
+  'update:modelValue': [value: string]
+  'validation-change': [isValid: boolean]
+}>()
+```
+
+### Performance Optimization Patterns
+- Utilizza `shallowRef` per oggetti grandi che non necessitano di reattività profonda
+- Implementa `markRaw` per oggetti che non devono mai essere reattivi
+- Usa `nextTick` per ottimizzare aggiornamenti DOM
+- Implementa lazy loading per componenti pesanti
+
+### Error Handling Pattern
+```typescript
+// Global error handler
+app.config.errorHandler = (err, instance, info) => {
+  console.error('Global error:', err)
+  console.error('Component instance:', instance)
+  console.error('Error info:', info)
+  
+  // Track error for monitoring
+  if (window.gtag) {
+    window.gtag('event', 'exception', {
+      description: err.message,
+      fatal: false
+    })
+  }
+}
+```
+
+# Vue 3 Modern Patterns – Best Practice 2025
+
+## Principi
+- Composables modulari (async fetch, performance, scroll, intersection)
+- Suspense + ErrorBoundary per fallback UX
+- Contract props/emits tipizzati
+- Ottimizzazione performance: shallowRef, markRaw, lazy loading
+- Global error handler
+
+## Esempi chiave
+
+### Composable async fetch
+```ts
+export function useFetch<T>(url: string) { /* ... */ }
+```
+
+### Suspense + ErrorBoundary
+```vue
+<Suspense><template #default>...</template><template #fallback>Loading...</template></Suspense>
+```
+
+### Contract props/emits
+```ts
+const props = defineProps<{ modelValue: string }>()
+const emit = defineEmits<{ 'update:modelValue': [string] }>()
+```
+
+## Rimandi
+- [usePerformanceOptimization.ts](mdc:src/composables/usePerformanceOptimization.ts)
+- [App.vue](mdc:src/App.vue)

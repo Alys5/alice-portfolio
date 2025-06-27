@@ -1,0 +1,153 @@
+/* Stili personalizzati per la documentazione */
+
+:root {
+  --vp-c-brand: #646cff;
+  --vp-c-brand-light: #747bff;
+  --vp-c-brand-dark: #535bf2;
+  --vp-c-brand-lighter: #9499ff;
+  --vp-c-brand-darker: #454ce1;
+  --vp-c-text-code: #476582;
+  --vp-c-mute: #f6f6f7;
+  --vp-c-mute-dark: #27272a;
+  --vp-c-divider: #e5e7eb;
+  --vp-c-divider-dark: #3e3e42;
+}
+
+/* Dark mode */
+.dark {
+  --vp-c-text-code: #aac8e4;
+  --vp-c-mute: #313136;
+  --vp-c-divider: #3e3e42;
+}
+
+/* Componenti demo */
+.demo-container {
+  padding: 2rem;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  margin: 2rem 0;
+  background: var(--vp-c-bg-soft);
+}
+
+/* Code blocks */
+.vp-doc div[class*='language-'] {
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.vp-doc div[class*='language-'] pre {
+  padding: 1.5rem;
+}
+
+/* Tables */
+.vp-doc table {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc th {
+  background: var(--vp-c-bg-soft);
+  font-weight: 600;
+}
+
+/* Buttons */
+.vp-doc .vp-button {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+/* Cards */
+.vp-doc .vp-card {
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+  transition: all 0.2s;
+}
+
+.vp-doc .vp-card:hover {
+  border-color: var(--vp-c-brand);
+  transform: translateY(-2px);
+}
+
+/* Navigation */
+.VPNav {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.dark .VPNav {
+  background: rgba(36, 36, 36, 0.9);
+}
+
+/* Sidebar */
+.VPSidebar {
+  background: var(--vp-c-bg);
+}
+
+.VPSidebarItem.level-0 > .item > .text {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.VPSidebarItem.level-1 > .item > .text {
+  font-weight: 500;
+}
+
+/* Search */
+.VPLocalSearchBox {
+  border-radius: 8px;
+}
+
+/* Footer */
+.VPFooter {
+  border-top: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .demo-container {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .vp-doc div[class*='language-'] pre {
+    padding: 1rem;
+  }
+}
+
+/* Animazioni */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vp-doc .content {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Focus styles per accessibilità */
+.vp-doc a:focus,
+.vp-doc button:focus {
+  outline: 2px solid var(--vp-c-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .vp-doc .content {
+    animation: none;
+  }
+
+  .vp-doc .vp-card:hover {
+    transform: none;
+  }
+}

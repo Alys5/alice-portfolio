@@ -1,0 +1,113 @@
+---
+description: 
+globs: *.css, *.scss, *.vue
+alwaysApply: false
+---
+# CSS Variables System 2025
+
+## Principi
+- Palette estesa (HSL, P3)
+- Adaptive theme: dark, high contrast, low light
+- Uso di `@property` per custom properties animate
+- Color-mix per varianti cromatiche
+- Utility classes layer
+
+## Esempi chiave
+
+### Palette P3
+```css
+/* File: variables.css */
+:root {
+  /* Brand Palette */
+  --brand-hue: 220;
+  --brand-saturation: 85%;
+  --brand-lightness: 60%;
+
+  --brand-color: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+  --brand-color-p3: color(display-p3 0.23 0.35 0.76);
+
+  /* Neutral Scale */
+  --neutral-0: #ffffff;
+  --neutral-100: #f5f7fa;
+  --neutral-200: #e5eaf0;
+  --neutral-300: #d5dde5;
+  --neutral-400: #b7c2d0;
+  --neutral-500: #8495a8;
+  --neutral-600: #59697a;
+  --neutral-700: #35404d;
+  --neutral-800: #1f2833;
+  --neutral-900: #0b121a;
+
+  /* Semantic Colors */
+  --success: hsl(145 72% 35%);
+  --warning: hsl(36 92% 55%);
+  --danger: hsl(355 80% 58%);
+
+  /* Shadows */
+  --shadow-color: 0 0 0 / 0.12;
+  --shadow-sm: 0 1px 2px var(--shadow-color);
+  --shadow-md: 0 4px 6px var(--shadow-color), 0 2px 4px var(--shadow-color);
+  --shadow-lg: 0 10px 15px var(--shadow-color), 0 4px 6px var(--shadow-color);
+
+  /* Typography */
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Merriweather", "Georgia", serif;
+  --font-mono: "Fira Code", monospace;
+
+  /* Motion */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+}
+```
+
+### Adaptive Theme
+```css
+@media (prefers-color-scheme: dark) {
+  :root {
+    --neutral-0: #0b121a;
+    --neutral-100: #1f2833;
+    --neutral-900: #ffffff;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --brand-lightness: 45%;
+  }
+}
+```
+
+### @property
+```css
+/* Definizione di --radius per contenerne i valori */
+@property --radius {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0.5rem;
+}
+
+/* Example Usage */
+.card {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+}
+```
+
+### Utility Layer
+```css
+@layer utilities {
+  .text-primary {
+    color: var(--brand-color);
+  }
+  .bg-primary {
+    background-color: var(--brand-color);
+  }
+  .shadow-sm {
+    box-shadow: var(--shadow-sm);
+  }
+}
+```
+
+## Rimandi
+- [variables.scss](mdc:src/assets/styles/variables.scss)
+- [global.scss](mdc:src/assets/styles/global.scss)

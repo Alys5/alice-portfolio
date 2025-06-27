@@ -4,7 +4,7 @@
   - Tutti i testi localizzati via i18n
   - Accessibilità: aria-label su link
   - Responsive e colori accessibili -->
-  <footer class="app-footer">
+  <footer class="app-footer" role="contentinfo" :aria-label="$t('footer.bio')">
     <div class="footer-content">
       <div class="footer-bio">
         <span class="logo">AM</span>
@@ -16,13 +16,19 @@
           href="https://linkedin.com/in/alys5"
           target="_blank"
           rel="noopener"
-          aria-label="LinkedIn"
+          :aria-label="$t('footer.linkedin')"
           >{{ $t('footer.linkedin') }}</a
         >
-        <a href="mailto:mandellialice5@gmail.com" aria-label="Email">{{ $t('footer.email') }}</a>
-        <a href="https://alys5.eu" target="_blank" rel="noopener" aria-label="Website">{{
-          $t('footer.website')
+        <a href="mailto:mandellialice5@gmail.com" :aria-label="$t('footer.email')">{{
+          $t('footer.email')
         }}</a>
+        <a
+          href="https://alys5.eu"
+          target="_blank"
+          rel="noopener"
+          :aria-label="$t('footer.website')"
+          >{{ $t('footer.website') }}</a
+        >
       </div>
     </div>
     <div class="footer-bottom">

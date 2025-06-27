@@ -31,6 +31,8 @@ export default {
     portfolio: 'Portfolio',
     experience: 'Experience',
     contact: 'Contact',
+    blog: 'Blog',
+    blogEditor: 'Editor',
   },
   about: {
     title: 'About Me',
@@ -218,14 +220,14 @@ export default {
         name: 'Fabio Giuseppetti',
         role: 'Partner, Palamon Capital Partners',
         content:
-          'Alice completely transformed the digital design approach of our company portfolio. Her ability to combine UI design and AI strategies has brought tangible results in terms of engagement and conversions.',
+          'Alice has completely transformed the digital design approach of our portfolio companies. Her ability to combine UI design and AI strategies has delivered tangible results in terms of engagement and conversions.',
         rating: 5,
       },
       {
         name: 'Cristina Semprelegno',
         role: 'Owner, Semprelegno',
         content:
-          'Working with Alice on the Jen/tuhl project was enlightening. Her creative vision combined with technical understanding made it possible to transform an innovative concept into an award-winning product.',
+          'Collaborating with Alice on the Jen/tuhl project was enlightening. Her creative vision combined with technical understanding made it possible to transform an innovative concept into an award-winning product.',
         rating: 5,
       },
       {
@@ -238,20 +240,36 @@ export default {
     ],
   },
   contact: {
-    title: "Let's work together",
-    subtitle: "Have a project in mind? Let's talk!",
+    title: "Let's start collaborating",
+    subtitle: "Have a project in mind? Let's talk about it!",
     description:
-      "I'm always interested in new challenging projects. Whether you need a complete redesign of your interface or an AI strategy to improve the user experience, I'm here to help you achieve your goals.",
+      "I'm always interested in stimulating new projects. Whether you need a complete interface redesign or an AI strategy to improve user experience, I'm here to help you achieve your goals.",
     cta: 'Start your project',
     form: {
       name: 'Full name',
       email: 'Email',
       company: 'Company',
-      budget: 'Indicative budget',
+      budget: 'Estimated budget',
       message: 'Describe your project',
       submit: 'Send request',
-      success: "Thank you! I'll reply within 24 hours.",
+      success: "Thank you! I'll get back to you within 24 hours.",
       error: 'Error sending. Please try again or contact me via email.',
+      loading: 'Sending...',
+      validation: {
+        nameRequired: 'Name is required.',
+        nameMinLength: 'Name must contain at least 2 characters.',
+        emailRequired: 'Email is required.',
+        emailInvalid: 'Please enter a valid email.',
+        messageRequired: 'Message is required.',
+        messageMinLength: 'Message must contain at least 10 characters.',
+        singleError: '1 validation error',
+        multipleErrors: '{count} validation errors',
+      },
+      status: {
+        sending: 'Sending message...',
+        success: 'Message sent successfully',
+        error: 'Error sending message',
+      },
     },
     info: {
       email: 'info@alys5.eu',
@@ -261,7 +279,7 @@ export default {
     },
   },
   footer: {
-    bio: 'Portfolio of Alice Mandelli – UI Developer & AI Strategist specialized in intuitive and intelligent digital experiences.',
+    bio: 'Alice Mandelli Portfolio – UI Developer & AI Strategist specialized in intuitive and intelligent digital experiences.',
     linkedin: 'LinkedIn',
     email: 'Email',
     website: 'Website',
@@ -272,6 +290,47 @@ export default {
     links: {
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
+    },
+  },
+  accessibility: {
+    skipToMain: 'Skip to main content',
+    skipToNavigation: 'Skip to navigation',
+    pageLoaded: 'Page loaded completely',
+    navigatedTo: 'Navigated to {page}',
+    themeChanged: 'Theme changed to {theme}',
+    languageChanged: 'Language changed',
+    scrolledToTop: 'Returned to top of page',
+    cardVisible: 'Card visible',
+    buttonClicked: 'Button clicked',
+    formSubmitted: 'Form submitted successfully',
+    error: 'Error: {error}',
+    pages: {
+      home: 'Home page',
+      about: 'About',
+      portfolio: 'Portfolio',
+      contact: 'Contact',
+      newPage: 'New page',
+    },
+  },
+  ui: {
+    theme: {
+      toggle: 'Change theme',
+      light: 'Switch to dark theme',
+      dark: 'Switch to light theme',
+    },
+    language: {
+      selector: 'Select language',
+      italian: 'Italiano',
+      english: 'English',
+      spanish: 'Español',
+    },
+    navigation: {
+      mobile: 'Mobile menu',
+      main: 'Main navigation',
+      close: 'Close menu',
+    },
+    performance: {
+      title: 'Core Web Vitals',
     },
   },
 }

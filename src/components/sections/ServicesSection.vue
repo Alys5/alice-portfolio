@@ -43,9 +43,9 @@ const items = computed(
   margin-top: var(--space-md);
 }
 .service-card {
-  background: var(--color-white);
+  background: var(--neutral-0);
   border-radius: 1.2em;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-md);
   padding: var(--space-md);
   flex: 1 1 0;
   display: flex;
@@ -53,7 +53,7 @@ const items = computed(
   gap: 0.7em;
 }
 .service-card h4 {
-  color: var(--color-accent-1);
+  color: var(--accent-500);
   font-size: 1.1rem;
 }
 .service-card ul {

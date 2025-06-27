@@ -45,7 +45,7 @@ src/
 - **assets/styles/**: SCSS globali, palette, variabili, mixin. Importa sempre le variabili con `@use`.
 - **assets/images/**: Immagini ottimizzate (WebP + fallback).
 - **router/**: Configurazione delle rotte dell'applicazione.
-- **nightwatch/**: configurazione e test E2E isolati. La reference a `nightwatch/tsconfig.json` è rimossa da `tsconfig.json` per evitare errori di type-check nella build principale.
+- **cypress/**: configurazione e test E2E isolati. La reference a `cypress/tsconfig.json` è rimossa da `tsconfig.json` per evitare errori di type-check nella build principale.
 
 ---
 
@@ -108,7 +108,6 @@ $color-primary: #ffc940;
 - **Usa nomi chiari e consistenti**
 - **Scrivi test per ogni componente/feature**
 - **Segui le convenzioni di linting e formattazione**
-- **Isolamento E2E**: I test Nightwatch sono separati e la loro configurazione non impatta la build della app (vedi tsconfig.json).
 
 ---
 

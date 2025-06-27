@@ -1,0 +1,154 @@
+name: Accessibility Tests
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  accessibility:
+    name: Accessibility & Performance Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@latest
+
+      - name: Start preview server
+        run: npm run preview &
+        env:
+          PORT: 4173
+
+      - name: Wait for server
+        run: |
+          timeout 30 bash -c 'until curl -s http://localhost:4173 > /dev/null; do sleep 1; done'
+          echo "Server is ready!"
+
+      - name: Run axe-core accessibility tests
+        run: npm run test:accessibility
+        env:
+          NODE_ENV: production
+
+      - name: Run Lighthouse CI
+        run: lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: Upload Lighthouse results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lighthouse-results
+          path: |
+            lighthouse-results/
+            .lighthouseci/
+
+      - name: Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            try {
+              // Leggi i risultati di Lighthouse
+              const lhciResults = JSON.parse(fs.readFileSync('.lighthouseci/manifest.json', 'utf8'));
+              
+              let comment = '## 🔍 Risultati Test Accessibilità\n\n';
+              
+              // Risultati axe-core (se disponibili)
+              if (fs.existsSync('axe-results.json')) {
+                const axeResults = JSON.parse(fs.readFileSync('axe-results.json', 'utf8'));
+                comment += '### ✅ axe-core Tests\n';
+                comment += `- **Punteggio medio**: ${axeResults.averageScore}/100\n`;
+                comment += `- **Pagine testate**: ${axeResults.pages.length}\n`;
+                comment += `- **Status**: ${axeResults.averageScore >= 95 ? '✅ PASS' : '❌ FAIL'}\n\n`;
+              }
+              
+              // Risultati Lighthouse
+              comment += '### 📊 Lighthouse CI Results\n\n';
+              comment += '| Pagina | Accessibilità | Performance | Best Practices | SEO |\n';
+              comment += '|--------|---------------|-------------|----------------|-----|\n';
+              
+              lhciResults.forEach(result => {
+                const url = result.url.replace('http://localhost:4173', '');
+                const accessibility = Math.round(result.summary.accessibility * 100);
+                const performance = Math.round(result.summary.performance * 100);
+                const bestPractices = Math.round(result.summary['best-practices'] * 100);
+                const seo = Math.round(result.summary.seo * 100);
+                
+                const accStatus = accessibility >= 95 ? '✅' : '❌';
+                const perfStatus = performance >= 90 ? '✅' : '⚠️';
+                const bpStatus = bestPractices >= 90 ? '✅' : '⚠️';
+                const seoStatus = seo >= 90 ? '✅' : '⚠️';
+                
+                comment += `| ${url} | ${accStatus} ${accessibility} | ${perfStatus} ${performance} | ${bpStatus} ${bestPractices} | ${seoStatus} ${seo} |\n`;
+              });
+              
+              comment += '\n### 📋 Criteri di Successo\n';
+              comment += '- **Accessibilità**: ≥ 95 (WCAG 2.2 AA)\n';
+              comment += '- **Performance**: ≥ 90\n';
+              comment += '- **Best Practices**: ≥ 90\n';
+              comment += '- **SEO**: ≥ 90\n\n';
+              
+              // Determina se tutti i test sono passati
+              const allPassed = lhciResults.every(result => 
+                result.summary.accessibility >= 0.95 &&
+                result.summary.performance >= 0.90 &&
+                result.summary['best-practices'] >= 0.90 &&
+                result.summary.seo >= 0.90
+              );
+              
+              if (allPassed) {
+                comment += '🎉 **Tutti i test sono stati superati!** L\'applicazione rispetta gli standard di accessibilità e performance.';
+              } else {
+                comment += '⚠️ **Alcuni test non sono stati superati.** Controlla i dettagli sopra e correggi i problemi prima del merge.';
+              }
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+              
+            } catch (error) {
+              console.error('Errore nel commentare PR:', error);
+            }
+
+      - name: Fail if accessibility score < 95
+        run: |
+          # Controlla i risultati di Lighthouse
+          if [ -f ".lighthouseci/manifest.json" ]; then
+            node -e "
+              const fs = require('fs');
+              const results = JSON.parse(fs.readFileSync('.lighthouseci/manifest.json', 'utf8'));
+              const minAccessibility = Math.min(...results.map(r => r.summary.accessibility));
+              if (minAccessibility < 0.95) {
+                console.error('❌ Accessibilità score < 95:', (minAccessibility * 100).toFixed(1));
+                process.exit(1);
+              }
+              console.log('✅ Accessibilità score ≥ 95:', (minAccessibility * 100).toFixed(1));
+            "
+          fi

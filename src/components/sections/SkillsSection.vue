@@ -34,14 +34,14 @@ const categories = computed(
   margin-top: var(--space-md);
 }
 .skills-category {
-  background: var(--color-white);
+  background: var(--neutral-0);
   border-radius: 1.2em;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-md);
   padding: var(--space-md);
   flex: 1 1 0;
 }
 .skills-category h3 {
-  color: var(--color-accent-1);
+  color: var(--accent-500);
   font-size: 1.1rem;
 }
 .skills-category ul {

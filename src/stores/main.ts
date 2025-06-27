@@ -1,38 +1,34 @@
 import { defineStore } from 'pinia'
-import { ref, watch, computed } from 'vue'
+import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-// Mappa dei ruoli localizzati per lingua
-const rolesByLocale = {
+// Tipi per le lingue supportate
+export type Locale = 'it' | 'en' | 'es'
+
+// Ruoli per lingua (semplificati per il portfolio)
+const rolesByLocale: Record<Locale, string[]> = {
   it: [
-    'AI Specialist',
-    'UI Designer',
     'UI Developer',
-    'Design Thinking',
-    'Digitalizzazione',
+    'AI Strategist',
+    'UX Designer',
     'Frontend Developer',
-    'Gatti',
+    'Design Systems Specialist',
   ],
   en: [
-    'AI Specialist',
-    'UI Designer',
     'UI Developer',
-    'Design Thinking',
-    'Digitalization',
+    'AI Strategist',
+    'UX Designer',
     'Frontend Developer',
-    'Cats',
+    'Design Systems Specialist',
   ],
   es: [
-    'Especialista en IA',
-    'Diseñadora UI',
-    'Desarrolladora UI',
-    'Design Thinking',
-    'Digitalización',
+    'UI Developer',
+    'AI Strategist',
+    'UX Designer',
     'Frontend Developer',
-    'Gatos',
+    'Design Systems Specialist',
   ],
-} as const
-
-export type Locale = keyof typeof rolesByLocale // 'it' | 'en' | 'es'
+}
 
 /**
  * Store principale globale (tema, lingua, ruoli)
@@ -40,46 +36,73 @@ export type Locale = keyof typeof rolesByLocale // 'it' | 'en' | 'es'
  * - Gestisce lingua attiva e ruoli localizzati
  */
 export const useMainStore = defineStore('main', () => {
-  // Stato tema: 'light' o 'dark', persistito in localStorage
-  const theme = ref<'light' | 'dark'>(
-    (localStorage.getItem('theme') as 'light' | 'dark') || 'light',
-  )
+  // State
+  const theme = ref<'light' | 'dark'>('light')
+  const locale = ref<Locale>('it')
+  const isLoading = ref(false)
 
-  // Stato lingua: 'it' | 'en' | 'es', persistito in localStorage
-  const locale = ref<Locale>((localStorage.getItem('locale') as Locale) || 'it')
-  // Ruoli localizzati in base alla lingua
+  // Composables
+  const { locale: i18nLocale } = useI18n()
+
+  // Computed
   const roles = computed(() => rolesByLocale[locale.value])
 
-  /**
-   * Cambia il tema (dark/light) e aggiorna localStorage e DOM
-   */
+  // Actions
   const toggleTheme = () => {
     theme.value = theme.value === 'light' ? 'dark' : 'light'
+    // Apply theme to document
+    document.documentElement.setAttribute('data-theme', theme.value)
+    // Save to localStorage
     localStorage.setItem('theme', theme.value)
-    document.documentElement.classList.toggle('dark', theme.value === 'dark')
   }
 
-  /**
-   * Cambia la lingua attiva e aggiorna localStorage
-   * @param newLocale 'it' | 'en' | 'es'
-   */
-  function setLocale(newLocale: Locale) {
+  const setLocale = (newLocale: Locale) => {
     locale.value = newLocale
+    i18nLocale.value = newLocale
+    // Save to localStorage
     localStorage.setItem('locale', newLocale)
+    // Update document lang attribute
+    document.documentElement.setAttribute('lang', newLocale)
   }
 
-  // Sync tema su caricamento
-  if (theme.value === 'dark') {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
+  const setLoading = (loading: boolean) => {
+    isLoading.value = loading
   }
 
-  // Watch per cambiamenti di tema (persistenza e DOM)
-  watch(theme, (val) => {
-    document.documentElement.classList.toggle('dark', val === 'dark')
-    localStorage.setItem('theme', val)
-  })
+  // Initialize from localStorage
+  const initializeStore = () => {
+    // Load theme
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark'
+    if (savedTheme) {
+      theme.value = savedTheme
+      document.documentElement.setAttribute('data-theme', savedTheme)
+    }
 
-  return { theme, toggleTheme, locale, setLocale, roles }
+    // Load locale
+    const savedLocale = localStorage.getItem('locale') as Locale
+    if (savedLocale && ['it', 'en', 'es'].includes(savedLocale)) {
+      locale.value = savedLocale
+      i18nLocale.value = savedLocale
+      document.documentElement.setAttribute('lang', savedLocale)
+    }
+  }
+
+  // Initialize on store creation
+  initializeStore()
+
+  return {
+    // State
+    theme,
+    locale,
+    isLoading,
+
+    // Computed
+    roles,
+
+    // Actions
+    toggleTheme,
+    setLocale,
+    setLoading,
+    initializeStore,
+  }
 })
