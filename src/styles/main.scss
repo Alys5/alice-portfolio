@@ -1,0 +1,294 @@
+@use "./variables" as palette;
+/* =========================
+  MODERN CSS RESET 2025
+   ========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  background: linear-gradient(135deg, var(--persian-blue), var(--picton-blue));
+  color: var(--ebony-clay);
+  transition: background 0.4s var(--easing-smooth), color 0.3s var(--easing-smooth);
+}
+
+/* =========================
+  CUSTOM PROPERTIES: PALETTE ALICE MANDELLI
+   ========================= */
+:root {
+  /* Palette principale */
+  --bright-sun: #{palette.$bright-sun};
+  --ebony-clay: #{palette.$ebony-clay};
+  --persian-blue: #{palette.$persian-blue};
+  --picton-blue: #{palette.$picton-blue};
+  /* Varianti alpha per glassmorphism */
+  --bright-sun-alpha: #{palette.$bright-sun-alpha};
+  --ebony-clay-alpha: #{palette.$ebony-clay-alpha};
+  --persian-blue-alpha: #{palette.$persian-blue-alpha};
+  --picton-blue-alpha: #{palette.$picton-blue-alpha};
+  /* Responsive font-size system */
+  --font-size-base: clamp(1rem, 1.1vw + 0.9rem, 1.25rem);
+  --font-size-lg: clamp(1.25rem, 2vw + 1rem, 2.5rem);
+  --font-size-xl: clamp(2rem, 4vw + 1rem, 4rem);
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  --space-7: 4rem;
+  --space-8: 6rem;
+  /* Border-radius scale */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  /* Shadow system */
+  --shadow-xs: 0 1px 2px 0 rgba(32, 72, 180, 0.08);
+  --shadow-sm: 0 2px 8px 0 rgba(32, 72, 180, 0.10);
+  --shadow-md: 0 4px 16px 0 rgba(32, 72, 180, 0.12);
+  --shadow-lg: 0 8px 32px 0 rgba(32, 72, 180, 0.16);
+  --shadow-glass: 0 8px 32px rgba(31, 38, 135, 0.37);
+  /* Motion */
+  --duration-md: 350ms;
+  --duration-sm: 180ms;
+  --duration-slow: 1200ms;
+  --easing-bounce: cubic-bezier(.34, 1.56, .64, 1);
+  --easing-smooth: cubic-bezier(.4, 0, .2, 1);
+}
+
+/* =========================
+  TYPOGRAPHY OPTIMIZATION
+   ========================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: inherit;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--persian-blue);
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h2 {
+  font-size: calc(var(--font-size-lg) * 1.2);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+}
+
+p,
+li,
+span,
+a {
+  font-size: var(--font-size-base);
+  letter-spacing: 0.01em;
+}
+
+/* =========================
+  GLASSMORPHISM UTILITIES
+   ========================= */
+.glass-light {
+  background: var(--bright-sun-alpha);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: var(--shadow-glass);
+}
+
+.glass-medium {
+  background: var(--persian-blue-alpha);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow: var(--shadow-glass);
+}
+
+.glass-heavy {
+  background: var(--ebony-clay-alpha);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  box-shadow: var(--shadow-glass);
+}
+
+/* =========================
+  FOCUS & ACCESSIBILITY
+   ========================= */
+:focus-visible {
+  outline: 2px solid var(--bright-sun);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+  transition: outline 0.2s var(--easing-smooth);
+}
+
+.skip-links {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.skip-link {
+  background: var(--bright-sun);
+  color: var(--ebony-clay);
+  padding: 0.5rem 1rem;
+  position: absolute;
+  left: -999px;
+  top: 0;
+  transition: left 0.2s;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================
+  DARK MODE
+   ========================= */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--ebony-clay);
+    --text: #fff;
+    --accent: var(--bright-sun);
+    --bright-sun: #{palette.$bright-sun};
+    --ebony-clay: #{palette.$ebony-clay};
+    --persian-blue: #{palette.$persian-blue};
+    --picton-blue: #{palette.$picton-blue};
+  }
+
+  body {
+    background: var(--ebony-clay);
+    color: var(--bright-sun);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--bright-sun);
+    text-shadow: 0 0 10px var(--bright-sun);
+  }
+}
+
+/* =========================
+  RESPONSIVE BREAKPOINTS
+   ========================= */
+@media (max-width: 767px) {
+  html {
+    font-size: 15px;
+  }
+
+  body {
+    padding: var(--space-2);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    padding: var(--space-3);
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 17px;
+  }
+
+  body {
+    padding: var(--space-4);
+  }
+}
+
+@media (min-width: 1440px) {
+  html {
+    font-size: 18px;
+  }
+
+  body {
+    padding: var(--space-5);
+  }
+}
+
+/* =========================
+  UTILITY CLASSES
+   ========================= */
+.text-bright-sun {
+  color: var(--bright-sun);
+}
+
+.text-ebony-clay {
+  color: var(--ebony-clay);
+}
+
+.text-persian-blue {
+  color: var(--persian-blue);
+}
+
+.text-picton-blue {
+  color: var(--picton-blue);
+}
+
+.bg-bright-sun {
+  background: var(--bright-sun);
+}
+
+.bg-ebony-clay {
+  background: var(--ebony-clay);
+}
+
+.bg-persian-blue {
+  background: var(--persian-blue);
+}
+
+.bg-picton-blue {
+  background: var(--picton-blue);
+}
+
+.shadow-glass {
+  box-shadow: var(--shadow-glass);
+}
+
+/* =========================
+  TRANSITIONS
+   ========================= */
+* {
+  transition: background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
