@@ -6,6 +6,7 @@ alwaysApply: false
 # SEO & PWA Optimization – Best Practice 2025
 
 ## Principi
+
 - Meta tag SEO completi (title, description, og, twitter)
 - Structured data JSON-LD
 - Manifest PWA e service worker
@@ -16,23 +17,28 @@ alwaysApply: false
 ## Esempi chiave
 
 ### Meta Tag
+
 ```html
 <meta name="description" content="Portfolio Alice Mandelli – Web Designer UI 2025" />
 <meta property="og:title" content="Alice Mandelli – Web Designer" />
 ```
 
 ### Manifest
+
 Vedi [public/manifest.json](mdc:public/manifest.json)
 
 ### Service Worker
+
 Vedi [public/sw.js](mdc:public/sw.js)
 
 ### Sitemap
+
 ```xml
 <urlset><url><loc>https://alicemandelli.dev/</loc></url></urlset>
 ```
 
 ### robots.txt
+
 ```txt
 User-agent: *
 Allow: /
@@ -40,6 +46,7 @@ Sitemap: https://alicemandelli.dev/sitemap.xml
 ```
 
 ## Rimandi
+
 - [index.html](mdc:index.html)
 - [public/manifest.json](mdc:public/manifest.json)
 - [public/sw.js](mdc:public/sw.js)

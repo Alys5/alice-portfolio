@@ -26,12 +26,14 @@ $picton-blue: #48a9f8;    // Blu chiaro - per accenti e hover states
 ```
 
 ## Best Practice
+
 - Assicurarsi che il contrasto tra `$bright-sun` e `$ebony-clay` sia ≥ 4.5:1 per testi.
 - Usare `$persian-blue` per pulsanti primari e link visibili.
 - `$picton-blue` ideale per hover, badge, micro-interazioni.
 - Integrare queste variabili in [variables.scss](mdc:src/assets/styles/variables.scss) e [global.scss](mdc:src/assets/styles/global.scss).
 
 ## Rimandi
+
 - [variables.scss](mdc:src/assets/styles/variables.scss)
 - [global.scss](mdc:src/assets/styles/global.scss)
 - [accessibility-wcag.mdc](mdc:.cursor/rules/accessibility-wcag.mdc)

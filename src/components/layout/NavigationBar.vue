@@ -2,12 +2,16 @@
 import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { useTheme } from '@/composables/useTheme'
 import { useRoute } from 'vue-router'
+import { useTranslation } from '@/composables/useI18n'
+
+// i18n
+const { navigation, common, accessibility } = useTranslation()
 
 const links = [
-  { label: 'Home', to: '#home' },
-  { label: 'Portfolio', to: '#portfolio' },
-  { label: 'About', to: '#about' },
-  { label: 'Contatti', to: '#contact' },
+  { label: navigation.home(), to: '#home' },
+  { label: navigation.portfolio(), to: '#portfolio' },
+  { label: navigation.about(), to: '#about' },
+  { label: navigation.contact(), to: '#contact' },
 ]
 
 const isMobile = ref(false)
@@ -82,12 +86,12 @@ onUnmounted(() => {
   <nav
     class="nav-bar"
     ref="navRef"
-    :aria-label="'Navigazione principale'"
+    :aria-label="accessibility.mainNavigation()"
     :class="{ 'dark': isDark }"
   >
     <div class="nav-inner">
-      <div class="nav-logo" tabindex="0" aria-label="Logo Alice Mandelli">
-        <span class="logo-text">Alice Mandelli</span>
+      <div class="nav-logo" tabindex="0" :aria-label="accessibility.logoLabel()">
+        <span class="logo-text">{{ navigation.logo() }}</span>
       </div>
       <ul v-if="!isMobile" class="nav-links" role="menubar">
         <li v-for="link in links" :key="link.to" role="none">
@@ -105,7 +109,7 @@ onUnmounted(() => {
       </ul>
       <button
         class="theme-toggle"
-        :aria-label="isDark ? 'Attiva light mode' : 'Attiva dark mode'"
+        :aria-label="isDark ? common.theme.lightMode() : common.theme.darkMode()"
         @click="toggleTheme"
       >
         <span class="icon-moon" :class="{ rotate: isDark }" aria-hidden="true" />
@@ -114,7 +118,7 @@ onUnmounted(() => {
       <button
         v-if="isMobile"
         class="hamburger"
-        :aria-label="menuOpen ? 'Chiudi menu' : 'Apri menu'"
+        :aria-label="menuOpen ? accessibility.closeMenu() : accessibility.openMenu()"
         :aria-expanded="menuOpen"
         :aria-controls="'nav-drawer'"
         @click="menuOpen ? closeMenu() : openMenu()"

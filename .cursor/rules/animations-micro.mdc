@@ -11,6 +11,7 @@ globs:
 # Micro-Animazioni Accessibili 2025
 
 ## Principi
+
 - Durata ≤ 500ms, delay ≤ 200ms
 - Variante `prefers-reduced-motion: reduce` obbligatoria
 - Focus indicator ≥ 3:1 contrasto
@@ -19,6 +20,7 @@ globs:
 ## Esempi chiave
 
 ### Hover Magnetico
+
 ```css
 .button:hover {
   animation: hover-magnet 350ms var(--ease-out-expo) forwards;
@@ -29,6 +31,7 @@ globs:
 ```
 
 ### Ripple Effect
+
 ```css
 .ripple { animation: ripple 500ms ease-out; }
 @media (prefers-reduced-motion: reduce) {
@@ -37,6 +40,7 @@ globs:
 ```
 
 ### Fade-Up Scroll
+
 ```css
 .fade-up { opacity: 0; transform: translateY(2rem); }
 .fade-up.is-visible { opacity: 1; transform: none; }
@@ -46,11 +50,13 @@ globs:
 ```
 
 ## Composable suggerito
+
 Vedi [useIntersectionObserver.ts](mdc:src/composables/useIntersectionObserver.ts) per trigger animazioni scroll.
 
 ## Test WCAG 2.2+
+
 - Verifica con Axe-core che le animazioni non interferiscano con focus
 - Testa con screen reader (NVDA, VoiceOver) che le micro-animazioni non siano l'unico feedback
 - Utilizza `@media (prefers-reduced-motion: reduce)` per disattivare motion e verificare esperienze equivalenti
-- Testa con screen reader (NVDA, VoiceOver) che le micro-animazioni non siano l’unico feedback
+- Testa con screen reader (NVDA, VoiceOver) che le micro-animazioni non siano l'unico feedback
 - Utilizza `@media (prefers-reduced-motion: reduce)` per disattivare motion e verificare esperienze equivalenti

@@ -71,31 +71,31 @@ const handleClick = (event: MouseEvent) => {
   }
 
   &:focus-visible {
-    outline: 2px solid vars.$bright-sun;
+    outline: 2px solid var(--bright-sun);
     outline-offset: 2px;
   }
 
   &.accent-bright-sun {
     .card-accent {
-      background: vars.$bright-sun;
+      background: var(--bright-sun);
     }
   }
 
   &.accent-ebony-clay {
     .card-accent {
-      background: vars.$ebony-clay;
+      background: var(--ebony-clay);
     }
   }
 
   &.accent-persian-blue {
     .card-accent {
-      background: vars.$persian-blue;
+      background: var(--persian-blue);
     }
   }
 
   &.accent-picton-blue {
     .card-accent {
-      background: vars.$picton-blue;
+      background: var(--picton-blue);
     }
   }
 }

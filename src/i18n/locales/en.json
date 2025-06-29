@@ -1,0 +1,291 @@
+{
+  "common": {
+    "actions": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "close": "Close",
+      "open": "Open",
+      "loading": "Loading...",
+      "submit": "Submit",
+      "saveChanges": "Save Changes",
+      "exploreProjects": "Explore Projects",
+      "downloadCV": "Download CV",
+      "startProject": "Start project",
+      "viewAllProjects": "View all projects",
+      "exploreProject": "Explore project"
+    },
+    "labels": {
+      "name": "Name",
+      "fullName": "Full name",
+      "email": "Email",
+      "businessEmail": "Business email",
+      "phone": "Phone",
+      "company": "Company",
+      "budget": "Project budget",
+      "message": "Message",
+      "projectDescription": "Describe your project"
+    },
+    "messages": {
+      "loading": "Loading...",
+      "error": "An error occurred",
+      "success": "Operation completed successfully",
+      "noData": "No data available",
+      "retry": "Retry",
+      "thankYou": "Thank you! I'll reply within 24 hours.",
+      "errorSending": "Error sending. Please try again or contact me directly."
+    },
+    "navigation": {
+      "skipToContent": "Skip to main content",
+      "mainNavigation": "Main navigation",
+      "closeMenu": "Close menu",
+      "openMenu": "Open menu"
+    },
+    "theme": {
+      "darkMode": "Dark mode",
+      "lightMode": "Light mode",
+      "activateDarkMode": "Activate dark mode",
+      "activateLightMode": "Activate light mode"
+    },
+    "brand": {
+      "name": "Alice Mandelli",
+      "tagline": "UI Developer & Designer with AI specialization",
+      "loading": "Loading...",
+      "loadingPortfolio": "Loading Alice Mandelli portfolio"
+    },
+    "copyright": {
+      "text": "© 2025 Alice Mandelli. All rights reserved.",
+      "madeWith": "Made with ❤️, Vue.js and lots of ☕",
+      "rightsReserved": "All rights reserved"
+    }
+  },
+  "meta": {
+    "title": "Alice Mandelli - UI Developer & Designer with AI specialization",
+    "description": "UI Developer & Designer with over 10 years of experience. I create intuitive interfaces and innovative AI solutions for companies and startups. Portfolio featuring award-winning projects like SNAM Easy (Nielsen Norman Award 2021), Paragraph AI Journalist, and enterprise platforms.",
+    "keywords": "UI Developer, UI Designer, AI Strategy, User Experience, Frontend Developer, Vue.js, React, Interface Design, Nielsen Norman Award"
+  },
+  "pages": {
+    "home": {
+      "title": "Home",
+      "hero": {
+        "badge": "🏆 Nielsen Norman Award 2021 - SNAM Easy",
+        "title": "Alice Mandelli",
+        "typewriterPrefix": "Building interfaces for ",
+        "desc1": "UI Developer & Designer specialized in creating intuitive interfaces and innovative AI solutions.",
+        "desc2": "Over 10 years of experience with Vue.js, React and cutting-edge technologies for enterprise projects.",
+        "cta": "Explore Projects",
+        "ctaSecondary": "Download CV"
+      },
+      "about": {
+        "title": "About Me",
+        "subtitle": "UI Developer & Designer with 10+ years of experience in enterprise projects",
+        "description": "I'm Alice Mandelli, a UI Developer & Designer with a strong passion for creating interfaces that combine aesthetics, functionality, and AI innovation. I have worked on successful projects like SNAM Easy (Nielsen Norman Award winner), Paragraph AI Journalist, and CRM platforms for clients such as Poste Italiane, AXA, Banca Generali, and Marazzi Ceramiche."
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "subtitle": "Projects that made a difference in the enterprise world",
+        "description": "My most significant projects that have transformed the digital experience of companies and users."
+      },
+      "contact": {
+        "title": "Let's work together",
+        "subtitle": "Do you have an enterprise project or AI solution in mind?",
+        "description": "I'm always interested in new, challenging projects in the enterprise and AI world. Whether you need to develop a complex interface, improve an existing platform, or integrate AI solutions, I'm here to turn your ideas into successful digital realities."
+      }
+    },
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "experience": "Experience",
+      "contact": "Contact",
+      "logo": "Alice Mandelli",
+      "logoLabel": "Alice Mandelli Logo"
+    },
+    "footer": {
+      "bio": "Portfolio of Alice Mandelli – UI Developer & Designer specialized in enterprise solutions and innovative AI interfaces, winner of Nielsen Norman Award 2021.",
+      "social": {
+        "title": "Social",
+        "visit": "Visit {platform}",
+        "linkedin": "LinkedIn",
+        "email": "Email",
+        "website": "Website",
+        "dribbble": "Dribbble",
+        "behance": "Behance"
+      },
+      "contact": {
+        "title": "Contact",
+        "email": "info@alys5.eu",
+        "phone": "(+39) 379 2692134",
+        "location": "Rome, Italy",
+        "availability": "Available for enterprise projects"
+      },
+      "links": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service"
+      }
+    }
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "UI/UX and AI solutions to transform your digital presence",
+    "uiDevelopment": {
+      "title": "UI Development & Design",
+      "description": "Development and design of modern interfaces using Vue.js, React and Angular. Specialized in responsive design and mobile device optimization.",
+      "price": "Starting from €3,200"
+    },
+    "aiSolutions": {
+      "title": "AI Interface Solutions",
+      "description": "Interface design for AI applications and automation. Experience with digital workflows and process optimization.",
+      "price": "Starting from €4,500"
+    },
+    "consulting": {
+      "title": "Enterprise Consulting",
+      "description": "Strategic consulting for enterprise projects: intranet, CRM, and multi-service platforms.",
+      "price": "Starting from €2,800"
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "frontend": {
+      "title": "Frontend Development",
+      "items": [
+        "Vue.js 2.x/3.x",
+        "React & React Bootstrap",
+        "Angular 8",
+        "HTML5/CSS3/SCSS",
+        "JavaScript/TypeScript",
+        "Vuetify & UI Libraries"
+      ]
+    },
+    "design": {
+      "title": "Design & UX",
+      "items": [
+        "Design Thinking",
+        "Responsive Design",
+        "Mobile UI (iPad/Safari)",
+        "Design Systems",
+        "User Research",
+        "Prototyping"
+      ]
+    },
+    "enterprise": {
+      "title": "Enterprise & AI",
+      "items": [
+        "Salesforce (Apex/Lightning)",
+        "SharePoint & Microsoft 365",
+        "AI Interface Design",
+        "Data Visualization (Tableau)",
+        "Docker & DevOps",
+        "Enterprise Integration"
+      ]
+    }
+  },
+  "blog": {
+    "title": "Blog & Insights",
+    "subtitle": "Sharing knowledge and trends in the UI/UX and AI world",
+    "readMore": "Read more",
+    "cta": {
+      "title": "Stay updated",
+      "description": "Subscribe to the newsletter to receive exclusive insights on UI/UX, AI and design trends.",
+      "viewAll": "View all articles",
+      "newsletter": "Subscribe to newsletter"
+    }
+  },
+  "leadMagnet": {
+    "title": "Get the Free Guide",
+    "subtitle": "Download the complete guide 'UI/UX Trends 2025: How to create converting interfaces'",
+    "benefits": {
+      "benefit1": "Most innovative UI/UX trends of 2025",
+      "benefit2": "Strategies to increase conversions by 40%",
+      "benefit3": "Case studies of successful enterprise projects",
+      "benefit4": "Checklist to optimize WCAG 2.2 accessibility"
+    },
+    "testimonial": "Alice's guide helped me implement UI solutions that increased our e-commerce conversions by 35%",
+    "author": "Marco Rossi",
+    "authorRole": "Product Manager, TechCorp",
+    "form": {
+      "title": "Download Free Guide",
+      "subtitle": "Get the complete guide via email now",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Your name",
+      "email": "Business email",
+      "emailPlaceholder": "your-email@company.com",
+      "interests": "Interests (select up to 3)",
+      "privacy": "I agree to receive exclusive content and updates. I can unsubscribe at any time.",
+      "privacyLink": "Privacy Policy",
+      "submit": "Download Free Guide",
+      "submitting": "Sending..."
+    },
+    "trust": {
+      "privacy": "Your data is protected",
+      "noSpam": "No spam, only valuable content",
+      "unsubscribe": "Unsubscribe always possible"
+    }
+  },
+  "forms": {
+    "validation": {
+      "required": "Required field",
+      "email": "Please enter a valid email",
+      "minLength": "Minimum {count} characters",
+      "maxLength": "Maximum {count} characters",
+      "phone": "Please enter a valid phone number",
+      "privacy": "You must accept the privacy policy"
+    },
+    "contact": {
+      "title": "Contact Me",
+      "subtitle": "Have a project in mind? Let's talk!",
+      "name": "Full Name",
+      "namePlaceholder": "Your full name",
+      "email": "Business Email",
+      "emailPlaceholder": "your-email@company.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company name (optional)",
+      "companyHelp": "Useful for customizing the proposal",
+      "budget": "Project Budget",
+      "budgetPlaceholder": "Select budget",
+      "budgetSmall": "€1,000 - €5,000",
+      "budgetMedium": "€5,000 - €15,000",
+      "budgetLarge": "€15,000 - €50,000",
+      "budgetEnterprise": "€50,000+",
+      "message": "Describe your project",
+      "messagePlaceholder": "Tell me about your project, goals and requirements...",
+      "privacy": "I accept the",
+      "privacyLink": "Privacy Policy",
+      "send": "Send Request",
+      "sending": "Sending...",
+      "success": "Thank you! I'll get back to you within 24 hours.",
+      "error": "Error sending. Please try again or contact me directly."
+    }
+  },
+  "animations": {
+    "demo": {
+      "title": "Fluid Animations 2025",
+      "subtitle": "Micro-interactions and animations optimized for performance and accessibility",
+      "fluidFade": "Fluid Fade",
+      "morphingHover": "Morphing Hover",
+      "magneticHover": "Magnetic Hover",
+      "rippleEffect": "Ripple Effect",
+      "liquidLoading": "Liquid Loading",
+      "kineticText": "Kinetic Text",
+      "gradientShift": "Gradient Shift",
+      "floatingElements": "Floating Elements",
+      "performance": "Performance Monitoring",
+      "fps": "FPS",
+      "frameTime": "Frame Time"
+    }
+  },
+  "accessibility": {
+    "skipToContent": "Skip to main content",
+    "mainNavigation": "Main navigation",
+    "closeMenu": "Close menu",
+    "openMenu": "Open menu",
+    "loading": "Loading",
+    "loadingContent": "Loading content, please wait.",
+    "error": "An error occurred",
+    "success": "Operation completed successfully",
+    "visit": "Visit {platform}",
+    "logo": "Alice Mandelli",
+    "logoLabel": "Alice Mandelli Logo"
+  }
+}

@@ -1,103 +1,203 @@
+@use "sass:color";
+@use "sass:map";
+
 // =========================
-// ALICE MANDELLI PALETTE - MODULE SYSTEM
+// ALICE MANDELLI PALETTE 2025 - PROFESSIONAL UPGRADE
 // =========================
 
-// Palette principale con !default per configurabilità
+// Palette principale con varianti professionali
 $bright-sun: #ffc940 !default;
 $ebony-clay: #29353f !default;
 $persian-blue: #2048b4 !default;
 $picton-blue: #48a9f8 !default;
 
-// Alpha versions (per glassmorphism)
-$bright-sun-alpha: rgba(255, 201, 64, 0.18) !default;
-$ebony-clay-alpha: rgba(41, 53, 63, 0.18) !default;
-$persian-blue-alpha: rgba(32, 72, 180, 0.18) !default;
-$picton-blue-alpha: rgba(72, 169, 248, 0.18) !default;
+// Palette estesa per uso professionale
+$charcoal: #1a1d23 !default;
+$slate-gray: #64748b !default;
+$emerald: #10b981 !default;
+$crimson: #ef4444 !default;
 
-// HSL values (per manipolazione programmatica)
-$bright-sun-hsl: 44, 100%, 63% !default;
-$ebony-clay-hsl: 210, 19%, 19% !default;
-$persian-blue-hsl: 222, 71%, 41% !default;
-$picton-blue-hsl: 205, 92%, 61% !default;
+// Alpha versions per glassmorphism avanzato
+$bright-sun-alpha: rgba(255, 201, 64, 0.12) !default;
+$ebony-clay-alpha: rgba(41, 53, 63, 0.15) !default;
+$persian-blue-alpha: rgba(32, 72, 180, 0.08) !default;
+$picton-blue-alpha: rgba(72, 169, 248, 0.10) !default;
 
-// Palette variants (darker/lighter)
-$palette-variants: (
-  'bright-sun': (
-    '10': #ffd96a,
-    '20': #ffe28c,
-    '30': #fff0c2,
-    'dark-10': #e6b800,
-    'dark-20': #b38f00,
-    'dark-30': #806600
+// Varianti di colore per gradients e effetti
+$bright-sun-light: rgba(255, 201, 64, 0.8) !default;
+$bright-sun-lighter: rgba(255, 201, 64, 0.6) !default;
+$bright-sun-dark: rgba(255, 201, 64, 0.9) !default;
+$persian-blue-light: rgba(32, 72, 180, 0.8) !default;
+$persian-blue-lighter: rgba(32, 72, 180, 0.6) !default;
+$picton-blue-light: rgba(72, 169, 248, 0.8) !default;
+$picton-blue-lighter: rgba(72, 169, 248, 0.6) !default;
+
+// Glassmorphism layers
+$glass-ultra-light: rgba(255, 255, 255, 0.05) !default;
+$glass-light: rgba(255, 255, 255, 0.08) !default;
+$glass-medium: rgba(255, 255, 255, 0.12) !default;
+$glass-heavy: rgba(255, 255, 255, 0.18) !default;
+
+// =========================
+// NEUMORPHISM SYSTEM 2025
+// =========================
+
+// Neumorphic shadows per effetti 3D
+$neumorphic-shadows: (
+  'light': (
+    'raised': (
+      8px 8px 16px rgba(0, 0, 0, 0.15),
+      -8px -8px 16px rgba(255, 255, 255, 0.08)
+    ),
+    'pressed': (
+      inset 4px 4px 8px rgba(0, 0, 0, 0.2),
+      inset -4px -4px 8px rgba(255, 255, 255, 0.05)
+    ),
+    'hover': (
+      12px 12px 24px rgba(0, 0, 0, 0.2),
+      -12px -12px 24px rgba(255, 255, 255, 0.12)
+    )
   ),
-  'ebony-clay': (
-    '10': #3a4752,
-    '20': #4b5965,
-    '30': #5c6b78,
-    'dark-10': #1a232a,
-    'dark-20': #10161b,
-    'dark-30': #080b0e
+  'medium': (
+    'raised': (
+      12px 12px 24px rgba(0, 0, 0, 0.25),
+      -12px -12px 24px rgba(255, 255, 255, 0.1)
+    ),
+    'pressed': (
+      inset 6px 6px 12px rgba(0, 0, 0, 0.3),
+      inset -6px -6px 12px rgba(255, 255, 255, 0.08)
+    ),
+    'hover': (
+      16px 16px 32px rgba(0, 0, 0, 0.3),
+      -16px -16px 32px rgba(255, 255, 255, 0.15)
+    )
   ),
-  'persian-blue': (
-    '10': #3a5fd1,
-    '20': #5a7ee0,
-    '30': #7a9def,
-    'dark-10': #1a357a,
-    'dark-20': #12245a,
-    'dark-30': #0a123a
-  ),
-  'picton-blue': (
-    '10': #6bb7fa,
-    '20': #8cc7fb,
-    '30': #add7fc,
-    'dark-10': #2a7bb3,
-    'dark-20': #205c80,
-    'dark-30': #143d4d
+  'heavy': (
+    'raised': (
+      16px 16px 32px rgba(0, 0, 0, 0.35),
+      -16px -16px 32px rgba(255, 255, 255, 0.12)
+    ),
+    'pressed': (
+      inset 8px 8px 16px rgba(0, 0, 0, 0.4),
+      inset -8px -8px 16px rgba(255, 255, 255, 0.1)
+    ),
+    'hover': (
+      20px 20px 40px rgba(0, 0, 0, 0.4),
+      -20px -20px 40px rgba(255, 255, 255, 0.18)
+    )
   )
 ) !default;
 
-// Gradient combinations
-$gradients: (
-  'hero': linear-gradient(135deg, $persian-blue, $picton-blue),
-  'cta': linear-gradient(90deg, $bright-sun, $persian-blue),
-  'glass': linear-gradient(120deg, $bright-sun-alpha, $persian-blue-alpha)
+// Neumorphic border radius
+$neumorphic-radius: (
+  'small': 8px,
+  'medium': 16px,
+  'large': 24px,
+  'xl': 32px,
+  'round': 50px
 ) !default;
 
-// =========================
-// SPACING SYSTEM
-// =========================
+// Neumorphic backgrounds per diversi stati
+$neumorphic-bg: (
+  'primary': $ebony-clay,
+  'secondary': $charcoal,
+  'accent': $persian-blue,
+  'success': $emerald,
+  'warning': $bright-sun,
+  'error': $crimson
+) !default;
+
+// Professional gradients
+$gradients: (
+  'hero-pro': linear-gradient(135deg, $charcoal 0%, $ebony-clay 50%, $persian-blue 100%),
+  'glass-subtle': linear-gradient(120deg, $glass-ultra-light, $glass-light),
+  'accent-glow': linear-gradient(90deg, $bright-sun, $emerald),
+  'cta-professional': linear-gradient(135deg, $persian-blue, $picton-blue),
+  'neumorphic-primary': linear-gradient(145deg, color.adjust($ebony-clay, $lightness: 3%), color.adjust($ebony-clay, $lightness: -3%)),
+  'neumorphic-accent': linear-gradient(145deg, color.adjust($persian-blue, $lightness: 5%), color.adjust($persian-blue, $lightness: -5%))
+) !default;
+
+// Typography scale professionale
+$font-sizes: (
+  'xs': clamp(0.75rem, 1.5vw, 0.875rem),
+  'sm': clamp(0.875rem, 2vw, 1rem),
+  'base': clamp(1rem, 2.5vw, 1.125rem),
+  'lg': clamp(1.125rem, 3vw, 1.375rem),
+  'xl': clamp(1.375rem, 3.5vw, 1.75rem),
+  '2xl': clamp(1.75rem, 4vw, 2.25rem),
+  '3xl': clamp(2.25rem, 5vw, 3rem),
+  'hero': clamp(3rem, 8vw, 5rem),
+  'display': clamp(4rem, 10vw, 8rem)
+) !default;
+
+// Spacing system Bento-grid compatible
 $spacing: (
   '0': 0,
   '1': 0.25rem,
   '2': 0.5rem,
+  '3': 0.75rem,
   '4': 1rem,
   '6': 1.5rem,
   '8': 2rem,
+  '10': 2.5rem,
   '12': 3rem,
   '16': 4rem,
-  '24': 6rem
+  '20': 5rem,
+  '24': 6rem,
+  '32': 8rem
+) !default;
+
+// Bento grid system
+$bento-gaps: (
+  'sm': 0.75rem,
+  'md': 1rem,
+  'lg': 1.5rem,
+  'xl': 2rem
+) !default;
+
+// Professional shadows
+$shadows: (
+  'xs': 0 1px 2px 0 rgba(0, 0, 0, 0.05),
+  'sm': 0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  'md': 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  'lg': 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  'xl': 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+  'glass-professional': 0 8px 32px rgba(31, 38, 135, 0.25),
+  'glow': 0 0 20px rgba(255, 201, 64, 0.3)
+) !default;
+
+// Responsive breakpoints
+$breakpoints: (
+  'xs': 480px,
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+  'xxl': 1536px
+) !default;
+
+// Professional border radius
+$border-radius: (
+  'none': 0,
+  'sm': 0.25rem,
+  'md': 0.375rem,
+  'lg': 0.5rem,
+  'xl': 0.75rem,
+  '2xl': 1rem,
+  '3xl': 1.5rem,
+  'full': 9999px
 ) !default;
 
 // =========================
-// TYPOGRAPHY SCALE
+// TYPOGRAPHY SYSTEM
 // =========================
-$font-sizes: (
-  'xs': clamp(0.75rem, 2vw, 0.875rem),
-  'sm': clamp(0.875rem, 2.5vw, 1rem),
-  'base': clamp(1rem, 3vw, 1.125rem),
-  'lg': clamp(1.125rem, 3.5vw, 1.25rem),
-  'xl': clamp(1.25rem, 4vw, 1.5rem),
-  '2xl': clamp(1.5rem, 5vw, 2rem),
-  '3xl': clamp(2rem, 6vw, 3rem),
-  'hero': clamp(3rem, 8vw, 8rem)
-) !default;
-
 $font-weights: (
   'regular': 400,
   'medium': 500,
   'semibold': 600,
   'bold': 700,
-  'extrabold': 800
+  'extrabold': 800,
+  'black': 900
 ) !default;
 
 $line-heights: (
@@ -125,32 +225,13 @@ $glass-blur: (
 ) !default;
 
 // =========================
-// SHADOWS
-// =========================
-$shadows: (
-  'sm': 0 2px 8px rgba(0,0,0,0.1),
-  'md': 0 4px 16px rgba(0,0,0,0.15),
-  'lg': 0 8px 32px rgba(0,0,0,0.2),
-  'glass': 0 8px 32px rgba(31,38,135,0.37)
-) !default;
-
-// =========================
-// RESPONSIVE BREAKPOINTS
-// =========================
-$breakpoints: (
-  'mobile': 480px,
-  'tablet': 768px,
-  'desktop': 1024px,
-  'wide': 1440px
-) !default;
-
-// =========================
 // ANIMATIONS & EASINGS
 // =========================
 $easings: (
   'ease-in-out': cubic-bezier(0.4, 0, 0.2, 1),
   'ease-out': cubic-bezier(0, 0, 0.2, 1),
-  'bounce': cubic-bezier(0.68, -0.55, 0.265, 1.55)
+  'bounce': cubic-bezier(0.68, -0.55, 0.265, 1.55),
+  'smooth': cubic-bezier(0.16, 1, 0.3, 1)
 ) !default;
 
 $durations: (
@@ -160,11 +241,54 @@ $durations: (
 ) !default;
 
 // =========================
+// NEUMORPHIC MIXINS
+// =========================
+@mixin neumorphic-style($bg-color: var(--ebony-clay), $intensity: 'medium', $state: 'raised') {
+  background: $bg-color;
+  border-radius: map.get($neumorphic-radius, 'medium');
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all var(--duration-normal) var(--easing-standard);
+
+  @if $state == 'raised' {
+    box-shadow: map.get(map.get($neumorphic-shadows, $intensity), 'raised');
+  } @else if $state == 'pressed' {
+    box-shadow: map.get(map.get($neumorphic-shadows, $intensity), 'pressed');
+  } @else if $state == 'hover' {
+    box-shadow: map.get(map.get($neumorphic-shadows, $intensity), 'hover');
+  }
+}
+
+@mixin neumorphic-hover($intensity: 'medium') {
+  &:hover {
+    @include neumorphic-style(var(--ebony-clay), $intensity, 'hover');
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    @include neumorphic-style(var(--ebony-clay), $intensity, 'pressed');
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+@mixin neumorphic-gradient($gradient-type: 'primary') {
+  background: map.get($gradients, $gradient-type);
+  border: none;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    filter: brightness(0.95);
+  }
+}
+
+// =========================
 // UTILITY FUNCTIONS
 // =========================
 @function color($name, $variant: null) {
-  @if map-has-key($palette-variants, $name) and $variant != null {
-    @return map-get(map-get($palette-variants, $name), $variant);
+  @if map.has-key($palette-variants, $name) and $variant != null {
+    @return map.get(map.get($palette-variants, $name), $variant);
   }
   @else if global-variable-exists($name) {
     @return global-variable-get($name);
@@ -175,24 +299,166 @@ $durations: (
   }
 }
 
+@function gradient($name) {
+  @if map.has-key($gradients, $name) {
+    @return map.get($gradients, $name);
+  }
+  @else {
+    @warn 'Gradiente non trovato: #{$name}';
+    @return null;
+  }
+}
+
+@function spacing($size) {
+  @if map.has-key($spacing, $size) {
+    @return map.get($spacing, $size);
+  }
+  @else {
+    @warn 'Spacing non trovato: #{$size}';
+    @return null;
+  }
+}
+
+@function font-size($size) {
+  @if map.has-key($font-sizes, $size) {
+    @return map.get($font-sizes, $size);
+  }
+  @else {
+    @warn 'Font size non trovato: #{$size}';
+    @return null;
+  }
+}
+
+@function shadow($type) {
+  @if map.has-key($shadows, $type) {
+    @return map.get($shadows, $type);
+  }
+  @else {
+    @warn 'Shadow non trovata: #{$type}';
+    @return null;
+  }
+}
+
+@function radius($size) {
+  @if map.has-key($border-radius, $size) {
+    @return map.get($border-radius, $size);
+  }
+  @else {
+    @warn 'Border radius non trovato: #{$size}';
+    @return null;
+  }
+}
+
+@function neumorphic-shadow($intensity: 'medium', $state: 'raised') {
+  @if map.has-key($neumorphic-shadows, $intensity) {
+    $intensity-map: map.get($neumorphic-shadows, $intensity);
+    @if map.has-key($intensity-map, $state) {
+      @return map.get($intensity-map, $state);
+    }
+  }
+  @return none;
+}
+
 // =========================
 // EXPORT: CSS CUSTOM PROPERTIES
 // =========================
 :root {
+  // Brand Colors
   --bright-sun: #{$bright-sun};
   --ebony-clay: #{$ebony-clay};
   --persian-blue: #{$persian-blue};
   --picton-blue: #{$picton-blue};
+
+  // Extended Palette
+  --charcoal: #{$charcoal};
+  --slate-gray: #{$slate-gray};
+  --emerald: #{$emerald};
+  --crimson: #{$crimson};
+
+  // Alpha Versions
   --bright-sun-alpha: #{$bright-sun-alpha};
   --ebony-clay-alpha: #{$ebony-clay-alpha};
   --persian-blue-alpha: #{$persian-blue-alpha};
   --picton-blue-alpha: #{$picton-blue-alpha};
+
+  // Glassmorphism
+  --glass-ultra-light: #{$glass-ultra-light};
+  --glass-light: #{$glass-light};
+  --glass-medium: #{$glass-medium};
+  --glass-heavy: #{$glass-heavy};
+
+  // Neumorphic Shadows
+  --neumorphic-light-raised: #{neumorphic-shadow('light', 'raised')};
+  --neumorphic-light-pressed: #{neumorphic-shadow('light', 'pressed')};
+  --neumorphic-light-hover: #{neumorphic-shadow('light', 'hover')};
+  --neumorphic-medium-raised: #{neumorphic-shadow('medium', 'raised')};
+  --neumorphic-medium-pressed: #{neumorphic-shadow('medium', 'pressed')};
+  --neumorphic-medium-hover: #{neumorphic-shadow('medium', 'hover')};
+  --neumorphic-heavy-raised: #{neumorphic-shadow('heavy', 'raised')};
+  --neumorphic-heavy-pressed: #{neumorphic-shadow('heavy', 'pressed')};
+  --neumorphic-heavy-hover: #{neumorphic-shadow('heavy', 'hover')};
+
+  // Neumorphic Radius
+  --radius-neumorphic-small: #{map.get($neumorphic-radius, 'small')};
+  --radius-neumorphic-medium: #{map.get($neumorphic-radius, 'medium')};
+  --radius-neumorphic-large: #{map.get($neumorphic-radius, 'large')};
+  --radius-neumorphic-xl: #{map.get($neumorphic-radius, 'xl')};
+  --radius-neumorphic-round: #{map.get($neumorphic-radius, 'round')};
+
+  // Typography
+  --font-family-sans: #{$font-family-sans};
+  --font-family-mono: #{$font-family-mono};
+
+  // Spacing
+  --spacing-xs: #{spacing('2')};
+  --spacing-sm: #{spacing('4')};
+  --spacing-md: #{spacing('8')};
+  --spacing-lg: #{spacing('12')};
+  --spacing-xl: #{spacing('16')};
+
+  // Border Radius
+  --radius-sm: #{radius('sm')};
+  --radius-md: #{radius('md')};
+  --radius-lg: #{radius('lg')};
+  --radius-xl: #{radius('xl')};
+
+  // Shadows
+  --shadow-sm: #{shadow('sm')};
+  --shadow-md: #{shadow('md')};
+  --shadow-lg: #{shadow('lg')};
+  --shadow-glass: #{shadow('glass-professional')};
+  --shadow-glow: #{shadow('glow')};
+
+  // Transitions
+  --transition-fast: #{map.get($durations, 'fast')} #{map.get($easings, 'smooth')};
+  --transition-normal: #{map.get($durations, 'normal')} #{map.get($easings, 'smooth')};
+  --transition-slow: #{map.get($durations, 'slow')} #{map.get($easings, 'smooth')};
 }
 
+// Dark Mode Support
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: var(--ebony-clay);
+    --background: var(--charcoal);
     --text: #fff;
     --accent: var(--bright-sun);
+    --surface: var(--ebony-clay);
+  }
+}
+
+// High Contrast Mode
+@media (prefers-contrast: high) {
+  :root {
+    --bright-sun: #ffd700;
+    --persian-blue: #0066cc;
+    --picton-blue: #0099ff;
+  }
+}
+
+// Reduced Motion Support
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0.01ms;
+    --transition-normal: 0.01ms;
+    --transition-slow: 0.01ms;
   }
 }

@@ -10,6 +10,7 @@ Implementa i pattern Vue 3 più moderni per il 2025, includendo composables scal
 ## Composables Architecture
 
 ### Async Data Fetching Pattern
+
 ```typescript
 // useFetch.ts - Pattern Vue 3 2025
 import { ref, watchEffect, toValue, type Ref } from 'vue'
@@ -58,6 +59,7 @@ export function useFetch<T>(url: string | Ref<string>) {
 ```
 
 ### Performance Monitoring Composable
+
 ```typescript
 // usePerformance.ts - Core Web Vitals tracking
 import { ref, onMounted, onUnmounted } from 'vue'
@@ -119,6 +121,7 @@ export function usePerformance() {
 ```
 
 ### Scroll Management Composable
+
 ```typescript
 // useScroll.ts - Advanced scroll handling
 import { ref, computed, onMounted, onUnmounted } from 'vue'
@@ -172,6 +175,7 @@ export function useScroll() {
 ```
 
 ### Intersection Observer Composable
+
 ```typescript
 // useIntersectionObserver.ts - Modern intersection handling
 import { ref, onMounted, onUnmounted, type Ref } from 'vue'
@@ -216,6 +220,7 @@ export function useIntersectionObserver(
 ## Modern Component Patterns
 
 ### Suspense with Error Boundaries
+
 ```vue
 <!-- App.vue - Modern error handling -->
 <template>
@@ -273,6 +278,7 @@ watchEffect(() => {
 ```
 
 ### Advanced Form Composable
+
 ```typescript
 // useForm.ts - Modern form handling with validation
 import { ref, reactive, computed } from 'vue'
@@ -357,6 +363,7 @@ export function useForm<T extends Record<string, any>>(initialValues: T) {
 ## Best Practices
 
 ### Component Contract Definition
+
 Sempre definire props ed emits in modo stretto:
 
 ```typescript
@@ -375,12 +382,14 @@ const emit = defineEmits<{
 ```
 
 ### Performance Optimization Patterns
+
 - Utilizza `shallowRef` per oggetti grandi che non necessitano di reattività profonda
 - Implementa `markRaw` per oggetti che non devono mai essere reattivi
 - Usa `nextTick` per ottimizzare aggiornamenti DOM
 - Implementa lazy loading per componenti pesanti
 
 ### Error Handling Pattern
+
 ```typescript
 // Global error handler
 app.config.errorHandler = (err, instance, info) => {
@@ -401,6 +410,7 @@ app.config.errorHandler = (err, instance, info) => {
 # Vue 3 Modern Patterns – Best Practice 2025
 
 ## Principi
+
 - Composables modulari (async fetch, performance, scroll, intersection)
 - Suspense + ErrorBoundary per fallback UX
 - Contract props/emits tipizzati
@@ -410,21 +420,25 @@ app.config.errorHandler = (err, instance, info) => {
 ## Esempi chiave
 
 ### Composable async fetch
+
 ```ts
 export function useFetch<T>(url: string) { /* ... */ }
 ```
 
 ### Suspense + ErrorBoundary
+
 ```vue
 <Suspense><template #default>...</template><template #fallback>Loading...</template></Suspense>
 ```
 
 ### Contract props/emits
+
 ```ts
 const props = defineProps<{ modelValue: string }>()
 const emit = defineEmits<{ 'update:modelValue': [string] }>()
 ```
 
 ## Rimandi
+
 - [usePerformanceOptimization.ts](mdc:src/composables/usePerformanceOptimization.ts)
 - [App.vue](mdc:src/App.vue)

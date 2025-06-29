@@ -51,7 +51,7 @@ onUnmounted(() => {
   &.hover {
     .cursor-dot {
       transform: scale(2);
-      background: vars.$bright-sun;
+      background: var(--bright-sun);
     }
 
     .cursor-ring {
@@ -74,7 +74,7 @@ onUnmounted(() => {
   &.magnetic {
     .cursor-dot {
       transform: scale(1.5);
-      background: vars.$picton-blue;
+      background: var(--picton-blue);
     }
   }
 }

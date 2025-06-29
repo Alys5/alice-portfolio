@@ -211,8 +211,8 @@ const handleMouseLeave = () => {
 
   // Variants
   &.variant-primary {
-    background: linear-gradient(135deg, vars.$bright-sun, vars.$persian-blue);
-    color: vars.$ebony-clay;
+    background: linear-gradient(135deg, var(--bright-sun), var(--persian-blue));
+    color: var(--ebony-clay);
     box-shadow: 0 4px 15px rgba(255, 201, 64, 0.3);
     &:hover:not(.is-disabled):not(.is-loading) {
       box-shadow: 0 8px 25px rgba(255, 201, 64, 0.4);
@@ -230,18 +230,18 @@ const handleMouseLeave = () => {
   }
   &.variant-ghost {
     background: transparent;
-    color: vars.$bright-sun;
+    color: var(--bright-sun);
     &:hover:not(.is-disabled):not(.is-loading) {
       background: rgba(255, 201, 64, 0.1);
     }
   }
   &.variant-outline {
     background: transparent;
-    color: vars.$bright-sun;
-    border: 2px solid vars.$bright-sun;
+    color: var(--bright-sun);
+    border: 2px solid var(--bright-sun);
     &:hover:not(.is-disabled):not(.is-loading) {
-      background: vars.$bright-sun;
-      color: vars.$ebony-clay;
+      background: var(--bright-sun);
+      color: var(--ebony-clay);
     }
   }
 
@@ -252,9 +252,9 @@ const handleMouseLeave = () => {
 
   // Focus
   &.focused {
-    outline: 2px solid vars.$bright-sun;
+    outline: 2px solid var(--bright-sun);
     outline-offset: 2px;
-    box-shadow: 0 0 0 4px vars.$bright-sun-alpha;
+    box-shadow: 0 0 0 4px var(--bright-sun)-alpha;
     filter: blur(0.5px);
   }
 
@@ -322,7 +322,7 @@ const handleMouseLeave = () => {
   pointer-events: none;
   z-index: 10;
   border-radius: 50%;
-  background: vars.$bright-sun;
+  background: var(--bright-sun);
   opacity: 0.25;
   animation: ripple 0.5s cubic-bezier(0.4,0,0.2,1) both;
 }

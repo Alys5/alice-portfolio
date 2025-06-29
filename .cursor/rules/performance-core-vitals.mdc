@@ -8,9 +8,12 @@ description: Regole per ottimizzazione performance e Core Web Vitals con focus s
 globs:
   - "**/*.vue"
   - "**/*.js"
+---
+
 # Performance & Core Web Vitals – Best Practice 2025
 
 ## Principi
+
 - LCP < 2.5s, CLS < 0.1, INP < 200ms
 - Preload risorse critiche, fetchpriority="high"
 - Lazy loading immagini/componenti via IntersectionObserver
@@ -21,39 +24,41 @@ globs:
 ## Esempi chiave
 
 ### LCP
+
 ```html
 <img src="/images/hero.webp" fetchpriority="high" loading="eager" width="1200" height="600" />
 ```
 
 ### CLS
+
 ```css
 .responsive-image { width: 100%; aspect-ratio: 16/9; }
 .skeleton-loading { animation: skeleton-shimmer 2s infinite; }
 ```
 
 ### INP
+
 ```js
 const debounced = (fn, d=16) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), d); } }
 ```
 
 ### Lazy Loading
+
 ```vue
 <img v-lazy="src" alt="..." />
 ```
 
 ### Code Splitting
+
 ```js
 const Page = defineAsyncComponent(() => import('./Page.vue'))
 ```
 
 ### PWA
+
 - Vedi [public/manifest.json](mdc:public/manifest.json) e [public/sw.js](mdc:public/sw.js)
 
 ## Rimandi
+
 - [usePerformanceOptimization.ts](mdc:src/composables/usePerformanceOptimization.ts)
 - [vite.config.ts](mdc:vite.config.ts)
-
-    })
-  ]
-})
-```

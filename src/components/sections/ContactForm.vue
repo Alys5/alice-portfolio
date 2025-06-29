@@ -101,7 +101,7 @@ const validateField = (field: ContactField, value: string): string[] => {
 
   // Phone validation
   if (field.type === 'tel' && value) {
-    const phonePattern = /^[\+]?[0-9\s\-\(\)]{8,}$/
+    const phonePattern = /^[+]?[0-9\s\-\(\)]{8,}$/
     if (!phonePattern.test(value)) {
       errors.push('Inserisci un numero di telefono valido')
     }

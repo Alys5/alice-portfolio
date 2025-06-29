@@ -6,6 +6,7 @@ alwaysApply: false
 # CSS Variables System 2025
 
 ## Principi
+
 - Palette estesa (HSL, P3)
 - Adaptive theme: dark, high contrast, low light
 - Uso di `@property` per custom properties animate
@@ -15,6 +16,7 @@ alwaysApply: false
 ## Esempi chiave
 
 ### Palette P3
+
 ```css
 /* File: variables.css */
 :root {
@@ -61,6 +63,7 @@ alwaysApply: false
 ```
 
 ### Adaptive Theme
+
 ```css
 @media (prefers-color-scheme: dark) {
   :root {
@@ -78,6 +81,7 @@ alwaysApply: false
 ```
 
 ### @property
+
 ```css
 /* Definizione di --radius per contenerne i valori */
 @property --radius {
@@ -94,6 +98,7 @@ alwaysApply: false
 ```
 
 ### Utility Layer
+
 ```css
 @layer utilities {
   .text-primary {
@@ -109,5 +114,6 @@ alwaysApply: false
 ```
 
 ## Rimandi
+
 - [variables.scss](mdc:src/assets/styles/variables.scss)
 - [global.scss](mdc:src/assets/styles/global.scss)

@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useTranslation } from '@/composables/useI18n'
+
+// i18n
+const { footer, common, accessibility } = useTranslation()
 
 const currentYear = ref(new Date().getFullYear())
 
 const socialLinks = [
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/alicemandelli', icon: '🔗' },
-  { name: 'Instagram', url: 'https://instagram.com/alice.mandelli', icon: '📸' },
-  { name: 'GitHub', url: 'https://github.com/alicemandelli', icon: '💻' },
-  { name: 'Behance', url: 'https://behance.net/alicemandelli', icon: '🎨' }
+  { name: footer.social.linkedin(), url: 'https://linkedin.com/in/alicemandelli', icon: '🔗' },
+  { name: footer.social.instagram(), url: 'https://instagram.com/alice.mandelli', icon: '📸' },
+  { name: footer.social.github(), url: 'https://github.com/alicemandelli', icon: '💻' },
+  { name: footer.social.behance(), url: 'https://behance.net/alicemandelli', icon: '🎨' }
 ]
 </script>
 
@@ -15,17 +19,17 @@ const socialLinks = [
   <footer class="footer-section">
     <div class="footer-content">
       <div class="footer-brand">
-        <h3 class="brand-name">Alice Mandelli</h3>
-        <p class="brand-tagline">UI/UX Designer & Web Developer</p>
+        <h3 class="brand-name">{{ common.brand.name() }}</h3>
+        <p class="brand-tagline">{{ common.brand.tagline() }}</p>
       </div>
 
       <div class="footer-links">
-        <h4 class="links-title">Social</h4>
+        <h4 class="links-title">{{ footer.social.title() }}</h4>
         <ul class="social-links">
           <li v-for="link in socialLinks" :key="link.name">
             <a
               :href="link.url"
-              :aria-label="`Visita ${link.name}`"
+              :aria-label="accessibility.visit(link.name)"
               target="_blank"
               rel="noopener noreferrer"
               class="social-link"
@@ -38,18 +42,18 @@ const socialLinks = [
       </div>
 
       <div class="footer-contact">
-        <h4 class="contact-title">Contatti</h4>
-        <p class="contact-email">hello@alicemandelli.dev</p>
-        <p class="contact-location">Milano, Italia</p>
+        <h4 class="contact-title">{{ footer.contact.title() }}</h4>
+        <p class="contact-email">{{ footer.contact.email() }}</p>
+        <p class="contact-location">{{ footer.contact.location() }}</p>
       </div>
     </div>
 
     <div class="footer-bottom">
       <p class="copyright">
-        © {{ currentYear }} Alice Mandelli. Tutti i diritti riservati.
+        © {{ currentYear }} {{ common.copyright.text() }}
       </p>
       <p class="made-with">
-        Made with ❤️ using Vue 3 & TypeScript
+        {{ common.copyright.madeWith() }}
       </p>
     </div>
   </footer>
@@ -79,9 +83,9 @@ const socialLinks = [
   .brand-name {
     font-size: 1.8rem;
     font-weight: 800;
-    color: vars.$bright-sun;
+    color: var(--bright-sun);
     margin-bottom: 0.5rem;
-    text-shadow: 0 0 10px vars.$bright-sun;
+    text-shadow: 0 0 10px var(--bright-sun);
   }
 
   .brand-tagline {
@@ -120,12 +124,12 @@ const socialLinks = [
 
     &:hover {
       background: rgba(255, 255, 255, 0.1);
-      color: vars.$bright-sun;
+      color: var(--bright-sun);
       transform: translateX(4px);
     }
 
     &:focus-visible {
-      outline: 2px solid vars.$bright-sun;
+      outline: 2px solid var(--bright-sun);
       outline-offset: 2px;
     }
   }
@@ -155,7 +159,7 @@ const socialLinks = [
   }
 
   .contact-email {
-    color: vars.$picton-blue;
+    color: var(--picton-blue);
     font-weight: 500;
   }
 }

@@ -1,32 +1,34 @@
 // =========================
-// ANIMATIONS 2025 – Alice Mandelli Palette
+// PROFESSIONAL ANIMATIONS 2025 - ALICE MANDELLI
 // =========================
 
-// FADE ANIMATIONS
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
+// MICRO-ANIMATIONS PROFESSIONALI
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
-    transform: none;
+    transform: translateY(0);
   }
 }
-@keyframes fadeInScale {
+
+@keyframes slideInFromLeft {
   from {
     opacity: 0;
-    transform: scale(0.8);
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -34,8 +36,690 @@
   }
 }
 
+// FLUID ANIMATIONS 2025 - PERFORMANCE OPTIMIZED
+@keyframes fluidFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes morphingHover {
+  0% {
+    transform: scale(1) rotate(0deg);
+    border-radius: 20px;
+  }
+  50% {
+    transform: scale(1.05) rotate(2deg);
+    border-radius: 30px;
+  }
+  100% {
+    transform: scale(1.02) rotate(0deg);
+    border-radius: 25px;
+  }
+}
+
+@keyframes liquidProgress {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(100%) skewX(-15deg);
+  }
+}
+
+@keyframes magneticPull {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  60% {
+    transform: translate3d(var(--mouse-x, 0), var(--mouse-y, 0), 0) scale(1.05);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes rippleEffect {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes floatingElements {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 // GLASSMORPHISM ANIMATIONS
 @keyframes glassShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes glassFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+    filter: blur(0.5px);
+  }
+}
+
+// BENTO GRID ANIMATIONS
+@keyframes bentoReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bentoHover {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-6px) scale(1.02); }
+}
+
+// PROFESSIONAL BUTTON ANIMATIONS
+@keyframes buttonGlow {
+  0% {
+    box-shadow: 0 4px 15px rgba(32, 72, 180, 0.3);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(32, 72, 180, 0.5), 0 0 30px rgba(255, 201, 64, 0.3);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(32, 72, 180, 0.3);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 201, 64, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 201, 64, 0);
+  }
+}
+
+// TEXT ANIMATIONS
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes textReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  60% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes kineticText {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+// SCROLL ANIMATIONS
+@keyframes parallaxFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes scrollFade {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// UTILITY CLASSES - FLUID ANIMATIONS
+.animate-fluid-fade {
+  animation: fluidFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  will-change: opacity, transform, filter;
+}
+
+.animate-morphing-hover {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &:hover {
+    animation: morphingHover 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+}
+
+.animate-magnetic {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+
+  &:hover {
+    animation: magneticPull 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+}
+
+.animate-liquid-loading {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 201, 64, 0.3),
+      transparent
+    );
+    animation: liquidProgress 2s ease-in-out infinite;
+  }
+}
+
+.animate-ripple {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 201, 64, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  &:active::before {
+    width: 300px;
+    height: 300px;
+    animation: rippleEffect 0.6s ease-out;
+  }
+}
+
+.animate-floating {
+  animation: floatingElements 6s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  background: linear-gradient(-45deg,
+    var(--bright-sun),
+    var(--persian-blue),
+    var(--picton-blue),
+    var(--bright-sun)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+// UTILITY CLASSES - EXISTING
+.animate-fade-in {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-slide-in {
+  animation: slideInFromLeft 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-glass-float {
+  animation: glassFloat 4s ease-in-out infinite;
+}
+
+.animate-glass-shimmer {
+  background: linear-gradient(90deg, transparent, var(--glass-light), transparent);
+  background-size: 200% 100%;
+  animation: glassShimmer 2s linear infinite;
+}
+
+.animate-bento-reveal {
+  animation: bentoReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-button-glow {
+  animation: buttonGlow 2s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-text-reveal {
+  animation: textReveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.animate-kinetic-text {
+  animation: kineticText 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.animate-parallax {
+  animation: parallaxFloat 6s ease-in-out infinite;
+}
+
+// STAGGER DELAYS
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+.animate-delay-600 { animation-delay: 0.6s; }
+.animate-delay-700 { animation-delay: 0.7s; }
+.animate-delay-800 { animation-delay: 0.8s; }
+
+// HOVER INTERACTIONS - ENHANCED
+.hover-lift {
+  transition: transform var(--duration-normal) var(--easing-standard);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.hover-glow {
+  transition: all var(--duration-normal) var(--easing-standard);
+
+  &:hover {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+.hover-scale {
+  transition: transform var(--duration-normal) var(--easing-standard);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.hover-magnetic {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+
+  &:hover {
+    transform: translate3d(var(--mouse-x, 0), var(--mouse-y, 0), 0) scale(1.02);
+  }
+}
+
+.hover-morph {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &:hover {
+    transform: scale(1.05) rotate(1deg);
+    border-radius: 25px;
+  }
+}
+
+// PERFORMANCE OPTIMIZATIONS
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.hardware-accelerated {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+// ACCESSIBILITY - ENHANCED
+@media (prefers-reduced-motion: reduce) {
+  .animate-fluid-fade,
+  .animate-morphing-hover,
+  .animate-magnetic,
+  .animate-liquid-loading,
+  .animate-ripple,
+  .animate-floating,
+  .animate-gradient-shift,
+  .animate-fade-in,
+  .animate-slide-in,
+  .animate-scale-in,
+  .animate-glass-float,
+  .animate-glass-shimmer,
+  .animate-bento-reveal,
+  .animate-button-glow,
+  .animate-pulse-glow,
+  .animate-text-reveal,
+  .animate-kinetic-text,
+  .animate-parallax {
+    animation: none !important;
+  }
+
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .hover-magnetic:hover,
+  .hover-morph:hover {
+    transform: none !important;
+  }
+
+  .animate-morphing-hover:hover {
+    animation: none !important;
+  }
+}
+
+// HIGH CONTRAST MODE SUPPORT
+@media (prefers-contrast: high) {
+  .animate-liquid-loading::after {
+    background: linear-gradient(90deg,
+      transparent,
+      var(--bright-sun),
+      transparent
+    );
+  }
+
+  .animate-ripple::before {
+    background: var(--bright-sun);
+  }
+}
+
+// DARK MODE ANIMATIONS
+@media (prefers-color-scheme: dark) {
+  .animate-gradient-shift {
+    background: linear-gradient(-45deg,
+      var(--bright-sun),
+      var(--persian-blue),
+      var(--picton-blue),
+      var(--bright-sun)
+    );
+  }
+}
+
+// RESPONSIVE ANIMATIONS
+@media (max-width: 768px) {
+  .animate-fluid-fade {
+    animation-duration: 0.6s;
+  }
+
+  .animate-morphing-hover:hover {
+    animation-duration: 0.4s;
+  }
+
+  .animate-floating {
+    animation-duration: 4s;
+  }
+}
+
+// PRINT MODE
+@media print {
+  .animate-fluid-fade,
+  .animate-morphing-hover,
+  .animate-magnetic,
+  .animate-liquid-loading,
+  .animate-ripple,
+  .animate-floating,
+  .animate-gradient-shift,
+  .animate-fade-in,
+  .animate-slide-in,
+  .animate-scale-in,
+  .animate-glass-float,
+  .animate-glass-shimmer,
+  .animate-bento-reveal,
+  .animate-button-glow,
+  .animate-pulse-glow,
+  .animate-text-reveal,
+  .animate-kinetic-text,
+  .animate-parallax {
+    animation: none !important;
+  }
+}
+
+// =========================
+// GRADIENTI DINAMICI ALICE MANDELLI 2025
+// =========================
+
+// Sistema gradienti dinamici
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gradientPulse {
+  0%, 100% {
+    background: linear-gradient(135deg,
+      var(--persian-blue) 0%,
+      var(--picton-blue) 25%,
+      var(--bright-sun) 50%,
+      var(--emerald) 75%,
+      var(--persian-blue) 100%
+    );
+  }
+  50% {
+    background: linear-gradient(135deg,
+      var(--bright-sun) 0%,
+      var(--emerald) 25%,
+      var(--persian-blue) 50%,
+      var(--picton-blue) 75%,
+      var(--bright-sun) 100%
+    );
+  }
+}
+
+@keyframes gradientRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+// Sfondi dinamici
+.dynamic-gradient-bg {
+  background: linear-gradient(270deg,
+    var(--persian-blue),
+    var(--picton-blue),
+    var(--bright-sun),
+    var(--emerald),
+    var(--persian-blue)
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+}
+
+.pulsing-gradient {
+  background-size: 200% 200%;
+  animation: gradientPulse 8s ease-in-out infinite;
+}
+
+.rotating-gradient-overlay {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    background: conic-gradient(
+      var(--bright-sun),
+      var(--emerald),
+      var(--persian-blue),
+      var(--picton-blue),
+      var(--bright-sun)
+    );
+    animation: gradientRotate 20s linear infinite;
+    opacity: 0.1;
+    z-index: -1;
+  }
+}
+
+// Effetti specifici per elementi
+.gradient-text-dynamic {
+  background: linear-gradient(45deg,
+    var(--bright-sun),
+    var(--emerald),
+    var(--picton-blue),
+    var(--persian-blue)
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientFlow 6s ease infinite;
+}
+
+.gradient-border-animation {
+  position: relative;
+  background: var(--ebony-clay);
+  border-radius: 20px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(45deg,
+      var(--bright-sun),
+      var(--emerald),
+      var(--picton-blue),
+      var(--persian-blue),
+      var(--bright-sun)
+    );
+    background-size: 300% 300%;
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    animation: gradientFlow 4s ease infinite;
+  }
+}
+
+// =========================
+// ANIMAZIONI FLUIDE 2025 - AGGIORNATE
+// =========================
+
+// Fluid Fade In
+@keyframes fluidFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-fluid-fade {
+  animation: fluidFadeIn var(--animation-duration, 0.8s) var(--easing-standard) forwards;
+  opacity: 0;
+}
+
+// Morphing Hover
+@keyframes morphingHover {
+  0% {
+    transform: scale(1) rotate(0deg);
+    border-radius: var(--border-radius-lg);
+  }
+  50% {
+    transform: scale(1.05) rotate(1deg);
+    border-radius: 20px;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    border-radius: var(--border-radius-lg);
+  }
+}
+
+.animate-morphing-hover {
+  transition: all 0.4s var(--easing-bounce);
+
+  &:hover {
+    animation: morphingHover 0.6s var(--easing-bounce) forwards;
+  }
+}
+
+// Magnetic Hover
+.animate-magnetic {
+  transition: transform 0.3s var(--easing-smooth);
+  transform: translate3d(var(--mouse-x, 0), var(--mouse-y, 0), 0);
+
+  &:hover {
+    transform: translate3d(var(--mouse-x, 0), var(--mouse-y, 0), 0) scale(1.02);
+  }
+}
+
+// Ripple Effect
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+// Liquid Loading
+@keyframes liquidLoading {
   0% {
     background-position: -200% 0;
   }
@@ -43,177 +727,179 @@
     background-position: 200% 0;
   }
 }
-@keyframes glassFloat {
-  0% { transform: translateY(0) scale(1); filter: blur(0); }
-  50% { transform: translateY(-12px) scale(1.01); filter: blur(1.5px); }
-  100% { transform: translateY(0) scale(1); filter: blur(0); }
+
+.animate-liquid-loading {
+  background: linear-gradient(90deg,
+    transparent,
+    var(--bright-sun-alpha),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: liquidLoading var(--loading-duration, 2s) ease-in-out infinite;
 }
 
-// CURSOR ANIMATIONS
-@keyframes ripple {
+// Kinetic Text
+@keyframes kineticChar {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+.animate-kinetic {
+  display: inline-block;
+  animation: kineticChar 0.6s var(--easing-bounce) forwards;
+}
+
+// Gradient Shift
+@keyframes gradientShift {
   0% {
-    transform: scale(0);
-    opacity: 1;
-    background: var(--bright-sun);
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
   100% {
-    transform: scale(4);
-    opacity: 0;
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift var(--gradient-duration, 3s) ease-in-out infinite;
+}
+
+// Floating Elements
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+}
+
+.animate-floating {
+  animation: floating var(--float-duration, 4s) ease-in-out infinite;
+}
+
+// =========================
+// DELAY UTILITIES
+// =========================
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+.animate-delay-400 { animation-delay: 0.4s; }
+.animate-delay-500 { animation-delay: 0.5s; }
+.animate-delay-600 { animation-delay: 0.6s; }
+.animate-delay-700 { animation-delay: 0.7s; }
+.animate-delay-800 { animation-delay: 0.8s; }
+.animate-delay-900 { animation-delay: 0.9s; }
+.animate-delay-1000 { animation-delay: 1s; }
+
+// =========================
+// PERFORMANCE OPTIMIZATIONS
+// =========================
+
+// Hardware acceleration
+.animate-fluid-fade,
+.animate-morphing-hover,
+.animate-magnetic,
+.animate-floating {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .animate-fluid-fade,
+  .animate-morphing-hover,
+  .animate-magnetic,
+  .animate-ripple,
+  .animate-liquid-loading,
+  .animate-kinetic,
+  .animate-gradient-shift,
+  .animate-floating,
+  .dynamic-gradient-bg,
+  .pulsing-gradient,
+  .rotating-gradient-overlay,
+  .gradient-text-dynamic,
+  .gradient-border-animation {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .animate-fluid-fade {
+    opacity: 1;
+  }
+
+  .animate-magnetic {
+    transform: none !important;
+  }
+}
+
+// =========================
+// HIGH CONTRAST MODE
+// =========================
+
+@media (prefers-contrast: high) {
+  .gradient-text-dynamic {
+    background: var(--bright-sun);
+    -webkit-text-fill-color: var(--bright-sun);
+    background-clip: unset;
+  }
+
+  .gradient-border-animation::before {
     background: var(--bright-sun);
   }
 }
-@keyframes magneticPull {
-  0% { transform: translate3d(0,0,0) scale(1); }
-  60% { transform: translate3d(var(--mouse-x, 0), var(--mouse-y, 0), 0) scale(1.08); }
-  100% { transform: scale(1.03); }
-}
-@keyframes cursorExplode {
-  0% { box-shadow: 0 0 0 0 var(--picton-blue); opacity: 1; }
-  80% { box-shadow: 0 0 40px 40px var(--picton-blue); opacity: 0.7; }
-  100% { box-shadow: 0 0 80px 80px transparent; opacity: 0; }
-}
 
-// HERO ANIMATIONS
-@keyframes heroTextReveal {
-  0% { clip-path: inset(0 100% 0 0); opacity: 0; }
-  60% { clip-path: inset(0 0 0 0); opacity: 1; }
-  100% { clip-path: inset(0 0 0 0); opacity: 1; }
-}
-@keyframes parallaxFloat {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-24px); }
-  100% { transform: translateY(0); }
-}
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
+// =========================
+// RESPONSIVE ANIMATIONS
+// =========================
 
-// BUTTON ANIMATIONS
-@keyframes buttonGlow {
-  0% { box-shadow: 0 0 0 0 var(--persian-blue, #2048b4); }
-  70% { box-shadow: 0 0 24px 8px var(--persian-blue, #2048b4); }
-  100% { box-shadow: 0 0 0 0 var(--persian-blue, #2048b4); }
-}
-@keyframes elasticScale {
-  0% { transform: scale(1); }
-  40% { transform: scale(1.15); }
-  60% { transform: scale(0.95); }
-  80% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-@keyframes loadingSpinner {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-// SCROLL ANIMATIONS
-@keyframes slideInFromBottom {
-  from {
-    opacity: 0;
-    transform: translateY(100px);
+@media (max-width: 768px) {
+  .animate-floating {
+    animation-duration: 3s;
   }
-  to {
-    opacity: 1;
-    transform: none;
+
+  .dynamic-gradient-bg {
+    animation-duration: 10s;
+  }
+
+  .gradient-text-dynamic {
+    animation-duration: 4s;
   }
 }
-@keyframes slideInFromLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@keyframes staggerReveal {
-  0% { opacity: 0; transform: translateY(40px); }
-  60% { opacity: 1; transform: translateY(-8px); }
-  100% { opacity: 1; transform: none; }
-}
 
-// UTILITY CLASSES
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out both;
-  will-change: opacity, transform;
-}
-.animate-slide-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  will-change: opacity, transform;
-}
-.animate-fade-scale {
-  animation: fadeInScale 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  will-change: opacity, transform;
-}
-.animate-glass-shimmer {
-  background: linear-gradient(90deg, var(--bright-sun-alpha), var(--picton-blue-alpha), var(--bright-sun-alpha));
-  background-size: 200% 100%;
-  animation: glassShimmer 2s linear infinite;
-  will-change: background-position;
-}
-.animate-float {
-  animation: glassFloat 3s ease-in-out infinite;
-  will-change: transform, filter;
-}
-.animate-bounce {
-  animation: elasticScale 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
-  will-change: transform;
-}
-.animate-ripple {
-  animation: ripple 0.5s var(--easing-smooth) both;
-  will-change: transform, opacity;
-}
-.animate-magnetic {
-  animation: magneticPull 0.35s var(--easing-bounce) both;
-  will-change: transform;
-}
-.animate-cursor-explode {
-  animation: cursorExplode 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
-  will-change: box-shadow, opacity;
-}
-.animate-hero-reveal {
-  animation: heroTextReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) both;
-  will-change: clip-path, opacity;
-}
-.animate-parallax-float {
-  animation: parallaxFloat 4s ease-in-out infinite;
-  will-change: transform;
-}
-.animate-gradient-shift {
-  background: linear-gradient(135deg, var(--persian-blue), var(--picton-blue));
-  background-size: 200% 200%;
-  animation: gradientShift 6s linear infinite;
-  will-change: background-position;
-}
-.animate-button-glow {
-  animation: buttonGlow 1.2s cubic-bezier(0.4, 0, 0.2, 1) both;
-  will-change: box-shadow;
-}
-.animate-loading-spinner {
-  animation: loadingSpinner 1s linear infinite;
-  will-change: transform;
-}
-.animate-slide-in-bottom {
-  animation: slideInFromBottom 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  will-change: opacity, transform;
-}
-.animate-slide-in-left {
-  animation: slideInFromLeft 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  will-change: opacity, transform;
-}
-.animate-stagger {
-  animation: staggerReveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  will-change: opacity, transform;
-}
+// =========================
+// CUSTOM PROPERTIES FOR ANIMATION CONTROL
+// =========================
 
-// PERFORMANCE & ACCESSIBILITÀ
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
+:root {
+  --animation-duration: 0.8s;
+  --animation-delay: 0s;
+  --easing-standard: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --loading-duration: 2s;
+  --gradient-duration: 3s;
+  --float-duration: 4s;
 }
 

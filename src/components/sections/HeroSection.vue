@@ -1,276 +1,455 @@
 <template>
-  <section class="hero-section" :class="{ 'is-visible': isVisible }">
-    <div class="hero-background">
-      <div class="hero-gradient" />
-      <div class="hero-particles" />
-    </div>
+  <section
+    class="hero-section"
+    aria-labelledby="hero-title"
+    role="banner"
+  >
+    <!-- Skip link per accessibilità -->
+    <a href="#main-content" class="skip-link">
+      {{ t('accessibility.skipToContent') }}
+    </a>
 
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1 class="hero-title">
-          <span class="title-line">Alice Mandelli</span>
-          <span class="title-subtitle">UI/UX Designer</span>
+    <div class="hero-container">
+      <!-- Badge premio -->
+      <div class="hero-badge" v-if="heroData.badge">
+        <span class="badge-text">{{ heroData.badge }}</span>
+      </div>
+
+      <!-- Contenuto principale -->
+      <div class="hero-content">
+        <h1
+          id="hero-title"
+          class="hero-title"
+          ref="titleRef"
+        >
+          {{ heroData.title }}
         </h1>
 
-        <p class="hero-description">
-          Creo esperienze digitali moderne e accessibili,
-          combinando design innovativo con tecnologie all'avanguardia.
-        </p>
+        <!-- Typewriter effect -->
+        <div class="typewriter-container">
+          <span class="typewriter-prefix">{{ heroData.typewriterPrefix }}</span>
+          <span
+            class="typewriter-text"
+            ref="typewriterRef"
+            aria-live="polite"
+          ></span>
+          <span class="typewriter-cursor">|</span>
+        </div>
 
+        <!-- Descrizioni -->
+        <div class="hero-descriptions">
+          <p class="hero-desc primary">{{ heroData.desc1 }}</p>
+          <p class="hero-desc secondary">{{ heroData.desc2 }}</p>
+        </div>
+
+        <!-- Call to Action -->
         <div class="hero-actions">
-          <AnimatedButton
-            @click="handleCtaClick"
-            class="cta-button"
-            aria-label="Scopri il mio portfolio"
+          <button
+            class="btn btn-primary"
+            @click="handlePrimaryCTA"
+            :aria-label="heroData.cta"
           >
-            Scopri il Portfolio
-          </AnimatedButton>
+            <span class="btn-text">{{ heroData.cta }}</span>
+            <span class="btn-icon">→</span>
+          </button>
 
-          <a
-            href="#contact"
-            class="secondary-button"
-            aria-label="Contattami"
+          <button
+            class="btn btn-secondary"
+            @click="handleSecondaryCTA"
+            :aria-label="heroData.ctaSecondary"
           >
-            Contattami
-          </a>
+            <span class="btn-text">{{ heroData.ctaSecondary }}</span>
+            <span class="btn-icon">↓</span>
+          </button>
         </div>
       </div>
 
-      <div class="hero-visual">
-        <div class="hero-avatar">
-          <div class="avatar-placeholder">
-            <span class="avatar-initial">A</span>
-          </div>
+      <!-- Elementi decorativi -->
+      <div class="hero-decoration">
+        <div class="floating-shapes">
+          <div class="shape shape-1"></div>
+          <div class="shape shape-2"></div>
+          <div class="shape shape-3"></div>
         </div>
       </div>
     </div>
 
-    <div class="hero-scroll-indicator">
-      <div class="scroll-arrow" />
-      <span class="scroll-text">Scorri per scoprire</span>
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span class="scroll-text">Scroll</span>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import AnimatedButton from '@/components/ui/AnimatedButton.vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const isVisible = ref(false)
+// Props interface
+interface Props {
+  typewriterTerms?: string[]
+  typewriterSpeed?: number
+  typewriterDelay?: number
+}
 
-onMounted(() => {
-  isVisible.value = true
+const props = withDefaults(defineProps<Props>(), {
+  typewriterTerms: () => ['enterprise', 'startup', 'AI', 'innovation'],
+  typewriterSpeed: 100,
+  typewriterDelay: 2000
 })
 
-const handleCtaClick = () => {
-  // Scroll to next section
-  const nextSection = document.querySelector('#main-content')
-  if (nextSection) {
-    nextSection.scrollIntoView({ behavior: 'smooth' })
+// Emits
+const emit = defineEmits<{
+  'primary-cta': []
+  'secondary-cta': []
+}>()
+
+// Composables
+const { t } = useI18n()
+
+// Template refs
+const titleRef = ref<HTMLElement>()
+const typewriterRef = ref<HTMLElement>()
+
+// Computed properties
+const heroData = computed(() => ({
+  badge: t('pages.home.hero.badge'),
+  title: t('pages.home.hero.title'),
+  typewriterPrefix: t('pages.home.hero.typewriterPrefix'),
+  desc1: t('pages.home.hero.desc1'),
+  desc2: t('pages.home.hero.desc2'),
+  cta: t('pages.home.hero.cta'),
+  ctaSecondary: t('pages.home.hero.ctaSecondary')
+}))
+
+// Typewriter effect
+let typewriterInterval: number | null = null
+let currentTermIndex = 0
+let currentCharIndex = 0
+let isDeleting = false
+
+const typewriterEffect = () => {
+  if (!typewriterRef.value) return
+
+  const currentTerm = props.typewriterTerms[currentTermIndex]
+
+  if (isDeleting) {
+    // Deleting effect
+    typewriterRef.value.textContent = currentTerm.substring(0, currentCharIndex - 1)
+    currentCharIndex--
+
+    if (currentCharIndex === 0) {
+      isDeleting = false
+      currentTermIndex = (currentTermIndex + 1) % props.typewriterTerms.length
+    }
+  } else {
+    // Typing effect
+    typewriterRef.value.textContent = currentTerm.substring(0, currentCharIndex + 1)
+    currentCharIndex++
+
+    if (currentCharIndex === currentTerm.length) {
+      isDeleting = true
+      setTimeout(() => {
+        typewriterEffect()
+      }, props.typewriterDelay)
+      return
+    }
   }
+
+  typewriterInterval = setTimeout(typewriterEffect, props.typewriterSpeed)
 }
+
+// Event handlers
+const handlePrimaryCTA = () => {
+  emit('primary-cta')
+}
+
+const handleSecondaryCTA = () => {
+  emit('secondary-cta')
+}
+
+// Lifecycle
+onMounted(() => {
+  // Start typewriter effect
+  setTimeout(typewriterEffect, 1000)
+
+  // Add entrance animations
+  if (titleRef.value) {
+    titleRef.value.style.opacity = '0'
+    titleRef.value.style.transform = 'translateY(30px)'
+
+    setTimeout(() => {
+      if (titleRef.value) {
+        titleRef.value.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)'
+        titleRef.value.style.opacity = '1'
+        titleRef.value.style.transform = 'translateY(0)'
+      }
+    }, 300)
+  }
+})
+
+onUnmounted(() => {
+  if (typewriterInterval) {
+    clearTimeout(typewriterInterval)
+  }
+})
 </script>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
 .hero-section {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
+  background: linear-gradient(135deg, var(--persian-blue), var(--picton-blue));
   overflow: hidden;
-  padding: 2rem 1rem;
 
-  &.is-visible {
-    .hero-title {
-      opacity: 1;
-      transform: none;
-    }
-
-    .hero-description {
-      opacity: 1;
-      transform: none;
-    }
-
-    .hero-actions {
-      opacity: 1;
-      transform: none;
-    }
-
-    .hero-visual {
-      opacity: 1;
-      transform: none;
-    }
+  // Glassmorphism overlay
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    z-index: 1;
   }
 }
 
-.hero-background {
+.skip-link {
   position: absolute;
-  inset: 0;
-  z-index: -1;
+  top: -40px;
+  left: 6px;
+  background: var(--bright-sun);
+  color: var(--ebony-clay);
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  z-index: 1000;
+  transition: top 0.3s ease;
+
+  &:focus {
+    top: 6px;
+  }
 }
 
-.hero-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, vars.$persian-blue, vars.$picton-blue);
-  opacity: 0.9;
+.hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
 }
 
-.hero-particles {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle at 20% 80%, vars.$bright-sun-alpha 0%, transparent 50%),
-                    radial-gradient(circle at 80% 20%, vars.$picton-blue-alpha 0%, transparent 50%);
-  animation: particle-float 20s ease-in-out infinite;
+.hero-badge {
+  margin-bottom: 2rem;
+
+  .badge-text {
+    display: inline-block;
+    background: var(--bright-sun);
+    color: var(--ebony-clay);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(255, 201, 64, 0.3);
+    animation: badgeFloat 3s ease-in-out infinite;
+  }
 }
 
 .hero-content {
-  max-width: 1200px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 800;
+  color: var(--bright-sun);
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  text-shadow: 0 0 20px rgba(255, 201, 64, 0.3);
+}
+
+.typewriter-container {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  color: white;
+  margin-bottom: 2rem;
+  min-height: 2.5rem;
+  display: flex;
   align-items: center;
-  z-index: 1;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
-  }
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
-.hero-text {
-  .hero-title {
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.typewriter-prefix {
+  color: rgba(255, 255, 255, 0.8);
+}
 
-    .title-line {
-      display: block;
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 800;
-      color: vars.$bright-sun;
-      text-shadow: 0 0 20px vars.$bright-sun;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
+.typewriter-text {
+  color: var(--bright-sun);
+  font-weight: 600;
+  min-width: 200px;
+  text-align: left;
+}
 
-    .title-subtitle {
-      display: block;
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.9);
-      margin-top: 0.5rem;
-    }
+.typewriter-cursor {
+  color: var(--bright-sun);
+  animation: blink 1s infinite;
+  font-weight: 600;
+}
+
+.hero-descriptions {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.hero-desc {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+
+  &.primary {
+    color: white;
+    font-weight: 500;
   }
 
-  .hero-description {
-    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  &.secondary {
     color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s;
-
-    @media (max-width: 768px) {
-      justify-content: center;
-    }
+    font-size: 1rem;
   }
 }
 
-.cta-button {
-  background: linear-gradient(135deg, vars.$bright-sun, vars.$persian-blue);
-  color: vars.$ebony-clay;
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
   border: none;
-  padding: 1rem 2rem;
   border-radius: 50px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(255, 201, 64, 0.3);
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(255, 201, 64, 0.4);
-  }
-}
-
-.secondary-button {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  &:hover::before {
+    left: 100%;
+  }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 
-.hero-visual {
-  opacity: 0;
-  transform: translateX(30px);
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s;
+.btn-primary {
+  background: var(--bright-sun);
+  color: var(--ebony-clay);
 
-  @media (max-width: 768px) {
-    transform: translateY(30px);
+  &:hover {
+    background: #ffd166;
+    box-shadow: 0 8px 25px rgba(255, 201, 64, 0.4);
   }
 }
 
-.hero-avatar {
-  .avatar-placeholder {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, vars.$bright-sun, vars.$picton-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 32px rgba(255, 201, 64, 0.3);
-    animation: avatar-float 6s ease-in-out infinite;
+.btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 
-    @media (max-width: 768px) {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto;
-    }
-  }
-
-  .avatar-initial {
-    font-size: 4rem;
-    font-weight: 800;
-    color: vars.$ebony-clay;
-
-    @media (max-width: 768px) {
-      font-size: 3rem;
-    }
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
   }
 }
 
-.hero-scroll-indicator {
+.btn-icon {
+  transition: transform 0.3s ease;
+}
+
+.btn:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+.hero-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-shapes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--bright-sun-alpha);
+  animation: float 6s ease-in-out infinite;
+
+  &.shape-1 {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  &.shape-2 {
+    width: 60px;
+    height: 60px;
+    top: 60%;
+    right: 15%;
+    animation-delay: 2s;
+  }
+
+  &.shape-3 {
+    width: 80px;
+    height: 80px;
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 4s;
+  }
+}
+
+.scroll-indicator {
   position: absolute;
   bottom: 2rem;
   left: 50%;
@@ -279,66 +458,100 @@ const handleCtaClick = () => {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
-
-  .scroll-arrow {
-    width: 2px;
-    height: 30px;
-    background: vars.$bright-sun;
-    border-radius: 1px;
-    animation: scroll-bounce 2s ease-in-out infinite;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
-      border-top: 6px solid vars.$bright-sun;
-    }
-  }
-
-  .scroll-text {
-    font-weight: 500;
-  }
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 2;
 }
 
-@keyframes particle-float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(180deg); }
+.scroll-line {
+  width: 2px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.6));
+  animation: scrollPulse 2s ease-in-out infinite;
 }
 
-@keyframes avatar-float {
+.scroll-text {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+// Animations
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes badgeFloat {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 
-@keyframes scroll-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(10px); }
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hero-section {
-    .hero-title,
-    .hero-description,
-    .hero-actions,
-    .hero-visual {
-      transition: none;
-      opacity: 1;
-      transform: none;
-    }
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 0 1rem;
   }
 
-  .hero-particles,
-  .avatar-placeholder,
-  .scroll-arrow {
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+
+  .typewriter-container {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .typewriter-text {
+    min-width: auto;
+    text-align: center;
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .hero-title,
+  .btn,
+  .shape,
+  .badge-text,
+  .scroll-line {
     animation: none;
+    transition: none;
+  }
+
+  .btn:hover {
+    transform: none;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .hero-title {
+    text-shadow: 2px 2px 0 var(--ebony-clay);
+  }
+
+  .btn-primary {
+    border: 2px solid var(--ebony-clay);
+  }
+
+  .btn-secondary {
+    border-width: 3px;
   }
 }
 </style>
