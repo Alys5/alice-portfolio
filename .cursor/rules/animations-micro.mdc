@@ -1,5 +1,5 @@
 ---
-description: Questo modulo implementa micro-interazioni con durata controllata, fallback prefers-reduced-motion e contrasto di focus conforme ai criteri WCAG 2.2 §2.4.11/13, assicurando un’esperienza inclusiva anche per utenti con sensibilità al movimento.
+description: Regole per micro-animazioni accessibili, prefers-reduced-motion e WCAG 2.2+
 globs: 
 alwaysApply: false
 ---

@@ -1,7 +1,7 @@
 ---
-description: 
+description: Regole per implementare accessibilità WCAG 2.2+ con focus management, reduced motion e screen reader support
 globs: 
-alwaysApply: true
+alwaysApply: false
 ---
 ---
 description: Regole per implementare accessibilità WCAG 2.2+ con focus management, reduced motion e screen reader support

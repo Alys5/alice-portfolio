@@ -1,6 +1,6 @@
 ---
-description: 
-globs: *.css, *.scss, *.vue
+description: CSS Variables System 2025
+globs: 
 alwaysApply: false
 ---
 # CSS Variables System 2025

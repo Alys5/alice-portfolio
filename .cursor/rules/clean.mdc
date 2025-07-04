@@ -1,0 +1,290 @@
+---
+description: Pulizia completa del progetto per rimuovere file obsoleti, ottimizzare la struttura e migliorare la manutenibilità. Questa guida è applicabile a qualsiasi progetto web moderno.
+globs: 
+alwaysApply: false
+---
+# 🧹 Clean Project Rules - Guida Universale
+
+## Obiettivo
+Pulizia completa del progetto per rimuovere file obsoleti, ottimizzare la struttura e migliorare la manutenibilità. Questa guida è applicabile a qualsiasi progetto web moderno.
+
+## File da Rimuovere (Obsoleti/Vuoti)
+
+### File Vuoti da Eliminare
+- File di configurazione vuoti
+- Script duplicati o non funzionali (es. `.ps1` se usi `.sh`)
+- File di setup obsoleti
+- Documentazione duplicata
+
+### Cartelle Vuote da Rimuovere
+- Cartelle `api/` non utilizzate
+- Cartelle di store non configurate (es. `src/stores/` senza Pinia)
+- Cartelle di test vuote
+- Cartelle di asset non utilizzate
+
+### File di Log Obsoleti
+- Log temporanei di sviluppo
+- File di backup obsoleti
+- Cache files non necessari
+- File di debug temporanei
+
+## Ristrutturazione File
+
+### Spostamenti Necessari
+- Sposta esempi in `src/components/examples/` per migliore organizzazione
+- Standardizza documentazione in cartella `docs/`
+- Organizza README separati in documentazione strutturata
+- Raggruppa script correlati
+
+### Consolidamento Script
+- Mantieni solo script necessari e funzionali
+- Rimuovi duplicati cross-platform se non necessari
+- Unifica script simili
+- Standardizza naming convention
+
+## Aggiornamento README.md
+
+### Struttura Standard
+```markdown
+# [Nome Progetto]
+
+[Breve descrizione del progetto]
+
+## 🚀 Quick Start
+
+```bash
+npm install
+npm run dev
+```
+
+## 📚 Documentazione
+
+- [Setup](mdc:docs/SETUP.md) - Configurazione iniziale
+- [Architettura](mdc:docs/ARCHITECTURE.md) - Struttura del progetto
+- [Deployment](mdc:docs/DEPLOYMENT.md) - Guida al deploy
+- [Manutenzione](mdc:docs/MAINTENANCE.md) - Modalità manutenzione
+
+## 🛠️ Script Disponibili
+
+- `npm run dev` - Sviluppo locale
+- `npm run build` - Build produzione
+- `npm run test` - Esecuzione test
+- `npm run lint` - Controllo codice
+```
+
+## Verifica Configurazioni
+
+### TypeScript
+- Verifica `tsconfig.json`, `tsconfig.app.json`, `tsconfig.node.json`
+- Assicurati che non ci siano conflitti di configurazione
+- Rimuovi configurazioni duplicate
+- Ottimizza per il tuo use case
+
+### ESLint
+- Verifica `eslint.config.ts` o `.eslintrc.*`
+- Assicurati che le regole siano coerenti
+- Rimuovi configurazioni obsolete
+- Aggiorna regole per best practices attuali
+
+### Build Tool (Vite/Webpack)
+- Verifica configurazione build tool
+- Assicurati che tutti i plugin siano necessari
+- Ottimizza la configurazione per performance
+- Rimuovi plugin obsoleti
+
+### Deployment
+- Mantieni solo configurazioni necessarie
+- Rimuovi configurazioni duplicate per ambienti
+- Verifica che la configurazione sia ottimale
+- Standardizza variabili d'ambiente
+
+## Ottimizzazione Package.json
+
+### Script Standard
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint . --ext .vue,.js,.ts,.jsx,.tsx",
+    "lint:fix": "eslint . --fix --ext .vue,.js,.ts,.jsx,.tsx",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage",
+    "ci:test": "npm run lint:check && npm run type-check && npm run test",
+    "ci:build": "NODE_ENV=production npm run build-only",
+    "clean": "rm -rf dist node_modules/.vite",
+    "prepare": "husky install"
+  }
+}
+```
+
+### Dipendenze da Verificare
+- Rimuovi dipendenze non utilizzate
+- Aggiorna versioni obsolete
+- Verifica compatibilità
+- Usa `npm audit` per sicurezza
+
+## Struttura Progetto Standard
+
+```
+project-name/
+├── .cursor/rules/           # Regole Cursor (se applicabile)
+├── .github/workflows/       # GitHub Actions
+├── .husky/                  # Git hooks
+├── docs/                    # Documentazione
+│   ├── SETUP.md
+│   ├── ARCHITECTURE.md
+│   ├── DEPLOYMENT.md
+│   └── MAINTENANCE.md
+├── public/                  # Asset pubblici
+├── src/
+│   ├── assets/             # Asset statici
+│   ├── components/         # Componenti
+│   │   ├── examples/       # Esempi componenti
+│   │   ├── layout/         # Layout components
+│   │   └── ui/            # UI components
+│   ├── composables/        # Composables (Vue) / Hooks (React)
+│   ├── i18n/              # Internazionalizzazione
+│   ├── router/            # Routing
+│   ├── styles/            # Stili
+│   └── views/             # Pagine
+├── tests/                  # Test files
+├── .editorconfig
+├── .gitattributes
+├── .gitignore
+├── .prettierrc.json
+├── eslint.config.ts
+├── index.html
+├── package.json
+├── README.md              # README principale
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+└── vite.config.ts
+```
+
+## Comandi di Pulizia
+
+### Rimozione File Obsoleti
+```bash
+# Rimuovi file vuoti
+find . -name "*.json" -empty -delete
+find . -name "*.md" -empty -delete
+
+# Rimuovi cartelle vuote
+find . -type d -empty -delete
+
+# Rimuovi log obsoleti
+find . -name "*LOG.md" -delete
+find . -name "*.backup" -delete
+```
+
+### Spostamento File
+```bash
+# Crea cartella examples se necessaria
+mkdir -p src/components/examples
+
+# Sposta esempi
+mv src/examples/* src/components/examples/ 2>/dev/null || true
+
+# Organizza documentazione
+mkdir -p docs
+mv README-*.md docs/ 2>/dev/null || true
+
+# Rimuovi cartelle vuote
+rmdir src/examples/ 2>/dev/null || true
+```
+
+### Pulizia Script
+```bash
+# Rimuovi script duplicati
+find . -name "*.ps1" -delete  # Se usi solo bash
+find . -name "*.bat" -delete  # Se usi solo bash
+
+# Rendi eseguibili gli script bash
+chmod +x *.sh
+```
+
+## Verifica Finale
+
+### Checklist
+- [ ] Tutti i file obsoleti rimossi
+- [ ] Cartelle vuote eliminate
+- [ ] File spostati nelle posizioni corrette
+- [ ] README.md aggiornato
+- [ ] Configurazioni verificate e ottimizzate
+- [ ] Script package.json aggiornati
+- [ ] Struttura cartelle coerente
+- [ ] Documentazione organizzata in docs/
+- [ ] Build e lint funzionanti
+- [ ] Test passano
+- [ ] Deploy testato
+
+### Test Post-Pulizia
+```bash
+# Verifica build
+npm run build
+
+# Verifica lint
+npm run lint
+
+# Verifica type check
+npm run type-check
+
+# Verifica test
+npm run test
+
+# Verifica deploy (se applicabile)
+npm run deploy
+```
+
+## Benefici Attesi
+
+1. **Performance**: Riduzione bundle size e tempi di build
+2. **Manutenibilità**: Struttura più chiara e organizzata
+3. **Documentazione**: Centralizzata e aggiornata
+4. **Configurazione**: Ottimizzata e senza conflitti
+5. **Deploy**: Script semplificati e affidabili
+6. **Onboarding**: Più facile per nuovi sviluppatori
+
+## Note Importanti
+
+- Mantieni sempre backup prima della pulizia
+- Verifica che tutti i riferimenti ai file spostati siano aggiornati
+- Testa thoroughly dopo ogni modifica
+- Documenta eventuali cambiamenti significativi
+- Aggiorna .gitignore se necessario
+- Adatta la struttura alle specifiche del tuo progetto
+- Considera le best practices del framework utilizzato
+
+## Framework Specifici
+
+### Vue.js
+- Organizza componenti in `src/components/`
+- Usa `src/composables/` per logica riutilizzabile
+- Mantieni `src/views/` per le pagine
+
+### React
+- Organizza componenti in `src/components/`
+- Usa `src/hooks/` per custom hooks
+- Mantieni `src/pages/` per le pagine
+
+### Angular
+- Organizza in moduli e componenti
+- Mantieni `src/app/` come entry point
+- Usa `src/shared/` per componenti condivisi
+
+## Adattamento per Progetti Specifici
+
+Personalizza questa guida in base a:
+- Framework utilizzato
+- Dimensioni del progetto
+- Requisiti di team
+- Standard aziendali
+- Tool di build specifici
+
+

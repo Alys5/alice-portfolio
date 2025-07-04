@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { useTranslation } from '@/composables/useI18n'
 
 // i18n
-const { footer, common, accessibility } = useTranslation()
+const { footer, common, accessibility, formatEmail } = useTranslation()
 
 const currentYear = ref(new Date().getFullYear())
 
@@ -43,7 +43,7 @@ const socialLinks = [
 
       <div class="footer-contact">
         <h4 class="contact-title">{{ footer.contact.title() }}</h4>
-        <p class="contact-email">{{ footer.contact.email() }}</p>
+        <p class="contact-email">{{ formatEmail('pages.footer.contact.email') }}</p>
         <p class="contact-location">{{ footer.contact.location() }}</p>
       </div>
     </div>

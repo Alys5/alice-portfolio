@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "alice-mandelli-portfolio",
+  "name": "alice-mandelli-portfolio-maintenance",
   "builds": [
     {
       "src": "package.json",
@@ -47,11 +47,13 @@
     }
   ],
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "VITE_MAINTENANCE_MODE": "true"
   },
   "build": {
     "env": {
-      "NODE_ENV": "production"
+      "NODE_ENV": "production",
+      "VITE_MAINTENANCE_MODE": "true"
     }
   }
 }

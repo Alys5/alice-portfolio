@@ -1,7 +1,7 @@
 ---
-description: 
+description: Regole per ottimizzazione performance e Core Web Vitals con focus su LCP, CLS, INP e PWA
 globs: 
-alwaysApply: true
+alwaysApply: false
 ---
 ---
 description: Regole per ottimizzazione performance e Core Web Vitals con focus su LCP, CLS, INP e PWA

@@ -1,39 +1,182 @@
-# portfolio
+# Alice Mandelli Portfolio
 
-This template should help get you started developing with Vue 3 in Vite.
+Portfolio professionale moderno con Vue 3, TypeScript e design system avanzato.
 
-## Recommended IDE Setup
+## 🚀 Quick Start
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
+```bash
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## 📚 Documentazione
 
-```sh
-npm run build
+- [Setup](docs/SETUP.md) - Configurazione iniziale
+- [Architettura](docs/ARCHITECTURE.md) - Struttura del progetto
+- [Animazioni](docs/ANIMATIONS.md) - Sistema animazioni fluide
+- [CI/CD](docs/CI-CD.md) - Pipeline deployment
+- [Localizzazione](docs/LOCALIZATION.md) - Sistema i18n
+- [Manutenzione](docs/MAINTENANCE.md) - Modalità manutenzione
+
+## 🛠️ Script Disponibili
+
+- `npm run dev` - Sviluppo locale
+- `npm run build` - Build produzione
+- `npm run preview` - Preview build
+- `npm run lint` - Controllo codice
+- `npm run type-check` - Verifica TypeScript
+- `npm run deploy:normal` - Deploy normale
+- `npm run deploy:maintenance` - Deploy manutenzione
+- `npm run clean` - Pulizia cache
+
+## 🎨 Design System
+
+### Palette Colori Signature
+
+- **Bright Sun** (#ffc940) - Giallo brillante, colore principale
+- **Ebony Clay** (#29353f) - Grigio scuro elegante
+- **Persian Blue** (#2048b4) - Blu profondo per CTA
+- **Picton Blue** (#48a9f8) - Blu chiaro per accenti
+
+### Trend 2025 Implementati
+
+- Glassmorphism avanzato
+- Bento Grid layouts
+- Micro-animazioni fluide
+- Dark mode con neon accents
+- Scroll-triggered animations
+- Magnetic hover effects
+
+## 🏗️ Architettura
+
+### Stack Tecnologico
+
+- **Vue 3** - Composition API
+- **TypeScript** - Type safety
+- **Vite** - Build tool moderno
+- **SCSS** - Styling avanzato
+- **Vue Router** - Navigazione
+- **Vue i18n** - Internazionalizzazione
+- **GSAP** - Animazioni avanzate
+
+### Struttura Progetto
+
+```
+src/
+├── components/          # Componenti Vue
+│   ├── examples/        # Esempi componenti
+│   ├── layout/          # Layout components
+│   ├── sections/        # Sezioni pagina
+│   └── ui/             # UI components
+├── composables/         # Composables Vue
+├── i18n/               # Internazionalizzazione
+├── router/             # Vue Router
+├── styles/             # Stili SCSS
+└── views/              # Pagine Vue
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## 🚀 Deploy
 
-```sh
-npm run lint
+### Vercel
+
+Il progetto è configurato per deploy automatico su Vercel con:
+
+- Build ottimizzato per produzione
+- PWA support
+- Service worker per cache
+- Core Web Vitals ottimizzati
+
+### Modalità Manutenzione
+
+```bash
+npm run build:maintenance
+npm run deploy:maintenance
 ```
+
+## 📊 Performance
+
+### Core Web Vitals Target
+
+- **LCP**: < 2.5s
+- **FID**: < 100ms
+- **CLS**: < 0.1
+- **TTFB**: < 600ms
+
+### Ottimizzazioni Implementate
+
+- Lazy loading componenti
+- Code splitting automatico
+- Image optimization
+- CSS purging
+- Bundle analysis
+
+## ♿ Accessibilità
+
+### WCAG 2.2+ Compliance
+
+- Skip links per navigazione tastiera
+- Focus management avanzato
+- Screen reader support
+- High contrast mode
+- Reduced motion support
+- Live regions per annunci dinamici
+
+## 🌍 Internazionalizzazione
+
+### Lingue Supportate
+
+- 🇮🇹 Italiano (default)
+- 🇬🇧 Inglese
+- 🇪🇸 Spagnolo
+
+### Gestione Traduzioni
+
+```bash
+# Aggiungi nuova chiave
+t('section.subsection.key')
+
+# Pluralizzazione
+t('items', { count: 5 })
+```
+
+## 🔧 Sviluppo
+
+### IDE Setup Consigliato
+
+- **VSCode** + **Volar** extension
+- **Prettier** per formattazione
+- **ESLint** per linting
+- **TypeScript** per type checking
+
+### Git Hooks
+
+- Pre-commit linting automatico
+- Type checking prima del commit
+- Formattazione automatica
+
+## 📈 Monitoring
+
+### Analytics Integrati
+
+- Web Vitals tracking
+- Performance monitoring
+- Error tracking
+- User behavior analytics
+
+## 🤝 Contribuire
+
+1. Fork il repository
+2. Crea feature branch (`git checkout -b feature/amazing-feature`)
+3. Committa le modifiche (`git commit -m 'Add amazing feature'`)
+4. Push al branch (`git push origin feature/amazing-feature`)
+5. Apri Pull Request
+
+## 📄 Licenza
+
+Questo progetto è sotto licenza MIT. Vedi [LICENSE](LICENSE) per dettagli.
+
+---
+
+**Creato con ❤️ per Alice Mandelli Portfolio**
+
+### UI Developer & Designer con specializzazione AI

@@ -1,7 +1,7 @@
 ---
-description: 
+description: Questa regola definisce la palette colori principale del portfolio Alice Mandelli, con nomi, codici esadecimali e suggerimenti d'uso per garantire coerenza visiva e accessibilità.
 globs: 
-alwaysApply: true
+alwaysApply: false
 ---
 # Palette Signature – Alice Mandelli
 

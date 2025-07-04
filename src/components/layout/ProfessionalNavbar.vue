@@ -11,12 +11,12 @@
         <router-link
           to="/"
           class="brand-link"
-          :aria-label="t('navigation.logo')"
+          :aria-label="t('pages.navigation.logo')"
         >
           <div class="brand-logo">
             <span class="logo-text">AM</span>
           </div>
-          <span class="brand-name">{{ t('navigation.logo') }}</span>
+          <span class="brand-name">{{ t('pages.navigation.logo') }}</span>
         </router-link>
       </div>
 
@@ -158,20 +158,20 @@ const isMobileOpen = ref(false)
 const isLanguageMenuOpen = ref(false)
 
 // Navigation items
-const navigationItems = [
-  { path: '/', label: t('navigation.home') },
-  { path: '/about', label: t('navigation.about') },
-  { path: '/services', label: t('navigation.services') },
-  { path: '/portfolio', label: t('navigation.portfolio') },
-  { path: '/experience', label: t('navigation.experience') },
-  { path: '/contact', label: t('navigation.contact') }
-]
+const navigationItems = computed(() => [
+  { path: '/', label: t('pages.navigation.home') },
+  { path: '/about', label: t('pages.navigation.about') },
+  { path: '/services', label: t('pages.navigation.services') },
+  { path: '/portfolio', label: t('pages.navigation.portfolio') },
+  { path: '/experience', label: t('pages.navigation.experience') },
+  { path: '/contact', label: t('pages.navigation.contact') }
+])
 
 // Language options
 const availableLanguages = [
-  { code: 'it', name: 'Italiano' },
-  { code: 'en', name: 'English' },
-  { code: 'es', name: 'Español' }
+  { code: 'it', name: t('common.language.italiano') },
+  { code: 'en', name: t('common.language.english') },
+  { code: 'es', name: t('common.language.español') }
 ]
 
 // Computed properties

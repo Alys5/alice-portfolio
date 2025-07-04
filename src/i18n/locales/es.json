@@ -47,6 +47,12 @@
       "activateDarkMode": "Activar modo oscuro",
       "activateLightMode": "Activar modo claro"
     },
+    "language": {
+      "current": "Idioma actual",
+      "italiano": "Italiano",
+      "english": "English",
+      "español": "Español"
+    },
     "brand": {
       "name": "Alice Mandelli",
       "tagline": "UI Developer & Designer con especialización en IA",
@@ -79,7 +85,14 @@
       "about": {
         "title": "Sobre mí",
         "subtitle": "UI Developer & Designer con 10+ años de experiencia en proyectos enterprise",
-        "description": "Soy Alice Mandelli, UI Developer & Designer con pasión por crear interfaces que combinan estética, funcionalidad e innovación en IA. He trabajado en proyectos de éxito como SNAM Easy (ganador del Nielsen Norman Award), Paragraph AI Journalist y plataformas CRM para clientes como Poste Italiane, AXA, Banca Generali y Marazzi Ceramiche."
+        "description": "Soy Alice Mandelli, UI Developer & Designer con pasión por crear interfaces que combinan estética, funcionalidad e innovación en IA. He trabajado en proyectos de éxito como SNAM Easy (ganador del Nielsen Norman Award), Paragraph AI Journalist y plataformas CRM para clientes como Poste Italiane, AXA, Banca Generali y Marazzi Ceramiche.",
+        "values": {
+          "title": "Mis Valores",
+          "innovation": "Innovación",
+          "quality": "Calidad",
+          "collaboration": "Colaboración",
+          "excellence": "Excelencia"
+        }
       },
       "portfolio": {
         "title": "Portfolio",
@@ -111,11 +124,13 @@
         "email": "Email",
         "website": "Website",
         "dribbble": "Dribbble",
-        "behance": "Behance"
+        "behance": "Behance",
+        "instagram": "Instagram",
+        "github": "GitHub"
       },
       "contact": {
         "title": "Contacto",
-        "email": "info@alys5.eu",
+        "email": "info{at}alys5.eu",
         "phone": "(+39) 379 2692134",
         "location": "Roma, Italia",
         "availability": "Disponible para proyectos enterprise"
@@ -126,29 +141,63 @@
       }
     }
   },
+  "about": {
+    "values": {
+      "title": "Mis Valores",
+      "innovation": "Innovación",
+      "quality": "Calidad",
+      "collaboration": "Colaboración",
+      "excellence": "Excelencia"
+    }
+  },
   "services": {
     "title": "Servicios",
     "subtitle": "Soluciones UI/UX e IA para transformar tu presencia digital",
+    "cta": {
+      "text": "¿Tienes un proyecto en mente? ¡Hablemos!",
+      "button": "Contáctame"
+    },
     "uiDevelopment": {
-      "title": "UI Development & Design",
-      "description": "Desarrollo y diseño de interfaces modernas utilizando Vue.js, React y Angular. Especializada en diseño responsive y optimización para dispositivos móviles.",
-      "price": "Desde €3.200"
+      "title": "Desarrollo & Diseño UI",
+      "description": "Desarrollo y diseño de interfaces modernas utilizando Vue.js, React y Angular. Especializada en diseño responsive y optimización móvil.",
+      "price": "Desde €3.200",
+      "feature1": "Diseño Responsive",
+      "feature2": "Vue.js & React",
+      "feature3": "Optimización de Rendimiento"
     },
     "aiSolutions": {
-      "title": "Soluciones de Interfaz IA",
-      "description": "Diseño de interfaces para aplicaciones de IA y automatización. Experiencia en flujos digitales y optimización de procesos.",
-      "price": "Desde €4.500"
+      "title": "Soluciones de Interfaces IA",
+      "description": "Diseño de interfaces para aplicaciones de IA y automatización. Experiencia con flujos de trabajo digitales y optimización de procesos.",
+      "price": "Desde €4.500",
+      "feature1": "Diseño de Interfaces IA",
+      "feature2": "Automatización de Flujos",
+      "feature3": "Visualización de Datos"
     },
     "consulting": {
-      "title": "Consultoría Enterprise",
-      "description": "Consultoría estratégica para proyectos enterprise: intranets, CRM y plataformas multi-servicio.",
-      "price": "Desde €2.800"
+      "title": "Consultoría Empresarial",
+      "description": "Consultoría estratégica para proyectos empresariales: intranets, CRM y plataformas multi-servicio.",
+      "price": "Desde €2.800",
+      "feature1": "Estrategia Empresarial",
+      "feature2": "Integración CRM",
+      "feature3": "Arquitectura de Plataforma"
+    }
+  },
+  "experience": {
+    "title": "Experiencia",
+    "subtitle": "10+ años de experiencia en proyectos empresariales",
+    "cta": {
+      "downloadCV": "Descargar CV"
     }
   },
   "skills": {
     "title": "Habilidades",
+    "subtitle": "Tecnologías y metodologías para proyectos exitosos",
+    "cta": {
+      "text": "¿Quieres ver mis habilidades en acción?",
+      "button": "Explorar Proyectos"
+    },
     "frontend": {
-      "title": "Frontend Development",
+      "title": "Desarrollo Frontend",
       "items": [
         "Vue.js 2.x/3.x",
         "React & React Bootstrap",
@@ -164,98 +213,113 @@
         "Design Thinking",
         "Diseño Responsive",
         "UI Móvil (iPad/Safari)",
-        "Design Systems",
+        "Sistemas de Diseño",
         "Investigación de Usuarios",
         "Prototipado"
       ]
     },
     "enterprise": {
-      "title": "Enterprise & IA",
+      "title": "Empresarial & IA",
       "items": [
         "Salesforce (Apex/Lightning)",
         "SharePoint & Microsoft 365",
         "Diseño de Interfaces IA",
         "Visualización de Datos (Tableau)",
         "Docker & DevOps",
-        "Integración Enterprise"
+        "Integración Empresarial"
       ]
     }
   },
-  "blog": {
-    "title": "Blog & Insights",
-    "subtitle": "Compartiendo conocimiento y tendencias en el mundo UI/UX e IA",
-    "readMore": "Leer más",
+  "testimonials": {
+    "title": "Testimonios",
+    "subtitle": "Lo que dicen los clientes",
+    "controls": {
+      "previous": "Testimonio anterior",
+      "next": "Testimonio siguiente"
+    },
     "cta": {
-      "title": "Mantente actualizado",
-      "description": "Suscríbete al newsletter para recibir insights exclusivos sobre UI/UX, IA y tendencias del diseño.",
-      "viewAll": "Ver todos los artículos",
-      "newsletter": "Suscribirse al newsletter"
+      "button": "Ver todos los testimonios"
     }
   },
-  "leadMagnet": {
-    "title": "Obtén la Guía Gratuita",
-    "subtitle": "Descarga la guía completa 'Tendencias UI/UX 2025: Cómo crear interfaces que convierten'",
-    "benefits": {
-      "benefit1": "Tendencias UI/UX más innovadoras de 2025",
-      "benefit2": "Estrategias para aumentar las conversiones en un 40%",
-      "benefit3": "Casos de estudio de proyectos enterprise exitosos",
-      "benefit4": "Checklist para optimizar la accesibilidad WCAG 2.2"
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Empecemos a trabajar juntos",
+    "info": {
+      "title": "Información de Contacto",
+      "email": {
+        "label": "Email",
+        "value": "alice.mandelli{at}example.com"
+      },
+      "phone": {
+        "label": "Teléfono",
+        "value": "+39 333 123 4567"
+      },
+      "location": {
+        "label": "Ubicación",
+        "value": "Roma, Italia"
+      },
+      "availability": {
+        "label": "Disponibilidad",
+        "value": "Disponible para proyectos empresariales"
+      }
     },
-    "testimonial": "La guía de Alice me ayudó a implementar soluciones UI que aumentaron las conversiones de nuestro e-commerce en un 35%",
-    "author": "Marco Rossi",
-    "authorRole": "Product Manager, TechCorp",
+    "social": {
+      "title": "Social",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "dribbble": "Dribbble"
+    },
     "form": {
-      "title": "Descargar Guía Gratuita",
-      "subtitle": "Recibe la guía completa por email ahora",
-      "firstName": "Nombre",
-      "firstNamePlaceholder": "Tu nombre",
-      "email": "Email empresarial",
-      "emailPlaceholder": "tu-email@empresa.com",
-      "interests": "Intereses (selecciona hasta 3)",
-      "privacy": "Acepto recibir contenido exclusivo y actualizaciones. Puedo darme de baja en cualquier momento.",
-      "privacyLink": "Política de Privacidad",
-      "submit": "Descargar Guía Gratuita",
-      "submitting": "Enviando..."
-    },
-    "trust": {
-      "privacy": "Tus datos están protegidos",
-      "noSpam": "Sin spam, solo contenido valioso",
-      "unsubscribe": "Darse de baja siempre posible"
-    }
-  },
-  "forms": {
-    "validation": {
-      "required": "Campo obligatorio",
-      "email": "Por favor ingresa un email válido",
-      "minLength": "Mínimo {count} caracteres",
-      "maxLength": "Máximo {count} caracteres",
-      "phone": "Por favor ingresa un número de teléfono válido",
-      "privacy": "Debes aceptar la política de privacidad"
-    },
-    "contact": {
-      "title": "Contáctame",
-      "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
-      "name": "Nombre Completo",
-      "namePlaceholder": "Tu nombre completo",
-      "email": "Email Empresarial",
-      "emailPlaceholder": "tu-email@empresa.com",
-      "company": "Empresa",
-      "companyPlaceholder": "Nombre de tu empresa (opcional)",
-      "companyHelp": "Útil para personalizar la propuesta",
-      "budget": "Presupuesto del Proyecto",
-      "budgetPlaceholder": "Selecciona presupuesto",
-      "budgetSmall": "€1.000 - €5.000",
-      "budgetMedium": "€5.000 - €15.000",
-      "budgetLarge": "€15.000 - €50.000",
-      "budgetEnterprise": "€50.000+",
-      "message": "Describe tu proyecto",
-      "messagePlaceholder": "Cuéntame sobre tu proyecto, objetivos y requisitos...",
-      "privacy": "Acepto la",
-      "privacyLink": "Política de Privacidad",
-      "send": "Enviar Solicitud",
-      "sending": "Enviando...",
+      "title": "Enviar mensaje",
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Tu nombre completo"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "tu-email{at}empresa.com"
+      },
+      "subject": {
+        "label": "Asunto",
+        "placeholder": "Selecciona un tema",
+        "options": {
+          "project": "Nuevo Proyecto",
+          "consulting": "Consultoría",
+          "collaboration": "Colaboración",
+          "other": "Otro"
+        }
+      },
+      "message": {
+        "label": "Mensaje",
+        "placeholder": "Describe tu proyecto, objetivos y requisitos..."
+      },
+      "privacy": {
+        "text": "Acepto la",
+        "link": "Política de Privacidad"
+      },
+      "submit": "Enviar mensaje",
+      "submitting": "Enviando...",
       "success": "¡Gracias! Te responderé en 24 horas.",
-      "error": "Error al enviar. Intenta de nuevo o contáctame directamente."
+      "validation": {
+        "name": {
+          "required": "El nombre es obligatorio",
+          "minLength": "El nombre debe tener al menos 2 caracteres"
+        },
+        "email": {
+          "required": "El email es obligatorio",
+          "invalid": "Ingresa un email válido"
+        },
+        "subject": {
+          "required": "El asunto es obligatorio"
+        },
+        "message": {
+          "required": "El mensaje es obligatorio",
+          "minLength": "El mensaje debe tener al menos 10 caracteres"
+        },
+        "privacy": {
+          "required": "Debes aceptar la política de privacidad"
+        }
+      }
     }
   },
   "animations": {
@@ -272,7 +336,10 @@
       "floatingElements": "Floating Elements",
       "performance": "Monitoreo de Rendimiento",
       "fps": "FPS",
-      "frameTime": "Frame Time"
+      "frameTime": "Frame Time",
+      "reducedMotion": "Reducción de Movimiento",
+      "yes": "Sí",
+      "no": "No"
     }
   },
   "accessibility": {
@@ -282,10 +349,11 @@
     "openMenu": "Abrir menú",
     "loading": "Cargando",
     "loadingContent": "Cargando contenido, por favor espera.",
-    "error": "Ocurrió un error",
-    "success": "Operación completada exitosamente",
+    "error": "Se produjo un error",
+    "success": "Operación completada con éxito",
     "visit": "Visitar {platform}",
     "logo": "Alice Mandelli",
-    "logoLabel": "Logo Alice Mandelli"
+    "logoLabel": "Logo de Alice Mandelli",
+    "portfolio": "Portfolio Profesional"
   }
 }

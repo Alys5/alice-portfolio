@@ -1,0 +1,537 @@
+---
+description: Bento Grid Layouts & UFO Elements 2025
+globs: 
+alwaysApply: false
+---
+# Bento Grid Layouts & UFO Elements 2025
+
+## Bento Grid System
+
+### CSS Grid Base
+```scss
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  grid-auto-rows: minmax(200px, auto);
+  padding: var(--spacing-xl);
+  
+  // Responsive breakpoints
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-xl);
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+      "large large medium"
+      "large large small"
+      "medium small small";
+  }
+  
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 
+      "large large medium small"
+      "large large medium small"
+      "medium small small large2"
+      "medium small small large2";
+  }
+}
+```
+
+### Bento Grid Item Sizes
+```scss
+.bento-item {
+  position: relative;
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  // Size variants
+  &--large {
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 400px;
+  }
+  
+  &--medium {
+    grid-column: span 1;
+    grid-row: span 2;
+    min-height: 350px;
+  }
+  
+  &--small {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 200px;
+  }
+  
+  // Hover effects
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    
+    .bento-item__overlay {
+      opacity: 1;
+    }
+  }
+  
+  // Color variants
+  &--bright-sun {
+    background: var(--glass-bright-sun);
+    border-color: rgba(255, 201, 64, 0.3);
+  }
+  
+  &--persian-blue {
+    background: var(--glass-persian-blue);
+    border-color: rgba(32, 72, 180, 0.3);
+  }
+  
+  &--picton-blue {
+    background: var(--glass-picton-blue);
+    border-color: rgba(72, 169, 248, 0.3);
+  }
+  
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 201, 64, 0.1), rgba(72, 169, 248, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+}
+```
+
+### BentoGrid Component
+```vue
+<template>
+  <section class="bento-grid-section">
+    <div class="bento-grid" :class="gridClass">
+      <div 
+        v-for="(item, index) in items" 
+        :key="item.id"
+        class="bento-item"
+        :class="[
+          `bento-item--${item.size}`,
+          `bento-item--${item.color}`,
+          { 'bento-item--animated': animateOnScroll }
+        ]"
+        :style="{ '--animation-delay': `${index * 0.1}s` }"
+      >
+        <div class="bento-item__overlay" />
+        <div class="bento-item__content">
+          <h3 class="bento-item__title">{{ item.title }}</h3>
+          <p class="bento-item__description">{{ item.description }}</p>
+          <div class="bento-item__actions">
+            <slot name="actions" :item="item" />
+          </div>
+        </div>
+        <div class="bento-item__background" :style="{ backgroundImage: `url(${item.background})` }" />
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+
+interface BentoItem {
+  id: string
+  title: string
+  description: string
+  size: 'large' | 'medium' | 'small'
+  color: 'bright-sun' | 'persian-blue' | 'picton-blue' | 'default'
+  background?: string
+}
+
+interface Props {
+  items: BentoItem[]
+  animateOnScroll?: boolean
+  gridVariant?: 'default' | 'portfolio' | 'services'
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  animateOnScroll: true,
+  gridVariant: 'default'
+})
+
+const gridClass = computed(() => `bento-grid--${props.gridVariant}`)
+</script>
+
+<style scoped lang="scss">
+.bento-grid-section {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-xxl) 0;
+}
+
+.bento-grid {
+  @extend .bento-grid;
+  
+  &--portfolio {
+    grid-template-areas: 
+      "large large medium"
+      "large large small"
+      "medium small small";
+  }
+  
+  &--services {
+    grid-template-areas: 
+      "large medium medium"
+      "large small small"
+      "large small small";
+  }
+}
+
+.bento-item {
+  @extend .bento-item;
+  
+  &__content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ebony-clay);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  &__description {
+    font-size: 1rem;
+    color: var(--ebony-clay);
+    opacity: 0.8;
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+  
+  &__actions {
+    margin-top: var(--spacing-md);
+  }
+  
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    z-index: 1;
+  }
+  
+  // Animation on scroll
+  &--animated {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: bento-fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: var(--animation-delay);
+  }
+}
+
+@keyframes bento-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .bento-item {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+    
+    &--animated {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+</style>
+```
+
+## UFO Elements (Unexpected Floating Objects)
+
+### UFO Container
+```scss
+.ufo-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  
+  // Floating elements
+  .ufo-element {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    
+    // Random positioning
+    &:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+    &:nth-child(2) { top: 25%; right: 20%; animation-delay: 2s; }
+    &:nth-child(3) { bottom: 30%; left: 25%; animation-delay: 4s; }
+    &:nth-child(4) { bottom: 15%; right: 30%; animation-delay: 6s; }
+    
+    // Floating animation
+    animation: ufo-float 8s ease-in-out infinite;
+    
+    // Different sizes
+    &--small { width: 20px; height: 20px; }
+    &--medium { width: 30px; height: 30px; }
+    &--large { width: 40px; height: 40px; }
+  }
+}
+```
+
+### UFO Animation
+```scss
+@keyframes ufo-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(-3deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .ufo-element {
+    animation: none;
+    transform: none;
+  }
+}
+```
+
+### UFO Component
+```vue
+<template>
+  <div class="ufo-container">
+    <div 
+      v-for="(ufo, index) in ufoElements" 
+      :key="index"
+      class="ufo-element"
+      :class="[
+        `ufo-element--${ufo.size}`,
+        `ufo-element--${ufo.color}`
+      ]"
+      :style="ufo.style"
+    >
+      <component :is="ufo.icon" v-if="ufo.icon" />
+      <div v-else class="ufo-shape" />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+
+interface UFOElement {
+  size: 'small' | 'medium' | 'large'
+  color: 'bright-sun' | 'persian-blue' | 'picton-blue'
+  icon?: any
+  style?: Record<string, string>
+}
+
+interface Props {
+  elements?: UFOElement[]
+  autoGenerate?: boolean
+  count?: number
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  autoGenerate: true,
+  count: 4
+})
+
+const ufoElements = computed(() => {
+  if (props.elements) return props.elements
+  
+  if (!props.autoGenerate) return []
+  
+  const sizes: Array<'small' | 'medium' | 'large'> = ['small', 'medium', 'large']
+  const colors: Array<'bright-sun' | 'persian-blue' | 'picton-blue'> = ['bright-sun', 'persian-blue', 'picton-blue']
+  
+  return Array.from({ length: props.count }, (_, index) => ({
+    size: sizes[index % sizes.length],
+    color: colors[index % colors.length],
+    style: {
+      '--animation-delay': `${index * 2}s`,
+      '--float-distance': `${10 + Math.random() * 20}px`
+    }
+  }))
+})
+</script>
+
+<style scoped lang="scss">
+.ufo-container {
+  @extend .ufo-container;
+}
+
+.ufo-element {
+  @extend .ufo-element;
+  
+  // Color variants
+  &--bright-sun {
+    background: var(--bright-sun);
+    box-shadow: 0 0 20px rgba(255, 201, 64, 0.5);
+  }
+  
+  &--persian-blue {
+    background: var(--persian-blue);
+    box-shadow: 0 0 20px rgba(32, 72, 180, 0.5);
+  }
+  
+  &--picton-blue {
+    background: var(--picton-blue);
+    box-shadow: 0 0 20px rgba(72, 169, 248, 0.5);
+  }
+  
+  .ufo-shape {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.8;
+  }
+  
+  // Custom animation with CSS variables
+  animation: ufo-float 8s ease-in-out infinite;
+  animation-delay: var(--animation-delay);
+  
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+</style>
+```
+
+## Responsive Bento Grid
+
+### Mobile-First Approach
+```scss
+// Mobile (default)
+.bento-grid {
+  grid-template-columns: 1fr;
+  gap: var(--spacing-md);
+  
+  .bento-item {
+    grid-column: span 1;
+    grid-row: span 1;
+    min-height: 200px;
+  }
+}
+
+// Tablet
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    
+    .bento-item--large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+  }
+}
+
+// Desktop
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xl);
+  }
+}
+
+// Large Desktop
+@media (min-width: 1440px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xxl);
+  }
+}
+```
+
+## Performance Optimizations
+
+### Intersection Observer
+```typescript
+// useBentoAnimation.ts
+import { ref, onMounted, onUnmounted } from 'vue'
+
+export function useBentoAnimation() {
+  const isVisible = ref(false)
+  const containerRef = ref<HTMLElement>()
+  
+  onMounted(() => {
+    if (!containerRef.value) return
+    
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible.value = entry.isIntersecting
+      },
+      { threshold: 0.1 }
+    )
+    
+    observer.observe(containerRef.value)
+    
+    onUnmounted(() => observer.disconnect())
+  })
+  
+  return { isVisible, containerRef }
+}
+```
+
+### Lazy Loading UFO Elements
+```vue
+<template>
+  <div ref="containerRef" class="ufo-container">
+    <UFOElements 
+      v-if="isVisible" 
+      :elements="ufoElements" 
+    />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { useBentoAnimation } from '@/composables/useBentoAnimation'
+
+const { isVisible, containerRef } = useBentoAnimation()
+</script>
+```
+
+## Rimandi
+
+- [BentoGrid.vue](mdc:src/components/sections/BentoGrid.vue)
+- [UFOElements.vue](mdc:src/components/ui/UFOElements.vue)
+- [useBentoAnimation.ts](mdc:src/composables/useBentoAnimation.ts)
+- [variables.scss](mdc:src/styles/variables.scss)
+- [animations.scss](mdc:src/styles/animations.scss)
+

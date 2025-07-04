@@ -198,7 +198,7 @@
     <meta name="apple-mobile-web-app-title" content="Alice Mandelli">
     
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://fonts.googleapis.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;">
     
     <!-- Remove no-js class with JavaScript -->
     <script>
@@ -265,10 +265,23 @@
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js')
             .then((registration) => {
-              console.log('SW registered: ', registration);
+              console.log('Service Worker registrato con successo:', registration.scope);
+              
+              // Check for updates
+              registration.addEventListener('updatefound', () => {
+                const newWorker = registration.installing;
+                if (newWorker) {
+                  newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                      console.log('Nuova versione del Service Worker disponibile');
+                    }
+                  });
+                }
+              });
             })
             .catch((registrationError) => {
-              console.log('SW registration failed: ', registrationError);
+              console.warn('Registrazione Service Worker fallita:', registrationError);
+              // Non bloccare l'app se il SW fallisce
             });
         });
       }

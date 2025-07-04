@@ -1,6 +1,6 @@
 ---
-description: 
-globs: *.vue, *.js, *.ts
+description: Vue 3 Modern Patterns & Composables  Implementa i pattern Vue 3 più moderni per il 2025, includendo composables scalabili, gestione dello stato reattivo e ottimizzazioni performance.
+globs: 
 alwaysApply: false
 ---
 # Vue 3 Modern Patterns & Composables

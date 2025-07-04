@@ -47,7 +47,7 @@
               class="indicator"
               :class="{ 'is-active': index === currentIndex }"
               @click="goToTestimonial(index)"
-              :aria-label="`Vai al testimonial ${index + 1}`"
+              :aria-label="`${t('testimonials.controls.previous')} ${index + 1}`"
             ></button>
           </div>
 

@@ -1,0 +1,521 @@
+---
+description: Glassmorphism Components & Modern Effects 2025
+globs: 
+alwaysApply: false
+---
+# Glassmorphism Components & Modern Effects 2025
+
+## Glassmorphism Base
+
+### CSS Variables per Glassmorphism
+```scss
+:root {
+  // Glassmorphism base
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --glass-blur: blur(15px);
+  
+  // Varianti per palette Alice Mandelli
+  --glass-bright-sun: rgba(255, 201, 64, 0.15);
+  --glass-persian-blue: rgba(32, 72, 180, 0.15);
+  --glass-picton-blue: rgba(72, 169, 248, 0.15);
+  
+  // Gradients glassmorphism
+  --glass-gradient: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+}
+```
+
+### GlassCard Component
+```vue
+<template>
+  <div 
+    class="glass-card"
+    :class="[`glass-card--${variant}`, { 'glass-card--hover': hoverEffect }]"
+    :style="customStyles"
+  >
+    <div class="glass-card__content">
+      <slot />
+    </div>
+    <div class="glass-card__border" />
+  </div>
+</template>
+
+<script setup lang="ts">
+interface Props {
+  variant?: 'default' | 'bright-sun' | 'persian-blue' | 'picton-blue'
+  hoverEffect?: boolean
+  customStyles?: Record<string, string>
+}
+
+withDefaults(defineProps<Props>(), {
+  variant: 'default',
+  hoverEffect: true
+})
+</script>
+
+<style scoped lang="scss">
+.glass-card {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &__content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+  }
+  
+  &__border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 16px;
+    background: var(--glass-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  // Varianti colore
+  &--bright-sun {
+    background: var(--glass-bright-sun);
+    border-color: rgba(255, 201, 64, 0.3);
+  }
+  
+  &--persian-blue {
+    background: var(--glass-persian-blue);
+    border-color: rgba(32, 72, 180, 0.3);
+  }
+  
+  &--picton-blue {
+    background: var(--glass-picton-blue);
+    border-color: rgba(72, 169, 248, 0.3);
+  }
+  
+  // Hover effects
+  &--hover:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    
+    .glass-card__border {
+      opacity: 1;
+    }
+  }
+  
+  // Dark mode
+  @media (prefers-color-scheme: dark) {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+</style>
+```
+
+## Micro-Animazioni e Cursor Effects
+
+### Custom Cursor Component
+```vue
+<template>
+  <div 
+    ref="cursorRef"
+    class="custom-cursor"
+    :class="cursorClass"
+  >
+    <div class="cursor-dot" />
+    <div class="cursor-ring" />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const cursorRef = ref<HTMLElement>()
+const cursorClass = ref('')
+
+const updateCursor = (e: MouseEvent) => {
+  if (!cursorRef.value) return
+  
+  const { clientX, clientY } = e
+  cursorRef.value.style.transform = `translate(${clientX}px, ${clientY}px)`
+}
+
+const handleMouseEnter = () => {
+  cursorClass.value = 'cursor--visible'
+}
+
+const handleMouseLeave = () => {
+  cursorClass.value = ''
+}
+
+onMounted(() => {
+  document.addEventListener('mousemove', updateCursor)
+  document.addEventListener('mouseenter', handleMouseEnter)
+  document.addEventListener('mouseleave', handleMouseLeave)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('mousemove', updateCursor)
+  document.removeEventListener('mouseenter', handleMouseEnter)
+  document.removeEventListener('mouseleave', handleMouseLeave)
+})
+</script>
+
+<style scoped lang="scss">
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  
+  .cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--bright-sun);
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    transition: transform 0.1s ease;
+  }
+  
+  .cursor-ring {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--bright-sun);
+    border-radius: 50%;
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    transition: all 0.3s ease;
+  }
+  
+  &.cursor--visible {
+    opacity: 1;
+  }
+  
+  &:not(.cursor--visible) {
+    opacity: 0;
+  }
+  
+  // Hover states
+  &.cursor--hover {
+    .cursor-dot {
+      transform: scale(1.5);
+    }
+    
+    .cursor-ring {
+      transform: scale(1.5);
+      border-color: var(--picton-blue);
+    }
+  }
+  
+  // Magnetic effect
+  &.cursor--magnetic {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+// Hide default cursor
+* {
+  cursor: none !important;
+}
+
+// Show default cursor for touch devices
+@media (hover: none) {
+  .custom-cursor {
+    display: none;
+  }
+  
+  * {
+    cursor: auto !important;
+  }
+}
+</style>
+```
+
+## Ripple Effects
+
+### Ripple Button Component
+```vue
+<template>
+  <button 
+    class="ripple-button"
+    :class="[`ripple-button--${variant}`, { 'ripple-button--loading': loading }]"
+    @click="createRipple"
+    :disabled="disabled || loading"
+  >
+    <span class="ripple-button__content">
+      <slot />
+    </span>
+    <span 
+      v-for="ripple in ripples" 
+      :key="ripple.id"
+      class="ripple"
+      :style="ripple.style"
+    />
+    <span v-if="loading" class="ripple-button__loader" />
+  </button>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+interface Props {
+  variant?: 'primary' | 'secondary' | 'ghost'
+  loading?: boolean
+  disabled?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  variant: 'primary',
+  loading: false,
+  disabled: false
+})
+
+const ripples = ref<Array<{ id: number; style: Record<string, string> }>>([])
+let rippleId = 0
+
+const createRipple = (event: MouseEvent) => {
+  const button = event.currentTarget as HTMLElement
+  const rect = button.getBoundingClientRect()
+  const size = Math.max(rect.width, rect.height)
+  const x = event.clientX - rect.left - size / 2
+  const y = event.clientY - rect.top - size / 2
+  
+  const ripple = {
+    id: rippleId++,
+    style: {
+      width: `${size}px`,
+      height: `${size}px`,
+      left: `${x}px`,
+      top: `${y}px`
+    }
+  }
+  
+  ripples.value.push(ripple)
+  
+  setTimeout(() => {
+    ripples.value = ripples.value.filter(r => r.id !== ripple.id)
+  }, 600)
+}
+</script>
+
+<style scoped lang="scss">
+.ripple-button {
+  position: relative;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+  &__content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  &__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  // Varianti
+  &--primary {
+    background: var(--gradient-primary);
+    color: white;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(32, 72, 180, 0.3);
+    }
+  }
+  
+  &--secondary {
+    background: transparent;
+    color: var(--persian-blue);
+    border: 2px solid var(--persian-blue);
+    
+    &:hover {
+      background: var(--persian-blue);
+      color: white;
+    }
+  }
+  
+  &--ghost {
+    background: transparent;
+    color: var(--ebony-clay);
+    
+    &:hover {
+      background: rgba(255, 201, 64, 0.1);
+    }
+  }
+  
+  // Ripple effect
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+  }
+  
+  // Loading state
+  &--loading {
+    .ripple-button__content {
+      opacity: 0;
+    }
+  }
+  
+  // Disabled state
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .ripple-button {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+  
+  .ripple {
+    animation: none;
+  }
+}
+</style>
+```
+
+## Magnetic Hover Effects
+
+### Magnetic Component Mixin
+```scss
+// _magnetic.scss
+@mixin magnetic-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  
+  &:hover {
+    transform: translate(var(--mouse-x, 0), var(--mouse-y, 0)) scale(1.05);
+  }
+}
+
+.magnetic-element {
+  @include magnetic-hover;
+  
+  // JavaScript per calcolare posizione mouse
+  &:hover {
+    --mouse-x: calc(var(--mouse-x-raw, 0) * 0.1px);
+    --mouse-y: calc(var(--mouse-y-raw, 0) * 0.1px);
+  }
+}
+```
+
+### Magnetic Button Implementation
+```vue
+<template>
+  <button 
+    ref="buttonRef"
+    class="magnetic-button"
+    @mousemove="handleMouseMove"
+    @mouseleave="handleMouseLeave"
+  >
+    <slot />
+  </button>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const buttonRef = ref<HTMLElement>()
+
+const handleMouseMove = (e: MouseEvent) => {
+  if (!buttonRef.value) return
+  
+  const rect = buttonRef.value.getBoundingClientRect()
+  const x = e.clientX - rect.left - rect.width / 2
+  const y = e.clientY - rect.top - rect.height / 2
+  
+  buttonRef.value.style.setProperty('--mouse-x-raw', x.toString())
+  buttonRef.value.style.setProperty('--mouse-y-raw', y.toString())
+}
+
+const handleMouseLeave = () => {
+  if (!buttonRef.value) return
+  
+  buttonRef.value.style.setProperty('--mouse-x-raw', '0')
+  buttonRef.value.style.setProperty('--mouse-y-raw', '0')
+}
+</script>
+
+<style scoped lang="scss">
+.magnetic-button {
+  @include magnetic-hover;
+  
+  background: var(--gradient-primary);
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  box-shadow: 0 4px 15px rgba(32, 72, 180, 0.3);
+  
+  &:hover {
+    box-shadow: 0 8px 25px rgba(32, 72, 180, 0.4);
+  }
+}
+</style>
+```
+
+## Rimandi
+
+- [GlassCard.vue](mdc:src/components/ui/GlassCard.vue)
+- [CustomCursor.vue](mdc:src/components/ui/CustomCursor.vue)
+- [AnimatedButton.vue](mdc:src/components/ui/AnimatedButton.vue)
+- [variables.scss](mdc:src/styles/variables.scss)
+- [animations.scss](mdc:src/styles/animations.scss)
+

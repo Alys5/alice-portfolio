@@ -1,6 +1,6 @@
 ---
-description: 
-globs: *.vue, *.jsx, *.tsx, *.css
+description: UI Trends 2025 - Design Patterns Moderni
+globs: 
 alwaysApply: false
 ---
 # UI Trends 2025 - Design Patterns Moderni

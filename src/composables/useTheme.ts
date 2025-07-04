@@ -4,6 +4,7 @@ const THEME_KEY = 'alice-mandelli-theme'
 const isDark = ref(false)
 const systemPreference = ref<'light' | 'dark'>('light')
 const mode = ref<'light' | 'dark' | 'system'>('system')
+let isInitialized = false
 
 // Palette Alice Mandelli (shared)
 const sharedVars = {
@@ -69,8 +70,12 @@ function handleSystemChange(e: MediaQueryListEvent) {
     updateThemeVars()
   }
 }
-// Prevent flash: apply theme before hydration
-(function immediateTheme() {
+
+function initializeTheme() {
+  if (isInitialized) return
+  isInitialized = true
+
+  // Prevent flash: apply theme before hydration
   const saved = localStorage.getItem(THEME_KEY) as 'light' | 'dark' | 'system' | null
   systemPreference.value = detectSystemPreference()
   if (saved === 'light' || saved === 'dark') {
@@ -81,20 +86,24 @@ function handleSystemChange(e: MediaQueryListEvent) {
     mode.value = 'system'
   }
   updateThemeVars()
-})()
 
-onMounted(() => {
   // Watch system preference
   const mq = window.matchMedia('(prefers-color-scheme: dark)')
   systemPreference.value = mq.matches ? 'dark' : 'light'
   mq.addEventListener('change', handleSystemChange)
-})
-
-watchEffect(() => {
-  updateThemeVars()
-})
+}
 
 export function useTheme() {
+  onMounted(() => {
+    initializeTheme()
+  })
+
+  watchEffect(() => {
+    if (isInitialized) {
+      updateThemeVars()
+    }
+  })
+
   return {
     isDark: computed(() => isDark.value),
     toggleTheme,

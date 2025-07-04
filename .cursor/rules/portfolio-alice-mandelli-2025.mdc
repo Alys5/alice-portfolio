@@ -1,0 +1,118 @@
+---
+description: Trend 2025 & Palette Signature
+globs: 
+alwaysApply: false
+---
+# Portfolio Alice Mandelli - Trend 2025 & Palette Signature
+
+## Palette Colori Signature
+
+```scss
+:root {
+  --bright-sun: #ffc940;     // Giallo brillante - colore principale energico
+  --ebony-clay: #29353f;     // Grigio scuro elegante - per testi e contrasti  
+  --persian-blue: #2048b4;   // Blu profondo - per call-to-action e link
+  --picton-blue: #48a9f8;    // Blu chiaro - per accenti e hover states
+  
+  // Varianti per glassmorphism e gradients
+  --bright-sun-alpha: #ffc94020;
+  --persian-blue-alpha: #2048b430;
+  --picton-blue-alpha: #48a9f825;
+  
+  // Gradients signature
+  --gradient-primary: linear-gradient(135deg, var(--persian-blue), var(--picton-blue));
+  --gradient-accent: linear-gradient(45deg, var(--bright-sun), #ffd700);
+  --gradient-dark: linear-gradient(180deg, var(--ebony-clay), #1a202c);
+}
+```
+
+## Trend 2025 Obbigatori
+
+### 1. Glassmorphism Avanzato
+- `backdrop-filter: blur(15px)` per effetti vetro
+- `background: var(--bright-sun-alpha)` per trasparenze
+- `border: 1px solid rgba(255,255,255,0.2)` per bordi luminosi
+- `box-shadow: 0 8px 32px rgba(0,0,0,0.1)` per profondità
+
+### 2. Dark Mode con Neon Accents
+- Toggle reattivo dark/light mode
+- Dark mode: `background: var(--ebony-clay)` con accenti neon
+- `text-shadow: 0 0 10px var(--bright-sun)` per effetti glow
+- Gradients neon per elementi interattivi
+
+### 3. Micro-Animazioni e Cursor Effects
+- Custom cursor che cambia forma su hover
+- Micro animazioni con spring physics
+- Elementi magnetici che seguono il mouse
+- Effetti ripple sui click
+
+### 4. Scroll-Triggered Animations
+- Intersection Observer per performance
+- Parallax backgrounds con gradients signature
+- Sticky sections con cambio colore dinamico
+- Progressive disclosure degli elementi
+
+### 5. Brutalism Moderno
+- Typography bold con `font-weight: 800`
+- Contrasti forti tra `--bright-sun` e `--ebony-clay`
+- Forme geometriche asimmetriche
+- Layout a griglia spezzata intenzionalmente
+
+### 6. Bento Grid Layout
+- CSS Grid asimmetrico responsivo
+- Cards di diverse dimensioni con glassmorphism
+- Ogni card usa colori diversi della palette
+- Auto-fit responsive design
+
+## Componenti Obbigatori
+
+### HeroSection.vue
+- Full-screen hero con `--gradient-primary`
+- Typography grande e bold in `--bright-sun`
+- Cursor animation personalizzato
+- CTA button con glassmorphism
+
+### NavigationBar.vue
+- Sticky navbar con backdrop-filter
+- Menu burger animato per mobile
+- Link con hover effects in `--bright-sun`
+- Dark mode toggle integrato
+
+### GlassCard.vue
+- Componente riutilizzabile con glassmorphism
+- Props per contenuto e colore accent
+- Hover animations fluide
+- Responsive design
+
+### BentoGrid.vue
+- Layout grid asimmetrico
+- Ogni grid item con colore diverso della palette
+- Hover effects con scale e glow
+- Auto-fit responsive
+
+## Performance Requirements
+
+- Lighthouse score ≥ 90
+- LCP < 2.5s
+- CLS < 0.1
+- INP < 200ms
+- Bundle size ottimizzato con tree shaking
+- Lazy loading per immagini e componenti
+- Code splitting per routes
+
+## Accessibilità WCAG 2.2+
+
+- Skip links visibili e focusabili
+- Focus indicators con contrasto ≥ 3:1
+- Supporto completo `prefers-reduced-motion`
+- Live regions per screen reader
+- High contrast mode support
+- Semantic HTML structure
+
+## Rimandi
+
+- [variables.scss](mdc:src/styles/variables.scss)
+- [main.scss](mdc:src/styles/main.scss)
+- [useTheme.ts](mdc:src/composables/useTheme.ts)
+- [useAnimations.ts](mdc:src/composables/useAnimations.ts)
+

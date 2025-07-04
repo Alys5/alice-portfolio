@@ -34,7 +34,7 @@
               v-model="formData.email"
               type="email"
               class="form-input neumorphic-input"
-              :placeholder="t('forms.contact.emailPlaceholder')"
+              :placeholder="formatEmail('forms.contact.emailPlaceholder')"
               required
             />
             <span v-if="errors.email" class="error-message">
@@ -143,8 +143,10 @@
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useTranslation } from '@/composables/useI18n'
 
 const { t } = useI18n()
+const { formatEmail } = useTranslation()
 
 // Form data
 const formData = reactive({

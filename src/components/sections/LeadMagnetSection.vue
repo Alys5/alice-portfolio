@@ -67,7 +67,7 @@
                   v-model="formData.email"
                   type="email"
                   class="form-input neumorphic-input"
-                  :placeholder="t('leadMagnet.form.emailPlaceholder')"
+                  :placeholder="formatEmail('leadMagnet.form.emailPlaceholder')"
                   required
                 />
               </div>
@@ -150,9 +150,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useTranslation } from '@/composables/useI18n'
 import useAnimations from '@/composables/useAnimations'
 
 const { t } = useI18n()
+const { formatEmail } = useTranslation()
 const { staggerIn } = useAnimations()
 
 // Form data

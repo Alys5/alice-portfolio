@@ -47,6 +47,12 @@
       "activateDarkMode": "Attiva modalità scura",
       "activateLightMode": "Attiva modalità chiara"
     },
+    "language": {
+      "current": "Lingua corrente",
+      "italiano": "Italiano",
+      "english": "English",
+      "español": "Español"
+    },
     "brand": {
       "name": "Alice Mandelli",
       "tagline": "UI Developer & Designer con specializzazione AI",
@@ -79,7 +85,14 @@
       "about": {
         "title": "Chi Sono",
         "subtitle": "UI Developer & Designer con 10+ anni di esperienza in progetti enterprise",
-        "description": "Sono Alice Mandelli, UI Developer & Designer con una forte passione per la creazione di interfacce che combinano estetica, funzionalità e innovazione AI. Ho lavorato su progetti di successo come SNAM Easy (vincitore Nielsen Norman Award), Paragraph AI Journalist e piattaforme CRM per clienti come Poste Italiane, AXA, Banca Generali e Marazzi Ceramiche."
+        "description": "Sono Alice Mandelli, UI Developer & Designer con una forte passione per la creazione di interfacce che combinano estetica, funzionalità e innovazione AI. Ho lavorato su progetti di successo come SNAM Easy (vincitore Nielsen Norman Award), Paragraph AI Journalist e piattaforme CRM per clienti come Poste Italiane, AXA, Banca Generali e Marazzi Ceramiche.",
+        "values": {
+          "title": "I Miei Valori",
+          "innovation": "Innovazione",
+          "quality": "Qualità",
+          "collaboration": "Collaborazione",
+          "excellence": "Eccellenza"
+        }
       },
       "portfolio": {
         "title": "Portfolio",
@@ -111,11 +124,13 @@
         "email": "Email",
         "website": "Sito web",
         "dribbble": "Dribbble",
-        "behance": "Behance"
+        "behance": "Behance",
+        "instagram": "Instagram",
+        "github": "GitHub"
       },
       "contact": {
         "title": "Contatti",
-        "email": "info@alys5.eu",
+        "email": "info{at}alys5.eu",
         "phone": "(+39) 379 2692134",
         "location": "Roma, Italia",
         "availability": "Disponibile per progetti enterprise"
@@ -129,24 +144,49 @@
   "services": {
     "title": "Servizi",
     "subtitle": "Soluzioni UI/UX e AI per trasformare la tua presenza digitale",
+    "cta": {
+      "text": "Hai un progetto in mente? Parliamone!",
+      "button": "Contattami"
+    },
     "uiDevelopment": {
       "title": "Sviluppo & Design UI",
       "description": "Sviluppo e design di interfacce moderne utilizzando Vue.js, React e Angular. Specializzata in design responsive e ottimizzazione per dispositivi mobili.",
-      "price": "A partire da €3.200"
+      "price": "A partire da €3.200",
+      "feature1": "Design Responsive",
+      "feature2": "Vue.js & React",
+      "feature3": "Performance Optimization"
     },
     "aiSolutions": {
       "title": "Soluzioni Interfacce AI",
       "description": "Design di interfacce per applicazioni AI e automazione. Esperienza con workflow digitali e ottimizzazione dei processi.",
-      "price": "A partire da €4.500"
+      "price": "A partire da €4.500",
+      "feature1": "AI Interface Design",
+      "feature2": "Workflow Automation",
+      "feature3": "Data Visualization"
     },
     "consulting": {
       "title": "Consulenza Enterprise",
       "description": "Consulenza strategica per progetti enterprise: intranet, CRM e piattaforme multi-servizio.",
-      "price": "A partire da €2.800"
+      "price": "A partire da €2.800",
+      "feature1": "Enterprise Strategy",
+      "feature2": "CRM Integration",
+      "feature3": "Platform Architecture"
+    }
+  },
+  "experience": {
+    "title": "Esperienza",
+    "subtitle": "10+ anni di esperienza in progetti enterprise",
+    "cta": {
+      "downloadCV": "Scarica CV"
     }
   },
   "skills": {
     "title": "Competenze",
+    "subtitle": "Tecnologie e metodologie per progetti di successo",
+    "cta": {
+      "text": "Vuoi vedere le mie competenze in azione?",
+      "button": "Esplora Progetti"
+    },
     "frontend": {
       "title": "Sviluppo Frontend",
       "items": [
@@ -210,7 +250,7 @@
       "firstName": "Nome",
       "firstNamePlaceholder": "Il tuo nome",
       "email": "Email aziendale",
-      "emailPlaceholder": "tua-email@azienda.com",
+      "emailPlaceholder": "tua-email{at}azienda.com",
       "interests": "Interessi (seleziona fino a 3)",
       "privacy": "Accetto di ricevere contenuti esclusivi e aggiornamenti. Posso disiscrivermi in qualsiasi momento.",
       "privacyLink": "Privacy Policy",
@@ -238,7 +278,7 @@
       "name": "Nome completo",
       "namePlaceholder": "Il tuo nome completo",
       "email": "Email aziendale",
-      "emailPlaceholder": "tua-email@azienda.com",
+      "emailPlaceholder": "tua-email{at}azienda.com",
       "company": "Azienda",
       "companyPlaceholder": "Nome della tua azienda (opzionale)",
       "companyHelp": "Utile per personalizzare la proposta",
@@ -272,20 +312,109 @@
       "floatingElements": "Floating Elements",
       "performance": "Monitoraggio Performance",
       "fps": "FPS",
-      "frameTime": "Frame Time"
+      "frameTime": "Frame Time",
+      "reducedMotion": "Riduzione Movimento",
+      "yes": "Sì",
+      "no": "No"
+    }
+  },
+  "testimonials": {
+    "title": "Testimonial",
+    "subtitle": "Cosa dicono i clienti",
+    "controls": {
+      "previous": "Testimonial precedente",
+      "next": "Testimonial successivo"
+    },
+    "cta": {
+      "button": "Vedi tutti i testimonial"
+    }
+  },
+  "contact": {
+    "title": "Contatti",
+    "subtitle": "Iniziamo a lavorare insieme",
+    "info": {
+      "title": "Informazioni di Contatto",
+      "email": {
+        "label": "Email",
+        "value": "alice.mandelli{at}example.com"
+      },
+      "phone": {
+        "label": "Telefono",
+        "value": "+39 333 123 4567"
+      },
+      "location": {
+        "label": "Ubicazione",
+        "value": "Roma, Italia"
+      },
+      "availability": {
+        "label": "Disponibilità",
+        "value": "Disponibile per progetti enterprise"
+      }
+    },
+    "social": {
+      "title": "Social",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "dribbble": "Dribbble"
+    },
+    "form": {
+      "title": "Invia un messaggio",
+      "name": {
+        "label": "Nome",
+        "placeholder": "Il tuo nome completo"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "tua-email{at}azienda.com"
+      },
+      "subject": {
+        "label": "Oggetto",
+        "placeholder": "Seleziona un argomento",
+        "options": {
+          "project": "Nuovo Progetto",
+          "consulting": "Consulenza",
+          "collaboration": "Collaborazione",
+          "other": "Altro"
+        }
+      },
+      "message": {
+        "label": "Messaggio",
+        "placeholder": "Descrivi il tuo progetto, obiettivi e requisiti..."
+      },
+      "privacy": {
+        "text": "Accetto la",
+        "link": "Privacy Policy"
+      },
+      "submit": "Invia messaggio",
+      "submitting": "Invio in corso...",
+      "success": "Grazie! Ti risponderò entro 24 ore.",
+      "validation": {
+        "name": {
+          "required": "Il nome è obbligatorio",
+          "minLength": "Il nome deve essere di almeno 2 caratteri"
+        },
+        "email": {
+          "required": "L'email è obbligatoria",
+          "invalid": "Inserisci un'email valida"
+        },
+        "subject": {
+          "required": "L'oggetto è obbligatorio"
+        },
+        "message": {
+          "required": "Il messaggio è obbligatorio",
+          "minLength": "Il messaggio deve essere di almeno 10 caratteri"
+        },
+        "privacy": {
+          "required": "Devi accettare la privacy policy"
+        }
+      }
     }
   },
   "accessibility": {
-    "skipToContent": "Salta al contenuto principale",
-    "mainNavigation": "Navigazione principale",
-    "closeMenu": "Chiudi menu",
-    "openMenu": "Apri menu",
+    "portfolio": "Portfolio Professionale",
     "loading": "Caricamento in corso",
-    "loadingContent": "Caricamento contenuti, attendere prego.",
-    "error": "Si è verificato un errore",
-    "success": "Operazione completata con successo",
-    "visit": "Visita {platform}",
-    "logo": "Alice Mandelli",
-    "logoLabel": "Logo Alice Mandelli"
+    "skipToContent": "Salta al contenuto principale",
+    "closeMenu": "Chiudi menu",
+    "openMenu": "Apri menu"
   }
 }

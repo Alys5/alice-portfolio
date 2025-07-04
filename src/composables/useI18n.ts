@@ -67,8 +67,15 @@ export function useI18n() {
 export function useTranslation() {
   const { t } = useI18n()
 
+  // Helper per convertire email con {at} in email valide
+  const formatEmail = (emailKey: string): string => {
+    const email = t(emailKey)
+    return email.replace(/\{at\}/g, '@')
+  }
+
   return {
     t,
+    formatEmail,
     // Helper specifici per sezioni
     common: {
       actions: {
@@ -158,12 +165,12 @@ export function useTranslation() {
       }
     },
     navigation: {
-      home: () => t('navigation.home'),
-      portfolio: () => t('navigation.portfolio'),
-      about: () => t('navigation.about'),
-      contact: () => t('navigation.contact'),
-      logo: () => t('navigation.logo'),
-      logoLabel: () => t('navigation.logoLabel')
+      home: () => t('pages.navigation.home'),
+      portfolio: () => t('pages.navigation.portfolio'),
+      about: () => t('pages.navigation.about'),
+      contact: () => t('pages.navigation.contact'),
+      logo: () => t('pages.navigation.logo'),
+      logoLabel: () => t('pages.navigation.logoLabel')
     },
     footer: {
       social: {
@@ -175,9 +182,9 @@ export function useTranslation() {
         behance: () => t('footer.social.behance')
       },
       contact: {
-        title: () => t('footer.contact.title'),
-        email: () => t('footer.contact.email'),
-        location: () => t('footer.contact.location')
+        title: () => t('pages.footer.contact.title'),
+        email: () => formatEmail('pages.footer.contact.email'),
+        location: () => t('pages.footer.contact.location')
       }
     },
     services: {

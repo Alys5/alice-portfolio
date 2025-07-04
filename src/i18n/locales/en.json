@@ -11,18 +11,18 @@
       "saveChanges": "Save Changes",
       "exploreProjects": "Explore Projects",
       "downloadCV": "Download CV",
-      "startProject": "Start project",
-      "viewAllProjects": "View all projects",
-      "exploreProject": "Explore project"
+      "startProject": "Start Project",
+      "viewAllProjects": "View All Projects",
+      "exploreProject": "Explore Project"
     },
     "labels": {
       "name": "Name",
-      "fullName": "Full name",
+      "fullName": "Full Name",
       "email": "Email",
-      "businessEmail": "Business email",
+      "businessEmail": "Business Email",
       "phone": "Phone",
       "company": "Company",
-      "budget": "Project budget",
+      "budget": "Project Budget",
       "message": "Message",
       "projectDescription": "Describe your project"
     },
@@ -32,7 +32,7 @@
       "success": "Operation completed successfully",
       "noData": "No data available",
       "retry": "Retry",
-      "thankYou": "Thank you! I'll reply within 24 hours.",
+      "thankYou": "Thank you! I'll get back to you within 24 hours.",
       "errorSending": "Error sending. Please try again or contact me directly."
     },
     "navigation": {
@@ -46,6 +46,12 @@
       "lightMode": "Light mode",
       "activateDarkMode": "Activate dark mode",
       "activateLightMode": "Activate light mode"
+    },
+    "language": {
+      "current": "Current language",
+      "italiano": "Italiano",
+      "english": "English",
+      "español": "Español"
     },
     "brand": {
       "name": "Alice Mandelli",
@@ -61,7 +67,7 @@
   },
   "meta": {
     "title": "Alice Mandelli - UI Developer & Designer with AI specialization",
-    "description": "UI Developer & Designer with over 10 years of experience. I create intuitive interfaces and innovative AI solutions for companies and startups. Portfolio featuring award-winning projects like SNAM Easy (Nielsen Norman Award 2021), Paragraph AI Journalist, and enterprise platforms.",
+    "description": "UI Developer & Designer with over 10 years of experience. I create intuitive interfaces and innovative AI solutions for companies and startups. Portfolio featuring award-winning projects like SNAM Easy (Nielsen Norman Award 2021), Paragraph AI Journalist and enterprise platforms.",
     "keywords": "UI Developer, UI Designer, AI Strategy, User Experience, Frontend Developer, Vue.js, React, Interface Design, Nielsen Norman Award"
   },
   "pages": {
@@ -79,7 +85,14 @@
       "about": {
         "title": "About Me",
         "subtitle": "UI Developer & Designer with 10+ years of experience in enterprise projects",
-        "description": "I'm Alice Mandelli, a UI Developer & Designer with a strong passion for creating interfaces that combine aesthetics, functionality, and AI innovation. I have worked on successful projects like SNAM Easy (Nielsen Norman Award winner), Paragraph AI Journalist, and CRM platforms for clients such as Poste Italiane, AXA, Banca Generali, and Marazzi Ceramiche."
+        "description": "I'm Alice Mandelli, UI Developer & Designer with a strong passion for creating interfaces that combine aesthetics, functionality and AI innovation. I've worked on successful projects like SNAM Easy (Nielsen Norman Award winner), Paragraph AI Journalist and CRM platforms for clients like Poste Italiane, AXA, Banca Generali and Marazzi Ceramiche.",
+        "values": {
+          "title": "My Values",
+          "innovation": "Innovation",
+          "quality": "Quality",
+          "collaboration": "Collaboration",
+          "excellence": "Excellence"
+        }
       },
       "portfolio": {
         "title": "Portfolio",
@@ -89,7 +102,7 @@
       "contact": {
         "title": "Let's work together",
         "subtitle": "Do you have an enterprise project or AI solution in mind?",
-        "description": "I'm always interested in new, challenging projects in the enterprise and AI world. Whether you need to develop a complex interface, improve an existing platform, or integrate AI solutions, I'm here to turn your ideas into successful digital realities."
+        "description": "I'm always interested in new challenging projects in the enterprise and AI world. Whether you need to develop a complex interface, improve an existing platform or integrate AI solutions, I'm here to transform your ideas into successful digital realities."
       }
     },
     "navigation": {
@@ -103,7 +116,7 @@
       "logoLabel": "Alice Mandelli Logo"
     },
     "footer": {
-      "bio": "Portfolio of Alice Mandelli – UI Developer & Designer specialized in enterprise solutions and innovative AI interfaces, winner of Nielsen Norman Award 2021.",
+      "bio": "Alice Mandelli Portfolio – UI Developer & Designer specialized in enterprise solutions and innovative AI interfaces, winner of the Nielsen Norman Award 2021.",
       "social": {
         "title": "Social",
         "visit": "Visit {platform}",
@@ -111,11 +124,13 @@
         "email": "Email",
         "website": "Website",
         "dribbble": "Dribbble",
-        "behance": "Behance"
+        "behance": "Behance",
+        "instagram": "Instagram",
+        "github": "GitHub"
       },
       "contact": {
         "title": "Contact",
-        "email": "info@alys5.eu",
+        "email": "info{at}alys5.eu",
         "phone": "(+39) 379 2692134",
         "location": "Rome, Italy",
         "availability": "Available for enterprise projects"
@@ -129,24 +144,49 @@
   "services": {
     "title": "Services",
     "subtitle": "UI/UX and AI solutions to transform your digital presence",
+    "cta": {
+      "text": "Have a project in mind? Let's talk!",
+      "button": "Contact Me"
+    },
     "uiDevelopment": {
       "title": "UI Development & Design",
-      "description": "Development and design of modern interfaces using Vue.js, React and Angular. Specialized in responsive design and mobile device optimization.",
-      "price": "Starting from €3,200"
+      "description": "Development and design of modern interfaces using Vue.js, React and Angular. Specialized in responsive design and mobile optimization.",
+      "price": "Starting from €3,200",
+      "feature1": "Responsive Design",
+      "feature2": "Vue.js & React",
+      "feature3": "Performance Optimization"
     },
     "aiSolutions": {
       "title": "AI Interface Solutions",
-      "description": "Interface design for AI applications and automation. Experience with digital workflows and process optimization.",
-      "price": "Starting from €4,500"
+      "description": "Design of interfaces for AI applications and automation. Experience with digital workflows and process optimization.",
+      "price": "Starting from €4,500",
+      "feature1": "AI Interface Design",
+      "feature2": "Workflow Automation",
+      "feature3": "Data Visualization"
     },
     "consulting": {
       "title": "Enterprise Consulting",
-      "description": "Strategic consulting for enterprise projects: intranet, CRM, and multi-service platforms.",
-      "price": "Starting from €2,800"
+      "description": "Strategic consulting for enterprise projects: intranets, CRM and multi-service platforms.",
+      "price": "Starting from €2,800",
+      "feature1": "Enterprise Strategy",
+      "feature2": "CRM Integration",
+      "feature3": "Platform Architecture"
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "10+ years of experience in enterprise projects",
+    "cta": {
+      "downloadCV": "Download CV"
     }
   },
   "skills": {
     "title": "Skills",
+    "subtitle": "Technologies and methodologies for successful projects",
+    "cta": {
+      "text": "Want to see my skills in action?",
+      "button": "Explore Projects"
+    },
     "frontend": {
       "title": "Frontend Development",
       "items": [
@@ -210,7 +250,7 @@
       "firstName": "First Name",
       "firstNamePlaceholder": "Your name",
       "email": "Business email",
-      "emailPlaceholder": "your-email@company.com",
+      "emailPlaceholder": "your-email{at}company.com",
       "interests": "Interests (select up to 3)",
       "privacy": "I agree to receive exclusive content and updates. I can unsubscribe at any time.",
       "privacyLink": "Privacy Policy",
@@ -226,10 +266,10 @@
   "forms": {
     "validation": {
       "required": "Required field",
-      "email": "Please enter a valid email",
+      "email": "Enter a valid email",
       "minLength": "Minimum {count} characters",
       "maxLength": "Maximum {count} characters",
-      "phone": "Please enter a valid phone number",
+      "phone": "Enter a valid phone number",
       "privacy": "You must accept the privacy policy"
     },
     "contact": {
@@ -238,7 +278,7 @@
       "name": "Full Name",
       "namePlaceholder": "Your full name",
       "email": "Business Email",
-      "emailPlaceholder": "your-email@company.com",
+      "emailPlaceholder": "your-email{at}company.com",
       "company": "Company",
       "companyPlaceholder": "Your company name (optional)",
       "companyHelp": "Useful for customizing the proposal",
@@ -272,20 +312,109 @@
       "floatingElements": "Floating Elements",
       "performance": "Performance Monitoring",
       "fps": "FPS",
-      "frameTime": "Frame Time"
+      "frameTime": "Frame Time",
+      "reducedMotion": "Reduced Motion",
+      "yes": "Yes",
+      "no": "No"
+    }
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "subtitle": "What clients say",
+    "controls": {
+      "previous": "Previous testimonial",
+      "next": "Next testimonial"
+    },
+    "cta": {
+      "button": "See all testimonials"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's start working together",
+    "info": {
+      "title": "Contact Information",
+      "email": {
+        "label": "Email",
+        "value": "alice.mandelli{at}example.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "+39 333 123 4567"
+      },
+      "location": {
+        "label": "Location",
+        "value": "Rome, Italy"
+      },
+      "availability": {
+        "label": "Availability",
+        "value": "Available for enterprise projects"
+      }
+    },
+    "social": {
+      "title": "Social",
+      "linkedin": "LinkedIn",
+      "github": "GitHub",
+      "dribbble": "Dribbble"
+    },
+    "form": {
+      "title": "Send a message",
+      "name": {
+        "label": "Name",
+        "placeholder": "Your full name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your-email{at}company.com"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Select a topic",
+        "options": {
+          "project": "New Project",
+          "consulting": "Consulting",
+          "collaboration": "Collaboration",
+          "other": "Other"
+        }
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Describe your project, goals and requirements..."
+      },
+      "privacy": {
+        "text": "I accept the",
+        "link": "Privacy Policy"
+      },
+      "submit": "Send message",
+      "submitting": "Sending...",
+      "success": "Thank you! I'll get back to you within 24 hours.",
+      "validation": {
+        "name": {
+          "required": "Name is required",
+          "minLength": "Name must be at least 2 characters"
+        },
+        "email": {
+          "required": "Email is required",
+          "invalid": "Please enter a valid email"
+        },
+        "subject": {
+          "required": "Subject is required"
+        },
+        "message": {
+          "required": "Message is required",
+          "minLength": "Message must be at least 10 characters"
+        },
+        "privacy": {
+          "required": "You must accept the privacy policy"
+        }
+      }
     }
   },
   "accessibility": {
+    "portfolio": "Professional Portfolio",
+    "loading": "Loading in progress",
     "skipToContent": "Skip to main content",
-    "mainNavigation": "Main navigation",
     "closeMenu": "Close menu",
-    "openMenu": "Open menu",
-    "loading": "Loading",
-    "loadingContent": "Loading content, please wait.",
-    "error": "An error occurred",
-    "success": "Operation completed successfully",
-    "visit": "Visit {platform}",
-    "logo": "Alice Mandelli",
-    "logoLabel": "Alice Mandelli Logo"
+    "openMenu": "Open menu"
   }
 }

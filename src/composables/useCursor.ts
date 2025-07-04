@@ -16,6 +16,7 @@ const magneticElements = shallowRef(new Set<HTMLElement>())
 let animationFrame: number | null = null
 let lastMove = 0
 let isTouch = false
+let isInitialized = false
 
 // Lerp utility
 function lerp(a: number, b: number, n: number) {
@@ -89,7 +90,10 @@ function setCursorState(state: CursorState) {
   cursorState.value = state
 }
 
-onMounted(() => {
+function initializeCursor() {
+  if (isInitialized) return
+  isInitialized = true
+
   detectTouch()
   window.addEventListener('resize', detectTouch)
   window.addEventListener('mousemove', onMouseMove, { passive: true })
@@ -98,8 +102,12 @@ onMounted(() => {
   window.addEventListener('keydown', onKeyDown)
   window.addEventListener('keyup', onKeyUp)
   window.addEventListener('touchstart', detectTouch)
-})
-onUnmounted(() => {
+}
+
+function cleanupCursor() {
+  if (!isInitialized) return
+  isInitialized = false
+
   window.removeEventListener('resize', detectTouch)
   window.removeEventListener('mousemove', onMouseMove)
   window.removeEventListener('mousedown', onMouseDown)
@@ -113,9 +121,17 @@ onUnmounted(() => {
     el.style.zIndex = ''
   }
   magneticElements.value.clear()
-})
+}
 
 export default function useCursor() {
+  onMounted(() => {
+    initializeCursor()
+  })
+
+  onUnmounted(() => {
+    cleanupCursor()
+  })
+
   return {
     cursorPosition,
     cursorState,

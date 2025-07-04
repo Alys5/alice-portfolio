@@ -8,7 +8,7 @@ import CustomCursor from '@/components/ui/CustomCursor.vue'
 import ProfessionalNavbar from '@/components/layout/ProfessionalNavbar.vue'
 
 // i18n
-const { common } = useTranslation()
+const { common, t } = useTranslation()
 
 // Loading state
 const isAppLoading = ref(true)
@@ -146,8 +146,8 @@ onMounted(preloadCriticalResources)
           </div>
 
           <div class="loading-text animate-fade-in animate-delay-300">
-            <h2 class="text-gradient-primary">Alice Mandelli</h2>
-            <p class="loading-subtitle">Portfolio Professionale</p>
+            <h2 class="text-gradient-primary">{{ common.brand.name() }}</h2>
+            <p class="loading-subtitle">{{ t('accessibility.portfolio') }}</p>
           </div>
 
           <div class="loading-progress animate-fade-in animate-delay-500">
@@ -205,8 +205,8 @@ onMounted(preloadCriticalResources)
       class="app-main"
       :class="{ 'loading': isRouteLoading }"
     >
-      <Transition name="page-transition" mode="out-in">
-        <RouterView v-slot="{ Component, route }">
+      <RouterView v-slot="{ Component, route }">
+        <div class="page-wrapper">
           <Suspense>
             <template #default>
               <component
@@ -225,8 +225,8 @@ onMounted(preloadCriticalResources)
               </div>
             </template>
           </Suspense>
-        </RouterView>
-      </Transition>
+        </div>
+      </RouterView>
     </main>
 
     <!-- Accessibility Live Region -->
@@ -419,6 +419,11 @@ onMounted(preloadCriticalResources)
 
 .page-content {
   min-height: calc(100vh - 80px); // Altezza navbar
+}
+
+.page-wrapper {
+  width: 100%;
+  min-height: 100%;
 }
 
 .page-skeleton {
