@@ -1,0 +1,98 @@
+:root {
+  /* Primary Colors */
+  --bright-sun: #ffc940;
+  --ebony-clay: #29353f;
+  --persian-blue: #2048b4;
+  --picton-blue: #48a9f8;
+
+  /* Trend Colors 2025 */
+  --beige-soft: #f5f3ea;
+  --green-dusty: #b7c9a8;
+  --pink-dusty: #e7bfc6;
+  --yellow-soft: #fff6d6;
+  --blue-pale: #dbeafe;
+  --gray-warm: #ececec;
+
+  /* Typography */
+  --font-family-base: 'Inter', system-ui, sans-serif;
+  --font-size-base: clamp(1rem, 2vw, 1.125rem);
+  --line-height-base: 1.5;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Spacing & Layout */
+  --radius-lg: 1.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-button: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--ebony-clay);
+  background-color: var(--beige-soft);
+  min-height: 100vh;
+}
+
+/* Glassmorphism Effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+}
+
+/* Navigation */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: var(--space-md);
+}
+
+/* Buttons */
+.cta-button {
+  background-color: var(--persian-blue);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-lg);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
